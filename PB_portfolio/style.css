@@ -1,0 +1,201 @@
+
+@font-face {
+    font-family: Zapfino;
+    src: url(./fonts/zapfinoextraltone/ZapfinoExtraLT-One.otf);
+    font-weight: normal;
+}
+
+@font-face {
+  font-family: IBM;
+  src: url(./fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf);
+}
+
+@font-face {
+  font-family: IBM-Bold;
+  src: url(./fonts/IBM_Plex_Mono/IBMPlexMono-Bold.ttf);
+}
+
+@font-face {
+    font-family: Yrsa-italic;
+    src: url(./fonts/Yrsa/Yrsa-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: Lexenda-Light;
+    src: url(./fonts/Lexend_Exa/static/LexendExa-Light.ttf);
+}
+@font-face {
+    font-family: Lexenda-Bold;
+    src: url(./fonts/Lexend_Exa/static/LexendExa-Bold.ttf);
+}
+@font-face {
+    font-family: Lexenda-Lightt;
+    src: url(./fonts/Lexend_Exa/static/LexendExa-ExtraLight.ttf);
+}
+@font-face {
+    font-family: Lexenda;
+    src: url(./fonts/Lexend_Exa/static/LexendExa-Regular.ttf);
+}
+@font-face {
+    font-family: Yrsa-regular;
+    src: url(./fonts/Yrsa/Yrsa-Regular.ttf);
+}
+
+@font-face {
+    font-family: Yrsa-Light;
+    src: url(./fonts/Yrsa/Yrsa-LightItalic.ttf);
+}
+
+a{
+    text-decoration: none;
+    color: black;
+
+}
+
+footer{
+position: absolute;
+left: 0;
+background-color: black;
+width: 100%;
+}
+
+#type1{
+  font-family: IBM;
+  font-size: 21px;
+}
+#descr5{
+  font-family: IBM-Bold;
+}
+ 
+#nav-text{
+    font-size: 1.2em;
+    font-family: Lexenda-Light;
+}
+
+#subhead1{
+    font-family: Yrsa-italic;
+}
+
+#subhead2{
+    font-family: Yrsa-Light;
+}
+
+#subhead3{
+    font-family: Lexenda;
+}
+#subhead4{
+    font-family: Lexenda-Bold;
+}
+#descr4{
+  font-family: Lexenda;
+}
+.sectionmain:hover #descr4{
+font-size: 30px;}
+
+.sectionmain:hover #subhead1{
+  font-size: 45px;}
+  
+
+.sectionmain{
+  width: 70%;
+  display:block;
+  margin-left: 215px;
+}
+
+
+
+
+ .sectionmain #descr4:hover{
+  text-decoration: underline;
+}
+#descr1{
+    font-family: Lexenda;
+
+}
+
+#descr2{
+    font-family: Lexenda-Lightt;
+
+}
+
+#proj_head{
+    font-family: Yrsa-regular;
+}
+
+#proj_sub{
+    font-family: Lexenda-Light;
+}
+
+
+
+  #row{
+    margin-left: -150px;
+  }
+  .arrow1{
+    margin-left: 260px;
+  }
+
+
+
+  #PB{
+    font-size: 3em;
+    font-family: Zapfino;
+    text-decoration: underline;
+    text-decoration-color: #F6D5E1;
+}
+
+#sub{
+  margin-left:-200px;;
+}
+  .box {
+    background-color: #FFE0E5;
+    border: 2px solid black;
+    margin-top: 110px;
+    margin-left: 100px;
+    width: 87%;
+    height: 560px;
+    padding: 50px;
+  }
+
+  .box1 a:hover{
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .box1{
+    background-color: white;
+    border-bottom:2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    margin-left: 100px;
+    width: 87%;
+    height: 120px;
+    padding: 50px;
+  }
+
+  .art-title{
+    margin-top: 150px;
+
+  }
+
+  .art{
+    border: 7px solid black;
+
+  }
+
+  .design{
+    text-decoration: underline;
+  }
+
+  .explore a:hover{
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .img-circle{
+    border: 5px solid #D26FB6;
+  }
+
+  .process-icons{
+    margin-top: -285px;
+  }
