@@ -89,27 +89,32 @@ width: 100%;
 #descr4{
   font-family: Lexenda;
 }
-.sectionmain:hover #descr4{
-font-size: 30px;}
 
-.sectionmain:hover #subhead1{
-  font-size: 45px;}
   
 
 .sectionmain{
   width: 70%;
   display:block;
   margin-left: 215px;
-  border-style: solid;
-  border-color: black;
+}
+
+.card-title{
+color: grey;
+}
+
+.card:hover{
+  background-color: black;
+}
+.card:hover #descr2{
+  color: white;
+}
+
+.btn:hover{
+  background-color: blue;
+  color: white;
 }
 
 
-
-
- .sectionmain #descr4:hover{
-  text-decoration: underline;
-}
 #descr1{
     font-family: Lexenda;
 
