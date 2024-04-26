@@ -231,7 +231,6 @@ color: grey;
     color: #fff;
     background-color: transparent;
     border: none;
-    font-size: xxx-large;
     font-family: monospace;
     font-weight: bold;
     left: 200px;
@@ -239,4 +238,88 @@ color: grey;
 #next{
     left: unset;
     right: 200px;
+}
+
+.section{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 100vh;
+background-color: #A4ADFF;
+
+}
+
+.animation {
+  opacity: 0;
+  transform: translateX(-300px);
+  transition: all 0.7s ease-out;
+  transition-delay: 0.4s;
+
+}
+
+.scroll-animation {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.icons{
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: 100px;
+}
+
+.connect{
+  background-color: blue;
+  color: white;
+  flex-direction: column;
+  justify-content: flex-center;
+  margin-top: 20px;
+  padding: 30px;
+}
+
+.connect:hover{
+  background-color: black;
+}
+
+
+
+#grass1{
+  height: 315px;
+  margin-top:500px;
+}
+
+
+
+@media only screen and (min-width: 820px) {
+  .summary{
+    font-size: 18px;
+  }
+
+  .title1{
+    margin-top: -100px;
+  }
+  .nav-link{
+    font-size:13px;
+  }
+
+  .section{
+    height: 50%;
+  }
+
+ #grass1{
+  width:345px; 
+  height: 200px;
+  margin-top:70px;
+ }
+
+ #grass2{
+  width:345px; 
+  height: 200px;
+  margin-top:70px;
+}
+
+.card1{
+width: 20rem;
+}
 }
