@@ -411,4 +411,8 @@ height: 34rem;
   margin-top: 130px;
   margin-left: -1000px;
  }
+
+ #next{
+  right: 800px;
+ }
 }
