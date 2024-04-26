@@ -284,14 +284,25 @@ background-color: #A4ADFF;
 
 
 
-#grass1{
-  height: 315px;
-  margin-top:500px;
+#grass img{
+  width: 700px;
+  height:307px;
+  margin-top: 500px;
 }
 
+.main-container .card{
+  height: 34rem;
+  width: 30rem;
 
+}
 
-@media only screen and (min-width: 820px) {
+.other-container .card{
+  height: 34rem;
+  width: 30rem;
+
+}
+
+@media only screen and (max-width: 820px) {
   .summary{
     font-size: 18px;
   }
@@ -307,19 +318,97 @@ background-color: #A4ADFF;
     height: 50%;
   }
 
- #grass1{
-  width:345px; 
-  height: 200px;
-  margin-top:70px;
+ #grass img{
+  width:380px; 
+  height: 220px;
+  margin-top:505px;
  }
 
- #grass2{
-  width:345px; 
-  height: 200px;
-  margin-top:70px;
+
+
+.card{
+position: relative;
+justify-content: center;
+width: 30rem;
+height: 34rem;
 }
 
-.card1{
-width: 20rem;
+.main-container .card{
+  margin-left: 250px;
+  padding-bottom: 10px;
+
 }
+.other-container .card{
+  margin-left: 100px;
+
+}
+
+#projects{
+  margin-left: 190px;
+}
+
+.header1{
+  margin-left: 220px;
+}
+
+.header2{
+  margin-left: 240px;
+  padding-top: 40px;
+}
+
+.header3{
+  margin-left: 100px;
+  padding-top: 30px;
+}
+.header4{
+  margin-left: 100px;
+
+}
+}
+
+.picMe{
+  width: 400px; 
+  height: 470px;
+}
+
+@media only screen and (max-width: 820px) {
+  .text{
+    font-size: 12px;
+    width: 300px;
+    margin-left: 130px;
+  }
+
+
+  .picMe{
+    width: 300px; 
+    height: 380px;
+    margin-top: 100px;
+    margin-left: -30px;
+  }
+
+  .box{
+    margin-left: 100px;
+  }
+
+  .contact{
+    font-size: 16px;
+  }
+}
+
+
+
+@media only screen and (max-width: 820px) {
+
+  .summary{
+    font-size: 15px;
+  }
+
+ .background-pic img{
+  margin-top: 30px;
+  margin-left: 170px;
+ }
+ .background-pic1 img{
+  margin-top: 130px;
+  margin-left: -1000px;
+ }
 }
