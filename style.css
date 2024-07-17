@@ -103,10 +103,8 @@ color: grey;
 }
 
 .card:hover{
-
-}
-.card:hover #descr2{
-  color: white;
+  border-style: solid;
+  border-color: black;
 }
 
 .btn:hover{
