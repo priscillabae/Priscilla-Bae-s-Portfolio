@@ -103,7 +103,7 @@ color: grey;
 }
 
 .card:hover{
-  background-color: black;
+
 }
 .card:hover #descr2{
   color: white;
