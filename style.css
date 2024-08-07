@@ -305,7 +305,7 @@ background-color: #A4ADFF;
   margin-right: 100px;
 }
 
-#process-text{
+#process-text1, #process-text{
   font-family: Lexenda-Lightt;
   font-size: 16px;
   margin-top: -30px;
@@ -337,16 +337,16 @@ div#Or-half-bottom.col{
   margin-top: -50px;
 }
 
-div.col.p-5, #process-text {
-  transition: 0.4s;
+div.hover-1{
+  transition: transform 0.4s ease;
 }
-div.col.p-5:hover {
+div.hover-1:hover {
+  transform: translate(0, -15px);
+}
+div.hover-1:hover + #process-text1{
   transform: translate(0, -15px);
 }
 
-iv.col.p-5:hover + #process-text{
-  
-}
 
 
 /**__________________________________________________________________________________**/
