@@ -384,7 +384,12 @@ div#hover-4.col:hover{
   transform: translate(0, -20px);
 }
 
-
+#arrow0{
+  margin-top: -55px;
+}
+#flow:hover{
+  color: #0070D7;
+}
 /**__________________________________________________________________________________**/
 
 @media only screen and (max-width: 820px) {
