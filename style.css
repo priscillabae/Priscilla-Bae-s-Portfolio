@@ -390,6 +390,29 @@ div#hover-4.col:hover{
 #flow:hover{
   color: #0070D7;
 }
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: white; /* Set a background color */
+  color: #555; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10px; /* Some padding */
+  border-radius: 7px; /* Rounded corners */
+  border-style: solid;
+  border-width: 2px;
+  border-color: #555;
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+  color: #fff;
+}
 /**__________________________________________________________________________________**/
 
 @media only screen and (max-width: 820px) {
