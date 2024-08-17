@@ -417,6 +417,34 @@ div#hover-4.col:hover{
 .container-blur{
   filter: blur(7px);
 }
+
+#card-blur{
+  z-index: 99;
+  margin-bottom: -300px;
+  position: -webkit-sticky; /* for browser compatibility */
+  position: sticky;
+  top: 200px;
+}
+
+
+
+#card-overlay{
+  background-color: #FFE0E5 ;
+}
+
+.btn-blur{
+  border: solid;
+  border-color: black;
+  border-width: 1px;
+
+}
+
+.btn-blur:hover{
+background-color:darksalmon;
+color: black;
+border-width: 2px;
+border-color: black;
+}
 /**__________________________________________________________________________________**/
 
 @media only screen and (max-width: 820px) {
@@ -495,13 +523,6 @@ height: 34rem;
     margin-left: 130px;
   }
 
-
-  .picMe{
-    width: 300px; 
-    height: 380px;
-    margin-top: 100px;
-    margin-left: -30px;
-  }
 
   .box{
     margin-left: 100px;
