@@ -56,3 +56,6 @@ let items = document.querySelectorAll('.slider .item');
         active = active - 1 >= 0 ? active - 1 : active;
         loadShow();
     }
+
+
+
