@@ -466,6 +466,26 @@ border-color: black;
 #marketing-image{
   height: 200px;
 }
+
+
+.fade-in-left, .fade-in-right {
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-left {
+  transform: translateX(-50px);
+}
+
+.fade-in-right {
+  transform: translateX(50px);
+}
+
+.fade-in-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
 /**__________________________________________________________________________________**/
 
 @media only screen and (max-width: 820px) {
