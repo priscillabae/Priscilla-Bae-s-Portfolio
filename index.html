@@ -14,12 +14,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
   
-  <div class="bg-image position-relative">
-    <img src="./images/background.png" class="img-fluid w-100" alt="Background image">
-    <div class="container card-img-overlay position-absolute top-0 start-50 translate-middle-x" style="max-width: 1000px;">
-      <div class="row">
-        <div class="col p-5"></div> 
-      </div>
+  <div class="bg-image index-bg">
+    <div class="container card-img-overlay" style="max-width: 1000px;">
       <div class="row">
         <div class="col p-5"></div> 
       </div>
@@ -27,51 +23,48 @@
         <div class="col p-5"></div> 
       </div>
 
-      <div class="title1 row justify-content-center">
-        <div id="subhead1" class="col display-1">
+      <div class="title1 row">
+        <div id="subhead1" class="col-12 col-md-10 display-1">
           Priscilla Bae
         </div> 
       </div>
-      <div class="title2 row justify-content-center">
-        <div id="descr2" class="col h4 mb-5">
-          <em>UX/UI Design & Product Management</em>
+      <div class="title2 row">
+        <div id="descr2" class="col-12 col-md-8 h4 mb-5">
+          <em>UX/UI Design & Product Marketing</em>
         </div> 
       </div>
       <div class="row">
-        <div id="descr1" class="summary col mt-5 mb-3 h4 align-self-center">
+        <div id="descr1" class="summary col-12 col-md-11 mt-5 mb-3 h4">
           is inspired by intellectual curiosity, interweaving her mind with creativity and technology by collaborating with ambitious individuals
         </div>
       </div>
       <div class="row">
-        <div class="col mt-5">
+        <div class="col-12 mt-5">
           <a href="./about.html" id="descr1" class="btn btn-outline-dark px-4 py-2 rounded-pill shadow-sm">
-            Connect with me
+            Learn More
           </a>
         </div>
       </div>
     </div>
   </div>
 
+  <!--first part-->
 
-
-    
-
-      
   <nav id="navbar" class="navbar smart-scroll navbar-expand-md fixed-top">
-    <div class="container header-main">
+    <div class="container header-main" style="height: 75px;">
       <a id="PB" class="navbar-brand" href="index.html"><em>PB</em></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapse">
-        <ul id="nav-text" class="navbar-nav ms-auto">
+        <ul id="nav-text" class="navbar-nav ms-auto align-items-center">
           <li class="nav-item">
-            <a class="nav-link px-md-5 px-2" href="about.html">About Me</a>
+            <a class="nav-link px-5" href="about.html">About Me</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item dropdown">
             <div class="dropdown">
-              <a class="btn dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                Projects
+              <a class="nav-link dropdown-toggle px-5 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class = "dropdown-text">Experience</div>
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li><a class="dropdown-item" href="./index.html#nav-container">Work Experience</a></li>
@@ -80,15 +73,17 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link px-md-5 px-2" href="art.html">Art & Design</a>
+            <a class="nav-link px-5" href="art.html">Art & Design</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://drive.google.com/file/d/11YIZChO0j0K6myhZ00QltUa3YKwzCexy/view?usp=sharing">Resume</a>
+            <a class="nav-link px-5" href="https://drive.google.com/file/d/11YIZChO0j0K6myhZ00QltUa3YKwzCexy/view?usp=sharing">Resume</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <!--second part -->
   
   <script>
     const navEl = document.querySelector('.navbar');
@@ -120,59 +115,60 @@
     <h1> - </h1>
   </div>
   
-  <div class="container text-dark mt-5 mb-4">
-    <h1 id="subhead1" class="display-4 text-decoration-underline text-start">
-      Work Experience
-    </h1>
+  <!-- Work Experience title -->
+  <div class="other-container">
+    <div class="row p-4 gx-5 section-title">
+      <div class="col-lg-6 col-12">
+        <h1 id="subhead1" class="display-4 text-decoration-underline">
+          Work Experience
+        </h1>
+      </div>
+    </div>
   </div>
-  
-  
-  
+
   <!-- MHH and AEO UX Description -->
-  <div class="other-container container d-flex justify-content-center">
-    <div class="row p-4 text-dark text-start gx-5">
-      <div class="col-lg-6 col-12 mb-4 mb-lg-0">
+  <div class="other-container">
+    <div class="row p-4 text-dark text-start gx-5 work-cards">
+      <div class="col-12 mb-5">
         <div id="subhead1" class="text-start h1 mb-4">
           <span style="color:#24282B" class="header3">AMERICAN EAGLE INC.</span>
         </div>
-        <div id="descr4" class="header4 h6 mb-4">Product Management + UX/CX Design (Website)</div>
-        <a href="./ae.html" class="text-decoration-none">
-          <div class="card shadow-lg rounded-4 h-100">
-            <img src="./images/AEO/ae-main.png" class="card-img-top rounded-top-4" alt="American Eagle project" style="height: 19rem; object-fit: cover;">
-            <div class="card-body d-flex flex-column">
-              <h6 id="descr1" class="card-title">Product Management | UX/CX | Internship </h6>
-              <p id="descr2" class="card-text mt-4 mb-4 flex-grow-1">
-                Managing and leading the website product for American Eagle and Aerie's mobile and desktop revolving the BOPIS widget
-              </p>
-              <em><a href="./ae.html" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
-            </div>
+        <div id="descr4" class="header4 h6 mb-4">Product Management + UX/CX Design</div>
+        <div class="card shadow-lg rounded-4">
+          <img src="./images/AEO/ae-main.png" class="card-img-top rounded-top-4" alt="American Eagle website interface">
+          <div class="card-body">
+            <h6 id="descr1" class="card-title">Product Management | UX/CX | Internship </h6>
+            <p id="descr2" class="card-text mt-4 mb-4">
+              Managing and leading the website product for American Eagle and Aerie's mobile and desktop revolving the BOPIS widget
+            </p>
+            <em><a href="./ae.html" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
           </div>
-        </a>
+        </div>
       </div>
-  
-      <div class="col-lg-6 col-12 px-lg-5">
+
+      <div class="col-12 mb-5">
         <div id="subhead1" class="text-start h1 mb-4">
           <span style="color:#B34A6D" class="header3">MINNIE'S HELPING HANDS</span>
         </div>
         <div id="descr4" class="header4 h6 mb-4">Website Creation</div>
-        <a href="./MHH.html" class="text-decoration-none">
-          <div class="card shadow-lg rounded-4 h-100">
-            <img src="./images/MHH/logo.png" class="card-img-top rounded-top-4" alt="Minnie's Helping Hand's Logo" style="height: 19rem; object-fit: cover;">
-            <div class="card-body d-flex flex-column">
-              <h6 id="descr1" class="card-title">UX/UI | Front-end Development</h6>
-              <p id="descr2" class="card-text mt-4 mb-4 flex-grow-1">
-                Developing an informational, modern website to provide a resource for the formerly incarcerated Pittsburgh community
-              </p>
-              <em><a href="./MHH.html" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
-            </div>
+        <div class="card shadow-lg rounded-4">
+          <img src="./images/MHH/logo.png" class="card-img-top rounded-top-4" alt="Minnie's Helping Hand's Logo">
+          <div class="card-body">
+            <h6 id="descr1" class="card-title">UX/UI | Front-end Development</h6>
+            <p id="descr2" class="card-text mt-4 mb-4">
+              Developing an informational, modern website to provide a resource for the formerly incarcerated Pittsburgh community
+            </p>
+            <em><a href="./MHH.html" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
           </div>
-        </a>
+        </div>
       </div>
     </div>
   </div>
   
   <div class="mb-5"></div>
   
+
+<!-- third part -->
 
 
 
@@ -183,69 +179,64 @@
 <!-- Canon Description -->
 
 
-<div class="other-container container d-flex justify-content-center" style="width: 100%; max-width: 1200px;">
-    <div class="row p-4 text-dark text-start gx-5">
-        <div class="col-lg-6 col-12 mb-4 mb-lg-0">
-            <div id="subhead1" class="text-start h1 mb-4">
-                <span style="color:darkred" class="header3">CANON USA</span>
+<div class = "other-container container d-flex justify-content-center" style= "width: 1200;">
+    <div class ="row p-4 text-dark text-start gx-5" >
+        <div class = "col">
+            <div id = "subhead1" class = "row text-start h1 mb-4">
+                <span style="color:darkred" class = " col header3">CANON USA</span>
             </div>
-            <div id="descr4" class="header4 h6 mb-4">
+            <div id = "descr4" class = "header4 h6 mb-4">
                 Increasing User Intuitiveness
-                <div class="card shadow-lg shadow-intensity-dark rounded-4 mt-4 h-100">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="./images/Canon_UX/cover.png" class="img-fluid h-100 rounded-start-4 object-fit-cover" alt="UX Design" style="min-height: 248px;">
+                <div class="card shadow-lg shadow-intensity-dark rounded-4 mt-4" style="height: 250px;" >
+                    <div class="row">
+                      <div class="col-md-4">
+                        <img src="./images/Canon_UX/cover.png" class="card-img canon-image rounded-start-4 " alt="ux" style=" width:160px;height: 248px;">
+                      </div>
+                      <div class="col mt-3">
+                        <div class="card-body">
+                          <p id = "descr2" class="card-text mt-2">Enabling clear and intuitive designs in a platform for hybrid work models to increase productivity</p>
+                          <p id = "descr1" class="card-text mt-3"><small class="text-muted">UX/UI Design | Internship</small></p>
+                          <em><a style="width: 150px;" href="./canon_ux.html" id = "descr1" class="btn btn1 btn-light border border-dark stretched-link">See more  &#8594;</a></em>
                         </div>
-                        <div class="col-md-8">
-                            <div class="card-body h-100 d-flex flex-column">
-                                <p id="descr2" class="card-text mt-2">Enabling clear and intuitive designs in a platform for hybrid work models to increase productivity</p>
-                                <p id="descr1" class="card-text mt-3"><small class="text-muted">UX/UI Design | Internship</small></p>
-                                <div class="mt-auto">
-                                    <em><a href="./canon_ux.html" id="descr1" class="btn btn1 btn-light border border-dark stretched-link">See more &#8594;</a></em>
-                                </div>
-                            </div>
-                        </div>
+                      </div>
                     </div>
-                </div>
+                 </div>
             </div>
 
-            <div id="descr4" class="header4 h6 mb-4 mt-4">
-                Product Campaign Collateral
-                <div class="card shadow-lg shadow-intensity-dark rounded-4 mb-3 mt-4 h-100">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="./images/Canon_Marketing/stage_2.png" class="img-fluid h-100 rounded-start-4 object-fit-cover" alt="Marketing" style="min-height: 248px;">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body h-100 d-flex flex-column">
-                                <p id="descr2" class="card-text mt-2">Translating challenges, features, and results in a product photoshoot for campaigns and collateral</p>
-                                <p id="descr1" class="card-text mt-3"><small class="text-muted">Storyboarding | Marketing</small></p>
-                                <div class="mt-auto">
-                                    <em><a href="./canon_marketing.html" id="descr1" class="btn btn1 btn-light border border-dark stretched-link">See more &#8594;</a></em>
+                <div id = "descr4" class = "header4 h6 mb-4 mt-4">
+                    Product Campaign Collateral
+                    <div class="card shadow-lg shadow-intensity-dark rounded-4 mb-3 mt-4 " style=" height: 250px;" >
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="./images/Canon_Marketing/stage_2.png" class="card-img canon-image rounded-start-4 " alt="ux" style="width:160px;height: 248px;">
+                            </div>
+                            <div class="col mt-3">
+                                <div class="card-body">
+                                    <p id = "descr2" class="card-text mt-2">Translating challenges, features, and results in a product photoshoot for campaigns and collateral</p>
+                                    <p id = "descr1" class="card-text mt-3"><small class="text-muted">Storyboarding | Marketing</small></p>
+                                    <em><a style="width: 150px;" href="./canon_marketing.html" id = "descr1" class="btn btn1 btn-light border border-dark stretched-link">See more  &#8594;</a></em>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
 
-        <div class="col-lg-6 col-12 px-lg-5">
-            <div id="subhead1" class="text-start h1 mb-4">
-                <span style="color:#50005A" class="header3">Carnegie Mellon University</span>
+        <div class = "col px-5">
+            <div id = "subhead1" class = "text-start h1 mb-4">
+                <span style="color:#50005A" class = "header3">Carnegie Mellon University</span>
             </div>
-            <div id="descr4" class="header4 h6 mb-4">
+            <div id = "descr4" class = "header4 h6 mb-4">
                 Countering Information Overload
             </div>
-            <a href="./research.html" class="text-decoration-none">
-                <div class="card shadow-lg shadow-intensity-dark rounded-4 h-100">
-                    <img src="./images/Research/train.png" class="card-img-top rounded-top-4" alt="Final HCS" style="height: 19rem; object-fit: cover;">
-                    <div class="card-body d-flex flex-column">
-                        <h6 id="descr1" class="card-title">Data Visualization | Research</h6>
-                        <p id="descr2" class="card-text mt-4 mb-4 flex-grow-1">
-                            Creating an inclusion/exclusion algorithm using an Naive Bayes model to determine scientific articles for cancer research
-                        </p>
-                        <em><a href="./research.html" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
+            <a href="./research.html">
+                <div class="card shadow-lg shadow-intensity-dark rounded-4 " style="height: 580px;">
+                    <img src="./images/Research/train.png" class="card-img-top rounded-top-4" alt="Final HCS" style="height: 19rem;">
+                    <div class="card-body">
+                      <h6 id = "descr1" class="card-title">Data Visualization |  Research  </h6>
+                      <p id = "descr2" class="card-text mt-4 mb-5">Creating an inclusion/exclusion algorithm using an Naive Bayes model to determine scientific articles for cancer research
+                    </p>
+                      <em><a href="./research.html" id = "descr1" class="btn btn1 btn-light border border-dark ">See more  &#8594;</a></em>
                     </div>
                 </div>
             </a>
@@ -259,21 +250,17 @@
 
 <div id = "projects" class="mb-5"></div>
 
-<div class = "container d-flex justify-content-center">
-    <div class ="row text-dark text-start gx-5" >
-        <div class = "col">
-            <div style="width: 850px;"> 
-                <div id = "subhead1" class = "text-start display-4 mt-5 mb-4 text-decoration-underline">
-                    <div>Projects</div>
-                 </div>
-            </div>
-        </div>
-
-        <div class = "col">
-            <div class = "p-3" style="width: 160px">    </div>
-        </div>
+<!-- Projects title -->
+<div class="other-container">
+  <div class="row p-4 gx-5 section-title">
+    <div class="col-lg-6 col-12">
+      <h1 id="subhead1" class="display-4 text-decoration-underline">
+        Projects
+      </h1>
     </div>
-</div>   
+  </div>
+</div>
+ 
 <!-- MHH end -->
 
 
@@ -286,15 +273,14 @@
             <div id = "descr4" class = "header4 h6 mb-4">
                 Adaptive User Interface for Groceries
             </div>
-            <a href="./doordash.html" class="text-decoration-none">
-                <div class="card shadow-lg shadow-intensity-dark rounded-4 h-100">
-                    <img src="./images/Doordash/doordash.png" class="card-img-top rounded-top-4" alt="DoorDash Project" style="height: 19rem; object-fit: cover;">
-                    <div class="card-body d-flex flex-column">
-                        <h6 id="descr1" class="card-title">Design for AI Project | UX/UI Design</h6>
-                        <p id="descr2" class="card-text mt-4 mb-4 flex-grow-1">
-                            Improving Doordash's user interactions through a simple and straightforward AUI implementation for existing and new DoorDash grocery shoppers
-                        </p>
-                        <em><a href="./doordash.html" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
+            <a href="./doordash.html">
+                <div class="card shadow-lg shadow-intensity-dark rounded-4">
+                    <img src="./images/Doordash/doordash.png" class="card-img-top rounded-top-4" alt="..." style="height: 19rem;">
+                    <div class="card-body">
+                      <h6 id = "descr1" class="card-title">Design for AI Project | UX/UI Design </h6>
+                      <p id = "descr2" class="card-text mt-4 mb-4"> Improving Doordash's user interactions through a simple and straightforward AUI implementation for existing and new DoorDash grocery shoppers
+                    </p>
+                      <em><a href="./doordash.html" id = "descr1" class="btn btn1 btn-light border border-dark ">See more  &#8594;</a></em>
                     </div>
                 </div>
             </a>
@@ -304,17 +290,16 @@
                     <span style="color:tan" class = "header3">PROGRAMMING INTERFACES</span>
                 </div>
                 <div id = "descr4" class = "header4 h6 mb-4">
-                    Front End Web Development: Bunbun Bakeshop
+                    Front End Development: Bunbun Bakery
                 </div>
-                <a href="./bakeshop.html" class="text-decoration-none">
-                    <div class="card shadow-lg shadow-intensity-dark rounded-4 h-100">
-                        <img src="./images/Bakeshop/bakeshop.png" class="card-img-top rounded-top-4" alt="Bakeshop Project" style="height: 19rem; object-fit: cover;">
-                        <div class="card-body d-flex flex-column">
-                            <h6 id="descr1" class="card-title">UX Engineering | HTML - CSS - JS</h6>
-                            <p id="descr2" class="card-text mt-4 mb-4 flex-grow-1">
-                                Curating and building design + engineering skills by creating a functional bakery shop website, mastering HTML, CSS, and JS
-                            </p>
-                            <em><a href="./bakeshop.html" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
+                <a href="./bakeshop.html">
+                    <div class="card shadow-lg shadow-intensity-dark rounded-4 pb-5" >
+                        <img src="./images/Bakeshop/bakeshop.png" class="card-img-top rounded-top-4" alt="BakeShop" style="height: 19rem;">
+                        <div class="card-body">
+                          <h6 id = "descr1" class="card-title">UX Engineering | HTML - CSS - JS</h6>
+                          <p id = "descr2" class="card-text mt-4 mb-4">Curating and building design + engineering skills by creating a functional bakery shop website, mastering HTML, CSS, and JS
+                        </p>
+                          <em><a href="./bakeshop.html" id = "descr1" class="btn btn1 btn-light border border-dark ">See more  &#8594;</a></em>
                         </div>
                     </div>
                 </a>
@@ -391,37 +376,45 @@
 <!-- HCS end -->
 
 
-<button onclick="topFunction()" id="myBtn" class="btn btn-light border-0 rounded-circle shadow-sm">
+<button onclick="topFunction()" id="myBtn" >
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
     </svg>
 </button>
 
 <script>
+    // Get the button:
 let mybutton = document.getElementById("myBtn");
 
-window.onscroll = function() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-    } else {
-        mybutton.style.display = "none";
-    }
-};
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
 
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 </script>
 
-<footer class="footer mt-5 py-4 border-top">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-12 mb-3">
-                <a id="PB" class="navbar-brand text-light" href="index.html"><em>PB</em></a>
+<footer class="footer d-flex pt-3 flex-wrap justify-content-between align-items-center py-3 border-top">
+    <div class="container container-fluid" >
+        <div class="row">
+            <div class="col">
+                <a id="PB" class ="navbar-brand ms-5 mb-3 text-light d-flex justify-content-center" href ="index.html"><em>PB</em></a> 
             </div>
-            <div class="col-12">
-                <h5 id="descr2" class="text-light mb-0">Creating meaningful designs together</h5>
+        </div>
+
+        <div class="row">
+            <div class="col ms-5 text-light text-center">
+                <h5 id = descr2>Creating meaningful designs together</h5>
             </div>
         </div>
     </div>
