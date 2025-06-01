@@ -7,6 +7,36 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>AEO Inc.</title>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .scroll-section {
+            min-height: 100vh;
+            position: relative;
+            padding: 80px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scroll-section.active {
+            scroll-snap-align: start;
+        }
+
+        .scroll-section > .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #process-section .row {
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -176,42 +206,51 @@
         }
     </script>
 
-
-    <div class="container">
-        <div class="row">
-             <div id = "subhead2" class = "col display-6 text-center mt-5 px-5" style="width: 100%;">
-                Project Overview
-            </div> 
-        </div>
-    </div>
-
-    <div class="container " style="width: 75%;">
-        <div class="row">
-            <div id = "descr2" class = "col h6 mt-3 mb-5 text-center">
-                <div> 
-                    Over the course of time, technology in the retail space has immensely evolved and only continues to grow from here on out, and over the summer, me and my team's goal was to facilitate American Eagle's  website features and content. We were able to do this through cross functional collaboration with several data, ux/cs design, product management, and engineering teams.                 
-                </div>
-                <br>
-                <div>
-                    With retail websites, it all comes down to the details on the home and product landing/detail pages. My project revolved around simplifying and clarifying the "Buy Online, Pick Up in Store" (BOPIS) widget by aligning the call to action to the design while also redesigning the intricacies of the button. We analyzed important metrics during this test and adjusted accordingly to create the most optimal solution for the widget.                
-                </div>
-                <br>           
+    <section id="overview-section" class="scroll-section">
+        <div class="container project-overview-section">
+            <div class="row">
+                <div id="subhead2" class="col display-6 text-center mt-5 pt-5 px-5" style="width: 100%;">
+                    Project Overview
+                </div> 
             </div>
         </div>
-    </div>
 
-
-
-    <div class="container" style="width: 73%;">
-        <div class="row">
-            <div id = "subhead2" class = "col display-6 text-center mt-3 mb-5 px-5" >
-                Process
+        <div class="container project-overview-section" style="width: 65%;">
+            <div class="row">
+                <div id="descr2" class="col h6 mt-3 mb-5 text-center">
+                    <div>
+                        With retail websites, it all comes down to the details on the home and product landing/detail pages. My project revolved around simplifying and clarifying the "Buy Online, Pick Up in Store" (BOPIS) widget by aligning the call to action to the design while also redesigning the intricacies of the button. We analyzed important metrics during this test and adjusted accordingly to create the most optimal solution for the widget.                
+                    </div>
+                    <br>           
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id = "process-container" class="container mb-5" >
-        <div class="row" style="width: 1200px;">
+        <div class="container project-overview-section mt-5 mb-5" style="width: 75%;">
+            <div class="row justify-content-center">
+                <div class="col-12" style="position: relative;">
+                    <div style="border: 2px solid #000; padding: 2.7rem; margin-top: 1rem;">
+                        <h2 style="color: #998DFF; font-style: italic; position: absolute; top: 0; left: 2rem; transform: translateY(-30%); background: white; padding: 0 0.5rem; margin: 0; font-size: 3.5rem;">The Problem</h2>
+                        <div id="descr1" class="h5 mb-0">
+                            As retail technology continues to evolve, even small details on home and product pages can impact the user experience. Our team focused on improving American Eagle's BOPIS widget, which lacked clarity and alignment in its call-to-action design—leading to potential confusion and missed conversions.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process-section" class="scroll-section" style="padding-top: 20vh;">
+        <div class="container project-overview-section" style="width: 73%;">
+            <div class="row">
+                <div id="subhead2" class="col display-6 text-center mt-5 mb-5 px-5">
+                    Design Process
+                </div>
+            </div>
+        </div>
+
+        <div id="process-container" class="container mb-5 pt-5 pb-5 project-overview-section">
+            <div class="row" style="width: 1200px;">
                 <div id = "hover-1" class="col" style="width: 150px;" >
                     <a class="nav-link px-5" href ="./ae.html#comp-research">
                         <div class="row">
@@ -291,8 +330,8 @@
             </div>
         </div>
     </div>
+    </section>
 
-    <hr style="height:2px;border-width:0;color:black;background-color:black">
 
 
 
@@ -300,7 +339,7 @@
    <div class="container" style="width: 73%;">
         <div class="row">
             <div id = "subhead2" class = "col display-6 text-start mt-5 px-5" >
-                <div id = "comp-research">
+                <div id = "comp-research" style="padding-top: 140px; margin-top: -140px;">
                     Competitive Research
                 </div> 
             </div>
@@ -372,7 +411,7 @@
     <div class="container" style="width: 73%;">
         <div class="row">
             <div id = "subhead2"  class="col display-6 mt-5 text-start mb-2 px-5" >
-                <div id = "ideate">
+                <div id = "ideate" style="padding-top: 140px; margin-top: -140px;">
                     Ideation
                 </div> 
             </div>
@@ -401,10 +440,10 @@
                     <img src="./images/AEO/control .png" class = "rounded-3 img-fluid" alt="control" width="330px" height="150px">
             </div>
             <div class="col h4 mt-5 d-flex justify-content-center" >
-                <img src="./images/AEO/arrow.0.png" class = "rounded-3 img-fluid" alt="arrow" width="150px" height="150px">
+                <img src="./images/AEO/arrow.0.png" class = "rounded-3" alt="arrow" width="150px" height="150px">
             </div>
             <div class="col h4 mt-5 d-flex justify-content-end" >
-                    <img src="./images/AEO/variant-1.png" class = "rounded-3 img-fluid" alt="variant 1" width="330px" height="150px">
+                    <img src="./images/AEO/variant-1.png" class = "rounded-3 " alt="variant 1" width="270px" height="150px">
             </div>
         </div>
 
@@ -445,7 +484,7 @@
     <div class="container" style="width: 73%;">
         <div class="row">
             <div id = "subhead2" class = "col display-6 text-start mt-5 mb-2 px-5" >
-                <div id = "ab-test">
+                <div id = "ab-test" style="padding-top: 140px; margin-top: -140px;">
                     A/B Test
                 </div> 
             </div>
@@ -476,37 +515,37 @@
 
 </div>
     <div class="container" style="width: 73%;">
-        <div id = "subhead2" class = "col h2 text-start mt-3 mb-2 px-5" >
+        <div id = "subhead2" class = "col h2 text-start mt-5 ms-4 mb-2 px-5" >
             <div>
                 Created Design Recommendations
             </div> 
         </div>
         <div class="row">
             <div class="col h4 mt-5 ms-5 d-flex justify-content-center" >
-                    <img src="./images/AEO/rec-1.png" class = "rounded-3 img-fluid" alt="control" width="300px" height="450px">
+                    <img src="./images/AEO/rec-1.png" class = "rounded-3" alt="control" width="290px" height="600px">
             </div>
             <div class="col h4 mt-5 d-flex justify-content-center" >
-                    <img src="./images/AEO/rec-2.png" class = "rounded-3 img-fluid" alt="variant 1" width="300px" height="450px">
+                    <img src="./images/AEO/rec-2.png" class = "rounded-3" alt="variant 1" width="300px" height="610px">
             </div>
         </div>
     </div>
 
-    <div class="container" style="width: 73%;">
+    <div class="container mt-5 mb-5" style="width: 73%;">
         <div class="row">
-            <div id = "subhead2"  class="col display-6 mt-5 text-start mb-2 px-5" >
+            <div id = "subhead2"  class="col display-6 mt-5 ms-4 text-start mb-2 px-5" >
                 <div id = "reflection">
                     Reflection
                 </div> 
             </div>
         </div>
 
-        <div class="row">
+        <div class="row ms-4">
             <div id = "descr2" class="col h6 d-flex text-start mt-2 mb-2 px-5" >  
                 Overall, this being one of the first moments of truly leading a team as a product manager, I became fully integrated into the most exemplary aspects of having a supportive and collaborative team that helped me run this test. It was extremely intriguing how one of the smallest details can create such a large difference in RPV or conversion, and sometimes, results can be unexpected. However, how we navigate the next steps as a team is one of the most important lessons I learned from my time at AEO! 
             </div>
         </div>
-        <div class="row">
-            <div id = "descr2" class="col h6 d-flex text-start mb-2 px-5">
+        <div class="row ms-4">
+            <div id = "descr2" class="col h6 d-flex text-start mb-5 px-5">
                 As an intern, I was very excited to make a difference in the grand scheme of helping a business excel through creative aspects of design and product management. My time as a product intern taught me so many key ideas about the customer experience in the retail industry and how to navigate and cater technology towards the business and customer value. 
             </div>
         </div>
@@ -542,11 +581,11 @@ function topFunction() {
 </script>
 
 <br><br>
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-5 border-top" style="padding-bottom: 100px !important;">
         <div class="container container-fluid" >
             <div class="row">
                 <div class="col">
-                    <a id="PB" class ="navbar-brand ms-5 mb-3 text-light d-flex justify-content-center" href ="index.html"><em>PB</em></a> 
+                    <a id="PB" class ="navbar-brand ms-5 mb-4 text-light d-flex justify-content-center" href ="index.html"><em>PB</em></a> 
                 </div>
             </div>
     
@@ -555,7 +594,51 @@ function topFunction() {
                     <h5 id = descr2>Let's create meaningful designs together.</h5>
                 </div>
             </div>
+            <div class="row mt-2">
+                <div class="col ms-5 contact text-center">
+                    <a href="mailto:priscillabbae@gmail.com" id = "descr2" class="text-light text-decoration-underline">priscillabbae@gmail.com</a>
+                </div>
+            </div>
         </div>
     </footer>
+
+<script>
+    // Initialize ScrollReveal
+    const sr = ScrollReveal({
+        origin: 'bottom',
+        distance: '50px',
+        duration: 1000,
+        delay: 200,
+        easing: 'ease',
+        reset: false
+    });
+
+    // Apply animation to project overview section
+    sr.reveal('.project-overview-section', {
+        delay: 300
+    });
+</script>
+
+<script>
+    // Intersection Observer for scroll snapping
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                entry.target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                entry.target.classList.remove('active');
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    // Observe both sections
+    const overviewSection = document.getElementById('overview-section');
+    const processSection = document.getElementById('process-section');
+    observer.observe(overviewSection);
+    observer.observe(processSection);
+</script>
 </body>
 </html>
