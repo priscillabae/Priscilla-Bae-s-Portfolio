@@ -132,6 +132,90 @@ background-color: transparent;
 
 
 
+#process-section1 {
+    background-image: url('./images/AEO/process-aeo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+}
+
+#process-section1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.35);
+    z-index: 1;
+}
+
+#process-section1 > * {
+    position: relative;
+    z-index: 2;
+}
+
+#overview-section1 {
+    background-image: url('./images/AEO/project-aeo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+}
+
+#process-section2 {
+    background-image: url('./images/MHH/process.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+}
+
+#process-section2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.35);
+    z-index: 1;
+}
+
+#process-section2 > * {
+    position: relative;
+    z-index: 2;
+}
+
+#overview-section2 {
+    background-image: url('./images/MHH/project.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+}
+
+#overview-section2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.35);
+    z-index: 1;
+}
+
+#overview-section2 > * {
+    position: relative;
+    z-index: 2;
+}
+
 .sectionmain{
   width: 70%;
   display:block;
@@ -747,6 +831,23 @@ background-position: center;
 background-repeat: no-repeat;
 position: relative;
 }
+
+.mhh-bg::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(255, 255, 255, 0.35);
+z-index: 1;
+}
+
+.mhh-bg .card-img-overlay {
+position: relative;
+z-index: 2;
+}
+
 /* AE page specific background */
 .ae-bg {
 background-image: url('./images/AEO/aeo.png');
@@ -840,12 +941,19 @@ position: relative;
 padding-left: 4rem;
 }
 
-.summary {
-max-width: 1200px;
+.title1 {
+    margin-top: 2rem;
+    padding-left: 0;
 }
 
-.title1 {
-margin-top: 2rem;
+.title2 {
+    padding-left: 0;
+}
+
+.summary {
+    max-width: 1200px;
+    padding-left: 0;
+    text-align: left;
 }
 
 @media only screen and (max-width: 768px) {
@@ -894,6 +1002,10 @@ margin-top: 2rem;
 #PB {
   font-size: 2.5em;
 }
+
+.title1, .title2, .summary {
+    padding-left: 0;
+}
 }
 
 @media only screen and (max-width: 390px) {
@@ -904,6 +1016,10 @@ margin-top: 2rem;
 
 #subhead1.display-1 {
   font-size: calc(2rem + 3vw);
+}
+
+.title1, .title2, .summary {
+    padding-left: 0;
 }
 
 .title1 {
@@ -1019,10 +1135,44 @@ margin-top: 2rem;
 }
 
 .other-container {
-width: 100%;
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0;
+    padding: 0;
+}
+
+.section-title {
+    padding: 0;
+    margin: 0 0 3rem 0;
+}
+
+.section-title #subhead1 {
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (max-width: 820px) {
+    .other-container {
+        padding: 0;
+        margin: 0;
+    }
+
+    .section-title {
+        padding: 0;
+        margin: 0 0 2rem 0;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    .other-container {
+        padding: 0;
+        margin: 0;
+    }
+
+    .section-title {
+        padding: 0;
+        margin: 0 0 1.5rem 0;
+    }
 }
 
 .header3 {
@@ -1135,10 +1285,11 @@ font-size: 0.9rem;
 
 /* Card text and spacing consistency */
 .card-body {
-min-height: 220px;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 0;
 }
 
 .card-title {
@@ -1213,14 +1364,7 @@ font-size: 0.9rem;
 }
 }
 
-/* Adjust MHH image to fill space */
-.work-cards img[src*="MHH/logo.png"] {
-height: 19rem;
-width: 100%;
-object-fit: cover;
-background-color: #B34A6D;
-padding: 2rem;
-}
+
 
 /* Make sure the image container has same styling as other cards */
 .work-cards .card-img-top {
@@ -1702,4 +1846,37 @@ box-shadow: 0 3px 10px rgba(0, 0, 0, .15);
 footer h5#descr2 {
   font-size: 0.8rem;
  }
+}
+
+#problem-section {
+    background-color: #ECDFFD;
+    min-height: 100vh;
+    position: relative;
+}
+
+#problem-section h1 {
+    color: black;
+}
+
+.btn-light.btn-outline-dark {
+    background-color: #FFB445;
+    border-color: #FFB445;
+    color: black;
+}
+
+.btn-light.btn-outline-dark:hover {
+    background-color: #E69926;
+    border-color: #E69926;
+    color: black;
+    font-weight: bold;
+}
+
+.btn-light.btn-outline-dark a {
+    color: black;
+    text-decoration: none;
+}
+
+.btn-light.btn-outline-dark:hover a {
+    color: black;
+    font-family: Lexenda;
 }
