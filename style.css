@@ -8,7 +8,10 @@
   font-family: IBM;
   src: url(./fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf);
 }
-
+@font-face {
+  font-family: pixel;
+  src: url(./fonts/Minecraft.ttf);
+}
 @font-face {
   font-family: IBM-Bold;
   src: url(./fonts/IBM_Plex_Mono/IBMPlexMono-Bold.ttf);
@@ -49,6 +52,11 @@ a{
     text-decoration: none;
     color: black;
 
+}
+
+#secret{
+font-family: pixel;
+font-size: 30px;
 }
 
 footer{

@@ -11,16 +11,20 @@
     <style>
         html {
             scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
         }
         
         .scroll-section {
             min-height: 100vh;
             position: relative;
-            padding: 80px 0;
+            padding: 60px 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            z-index: 1;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
         }
 
         .scroll-section.active {
@@ -36,9 +40,153 @@
         #process-section .row {
             margin: 0 auto;
         }
+
+        /* Updated Scroll indicator styles */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 9999;
+            pointer-events: auto;
+        }
+
+        .scroll-arrow {
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+
+        .scroll-arrow::before,
+        .scroll-arrow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 3px;
+            background-color: #7868FF;
+            border-radius: 1.5px;
+        }
+
+        .scroll-arrow::before {
+            transform: translate(-80%, -50%) rotate(45deg);
+        }
+
+        .scroll-arrow::after {
+            transform: translate(-20%, -50%) rotate(-45deg);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* Ensure sections have proper stacking context */
+        .scroll-section {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Make sure background images don't overlap */
+        .bg-image {
+            z-index: 0;
+        }
+
+        /* Add container snap settings */
+        body {
+            scroll-snap-type: y proximity;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        .accordion-item {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 8px;
+        }
+
+        .accordion-button {
+            padding: 12px 20px;
+            border: 2px solid #7868FF;
+            border-radius: 5px !important;
+        }
+
+        /* Individual company button styles */
+        #aeropostaleButton {
+            background-color: #002d62;
+            color: white;
+        }
+
+        #gapButton {
+            background-color: #00255f;
+            color: white;
+        }
+
+        #nikeButton {
+            background-color: black;
+            color: white;
+        }
+
+        #hmButton {
+            background-color: white;
+            color: #FF0000;
+        }
+
+        #afButton {
+            background-color: #352f39;
+            color: white;
+        }
+
+        #levisButton {
+            background-color: #2243b6;
+            color: #FF0000;
+        }
+
+        #madewellButton {
+            background-color: #748964;
+            color: white;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: inherit;
+            background-color: inherit;
+            border: 2px solid #7868FF;
+        }
+
+        .accordion-button::after {
+            filter: invert(1);
+        }
+
+        #hmButton::after {
+            filter: invert(0);
+        }
+
+        .accordion-body {
+            background: rgba(255, 255, 255, 0.95);
+            color: black;
+        }
+
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(120, 104, 255, 0.25);
+            border-color: #7868FF;
+        }
     </style>
 </head>
 <body>
+    <div id="scroll-indicator" class="scroll-indicator" onclick="scrollToNextSection()">
+        <div class="scroll-arrow"></div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
@@ -66,7 +214,7 @@
 
             <div class="row justify-content-center" style="width:1000px;">
                 <div id="descr1" class="col-10 offset-2 mt-5 mb-3 h5" style="text-align: right; padding-right: 0;">
-Driving cross-platform improvements for American Eagle and Aerie’s BOPIS widget, focusing on seamless, intuitive design.                 </div>
+Driving cross-platform improvements for American Eagle and Aerie's BOPIS widget, focusing on seamless, intuitive design.                 </div>
             </div>
             <div class = "mt-4 row justify-content-center">
                 <hr style="width:1200px;height:2px;border-width:0;color:black;background-color:black">
@@ -334,25 +482,41 @@ Driving cross-platform improvements for American Eagle and Aerie’s BOPIS widge
 
 
 
-<div class="container">
-   <div class="container" style="width: 73%;">
+   <div id = "comp-research" class="container" style="width: 65%;">
         <div class="row">
-            <div id = "subhead2" class = "col display-6 text-start mt-5 px-5" >
-                <div id = "comp-research" style="padding-top: 140px; margin-top: -140px;">
-                    Competitive Research
-                </div> 
+            <div id="subhead2" class="col display-6 text-start mt-5 px-5">
+                <div id="comp-research-title" class="container">
+                    <div class="row d-flex justify-content-center mt-5 pt-5">
+                        <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                            <div style="width: 210px; height: 105px; background-color: #C9B8FF; border-radius: 210px 210px 0 0;"></div>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                        <img id="process-icon" src="./images/AEO/icons/analytics.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+                    </div>
+                    <div class="row">
+                        <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                            <div style="width: 70%; margin: 0 auto; border-top: 2px solid #C9B8FF; border-bottom: 2px solid #C9B8FF;">
+                                <div class="pt-2 pb-2">
+                                    Competitive Research
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-                In order to fully understand our website's motives and paint points, I initially began with a competitive shopping analysis which further analyzed where American Eagle's positioning was in the world of retail. This gave me a further understanding of the digital product and what features AEO could potentially implement in the future, giving me an insight for what I should pursue for my summer project.             </div>
+            <div id="descr2" class="col h6 text-center mt-5 mb-2 px-5">
+                In order to fully understand our website's motives and paint points, I initially began with a competitive shopping analysis which further analyzed where American Eagle's positioning was in the world of retail. This gave me a further understanding of the digital product and what features AEO could potentially implement in the future, giving me an insight for what I should pursue for my summer project.
+            </div>
         </div>
     </div>
 
 
 
 
-   <div class="container" style="width: 73%;">
+   <div class="container" style="width: 65%;">
         <div class="row ">
             <div id = "subhead2" class = "col h2 text-start mt-5 mb-2 px-5" >
                 <div>
@@ -361,58 +525,480 @@ Driving cross-platform improvements for American Eagle and Aerie’s BOPIS widge
             </div>
         </div>
         <div class="row ">
-            <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-                Furthermore, I was able to help out the Mobile Search + Browse team with further competitive analysis for their navigation. Their current  "Lifestyle" UI of the app navigation created a few challenges for customers to find the right product. This may have been due to the image being unappealing, not the best match for the category, text overlay making it difficult for customers to quickly find the right category, or simply the length of the navigation causing users to scroll.           
+            <div id = "descr2" class="col h6 text-start mb-2 px-5" > 
+                In order to identify key pain points and potential improvements in the Mobile App Navigation, I created a competitive analysis overview and also presented a slide deck that provided recommendations from competitive trends I had noticed in other competitors.
             </div>
         </div>
+        <div class="row ">
+            <div id = "descr1" class="col h5 text-start mb-2 px-5" style="color: #7753ed;" > 
+                Mobile App Issues
+            </div>
+        </div>
+        <div class="row">
+            <div id = "descr2" class="col h6 text-start mb-2 px-5" >
+                Their current "Lifestyle" UI of the app navigation created a few challenges for customers to find the right product: 
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div id="descr2" class="col h6 text-center mb-2" style="background-color: #C9B8FF; border-radius: 15px; padding: 12px; width: fit-content; margin-left: 48px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                Images not being the best match for the category
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div id="descr2" class="col h6 text-center mb-2" style="background-color: #C9B8FF; border-radius: 15px; padding: 12px; width: fit-content; margin-left: 48px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                Text overlay decreasing category visibility
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div id="descr2" class="col h6 text-center mb-2" style="background-color: #C9B8FF; border-radius: 15px; padding: 12px; width: fit-content; margin-left: 48px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                Navigation content heircharchy and information overload 
+            </div>
+        </div>
+             
+
         <br>
         <div class="row">
             <div id = "descr2" class="col h6 text-start mb-2 px-5" >  
-                Therefore, in order to identify the key pain points and potential improvements, I created a competitive analysis overview and also presented a slide deck that provided recommendations from competitive trends I had noticed to the mobile app UX teams. Among the many design and content hierarchy trends, the key insights I had discovered revolved around increase lifestyle images, lists, subcategory filters, and Home vs. Shop navigation bars. 
-            </div>
-        </div>
+                This research allowed AEO to find trending mobile app navigation
+                features that could be applied to their app to create a more seamless
+                experience for users. I was able to identify and analyze certain
+                categories where there is a high opportunity for AEO to grow and
+                improve the user journey such as: image types, lists, subcategory filters, and Home vs. Shop navigation bars.        </div>
         <div class="row">
             <div class="col mt-4 mb-4 px-5" >
                     <img src="./images/AEO/mobile-app.png" class = "img-fluid" alt="MHH" width="1000px" height="600px">
             </div>
         </div> 
     </div> 
+</div>
 
-    
-
-    <div class="container" style="width: 73%;">
+    <div class="container" style="width: 65%;">
         <div class="row">
-            <div id = "subhead2" class = "col h2 text-start mt-5 mb-2 px-5" >
+            <div id="descr1" class="col h5 text-start mt-5 mb-4 px-5">
+                <div>Competitive Analysis Key Insights</div>
+            </div>
+        </div>
+
+        <div class="row px-5">
+            <div class="accordion" id="insightsAccordion">
+                <!-- Insight 1 -->
+                <div class="accordion-item border-0 mb-3">
+                    <h2 id="descr2" class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#insight1" aria-expanded="false" aria-controls="insight1" style="background-color: #D0D1FE; border-radius: 15px; color: black;">
+                            Lifestyle images are commonly used by competitors in various shapes and sizes, from rectangular to circular
+                        </button>
+                    </h2>
+                    <div id="insight1" class="accordion-collapse collapse" data-bs-parent="#insightsAccordion">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                    <img src="./images/AEO/lifestyle.png" alt="Image Types Examples" class="img-fluid rounded-3 mb-4" style="width: 100%;">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <h5 id="descr1" style="color: #7868FF;">Lifestyle Images</h5>
+                                        <p id="descr2" class="text-muted">With lifestyle images being integrated in a majority of our competitor's navigation, it initially attracts users to shop while also capturing the essence of the brand.</p>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <h5 id="descr1" style="color: #7868FF;">Main Tiers</h5>
+                                        <p id="descr2" class="text-muted">Whenever images are in navigation, they are typically in the primary tiers, and the secondary tiers are more detailed categories by list.</p>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <h5 id="descr1" style="color: #7868FF;">Visual Separation</h5>
+                                        <p id="descr2" class="text-muted">Within each navigation that includes images, there is clear white space, differentiating each image and category.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insight 2 -->
+                <div class="accordion-item border-0 mb-3">
+                    <h2 id="descr2" class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#insight2" aria-expanded="false" aria-controls="insight2" style="background-color: #D0D1FE; border-radius: 15px; color: black;">
+                            Mobile shopping apps are integrating lists more commonly over grid navigations for more straightforward and efficient readability.
+                        </button>
+                    </h2>
+                    <div id="insight2" class="accordion-collapse collapse" data-bs-parent="#insightsAccordion">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                    <img src="./images/AEO/lists.png" alt="Lists Examples" class="img-fluid rounded-3 mb-4" style="width: 100%;">
+                                </div>
+                                <div class="col-md-6 mt-5">
+                                    <div class="mb-4">
+                                        <h5 id="descr1" style="color: #7868FF;">Increased Arrows</h5>
+                                        <p id="descr2" class="text-muted">More frequently, we are beginning to see an increased use of arrows in list navigations. This gives users the idea that they will be taken to their desired PLP or a new screen once the arrow is clicked.</p>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <h5 id="descr1" style="color: #7868FF;">Decreased Use of Dropdowns</h5>
+                                        <p id="descr2" class="text-muted">Dropdowns tend to slow the user down as they have to click twice, scroll, and look through their options, which can be rather timely. Additionally, with lengthy lists with dropdowns, it can create an information overload for users and present them with too many choices at once.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insight 3 -->
+                <div class="accordion-item border-0 mb-3">
+                    <h2 id="descr2" class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#insight3" aria-expanded="false" aria-controls="insight3" style="background-color: #D0D1FE; border-radius: 15px; color: black;">
+                            There is an increasing use of horizontal scrolling subcategory filters on mobile PLPs, contributing towards fewer category tiers.
+                        </button>
+                    </h2>
+                    <div id="insight3" class="accordion-collapse collapse" data-bs-parent="#insightsAccordion">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                    <div>
+                                        <img src="./images/AEO/subcategories.png" alt="Subcategories Examples" class="img-fluid rounded-3" style="width: 100%;">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-5">
+
+                                    <div class="text-center mb-4">
+                                        <div style="width: 200px; height: 200px; background-color: #7868FF; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                            <div id = "descr1" class="text-white" style="font-size: 24px; line-height: 1.2;">
+                                                <strong>71%</strong><br>
+                                                <span style="font-size: 16px;">of researched<br>competitors</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-muted mt-3" style="font-style: italic;">implemented a horizontal subcategory filter with several diverse UI elements.</p>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <h5 id="descr1" style="color: #7868FF;">Effect on Category Tiers</h5>
+                                        <p id="descr2" class="text-muted">These subcategory filters helped users reach their PLP in as few as 2 category tiers, creating more opportunities for users to see products more quickly.</p>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <h5 id="descr1" style="color: #7868FF;">Subcategory Filter Benefits</h5>
+                                        <p id="descr2" class="text-muted">Subcategory filters essentially replaced dropdowns in lists, creating:</p>
+                                        <ul id = "descr2" class="text-muted">
+                                            <li>Fewer Category Tiers</li>
+                                            <li>Efficient User Access to Desired Products</li>
+                                            <li>Holistic View of Product Options</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insight 4 -->
+                <div class="accordion-item border-0 mb-3">
+                    <h2 id="descr2" class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#insight4" aria-expanded="false" aria-controls="insight4" style="background-color: #D0D1FE; border-radius: 15px; color: black;">
+                            There are opportunities for AE + Aerie to explore the bottom navigation's "Shop" tab as competitors frequently use two separate "Home" and "Shop" tabs.
+                        </button>
+                    </h2>
+                    <div id="insight4" class="accordion-collapse collapse" data-bs-parent="#insightsAccordion">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-12 text-center mb-4">
+                                    <h4 id="descr1" style="color: #28a745;">Navigation Tab Comparison</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="text-center mb-4">
+                                       
+                                        <img src="./images/AEO/hs-1.png" alt="Singular Shop Navigation" class="img-fluid rounded-3 mb-3" style="width: 100%;">
+                                    
+                                    </div>
+                                </div>
+                                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                                    <h3 id="descr1" style="color: #28a745; font-size: 2.5rem;">VS.</h3>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="text-center mb-4">
+                                        
+                                        <img src="./images/AEO/hs-2.png" alt="Separate Home and Shop Navigation" class="img-fluid rounded-3 mb-3" style="width: 100%;">
+   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="p-4" style="background-color: #f8f9fa; border-radius: 15px;">
+                                        <h5 id="descr1" style="color: #7868FF;">Key Observation</h5>
+                                        <p id="descr2" class="text-muted mb-0">Major competitors are trending towards separating Home and Shop functionalities in their navigation, providing distinct pathways for browsing and shopping. This presents an opportunity for AE + Aerie to consider restructuring their navigation approach.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" style="width: 65%;">
+        <div class="row">
+            <div id = "subhead2" class = "col h2 text-start mt-5 mb-2" >
                 <div>
-                    BOPIS Competitive Analysis
+                    BOPIS (Buy Online Pick Up In Store) Competitive Analysis
                 </div> 
             </div>
         </div>
         <div class="row">
             <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-                After the initial desktop competitive analysis, I narrowed down my research and project idea into one aspect on the product detail page which was the BOPIS option. In order to solidify our hypothesis and create design comps for the test, I also reviewed other competitive landscapes to analyze what other companies were implementing in their designs.
+                After the mobile competitive analysis,I had a better sense on what AEO's brand was and what their users were looking for. Therefore, by focusing on the user journey, I applied this mindset to a desktop competitive analysis. I narrowed down my research and project idea into one aspect on the product detail page which was the BOPIS option. In order to solidify our hypothesis and create design comps for the test, I also reviewed other competitive landscapes to analyze what other companies were implementing in their designs.
             </div>
         </div>
-        <br>
-        <div class="row ">
-            <div class="col mt-4 mb-4 px-5" >
-                    <img src="./images/AEO/BOPIS-comp0.png" class = "img-fluid" alt="MHH" width="1000px" height="500px">
+
+        <div class="row justify-content-center mt-3">
+            <div class="col-5 text-center">
+                <div id = "descr1" class = "h5">American Eagle's Current BOPIS Widget Design</div>
+                <div class="text-center mb-4">
+                    <img src="./images/AEO/bopis.png" class = "img-fluid rounded-4" alt="MHH" width="800px" height="500px">
+                </div>
             </div>
-        </div> 
-        <div class="row ">
-            <div class="col mt-4 mb-4 px-5" >
-                    <img src="./images/AEO/BOPIS-comp1.png" class = "img-fluid" alt="MHH" width="1000px" height="500px">
+            <div class="col-5">
+                <div id = "descr1" class = "h5 text-center">Before picking up an item from a store, users must first:</div>
+                <ol id = "descr2" class="text-start justify-content-center">
+                    <li class="mt-5">Select Their Size </li>
+                    <li class="mt-3">Select the BOPIS Option</li>
+                    <li class="mt-3">Enter their Location to see Availability</li>
+                </ol>
             </div>
-        </div> 
+        </div>
+        <div class="row">
+                <div id="descr2" class=" col mt-3 mb-2 px-5 h6">Before, I began the research, I focused on the first step of the BOPIS Widget: Selecting their Size. I noticed that there were certain intracacies in the design of the button because ALL users must select their size before they can even interact with the button, so I wanted to see how other companies were implementing this first step. </div>
+        </div>
+        <div class="row">
+            <div class="text-start mt-5 mb-2 px-5 col">
+                <div id="descr1" class="h5">Here's How Other Companies Did it:</div>
+            </div>
+        </div>
+
+        <div class="row mt-4 mt-5 mb-2 px-5">
+            <div class="col-12">
+                <div class="accordion" id="competitorAccordion">
+                    <!-- Aeropostale -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button id="aeropostaleButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aeropostaleCollapse" aria-expanded="false" aria-controls="aeropostaleCollapse">
+                                <span id="descr1">Aeropostale</span>
+                            </button>
+                        </h2>
+                        <div id="aeropostaleCollapse" class="accordion-collapse collapse" data-bs-parent="#competitorAccordion">
+                            <div class="accordion-body d-flex flex-column align-items-center">
+                                <div id="descr2" class="mb-3 p-2" style="background-color: #F3FFA7; color: black; border-radius: 5px;">
+                                    Before Size is Picked
+                                </div>
+                                <img src="./images/AEO/aero0.png" class="img-fluid rounded-4 mb-3" alt="Aero 1" style="width: 70%;">
+                                <div id="descr2" class="mb-3 mt-4 p-2" style="background-color: #B6FF9C; color: black; border-radius: 5px;">
+                                    After Size is Picked
+                                </div>
+                                <img src="./images/AEO/aero1.png" class="img-fluid rounded-4 mb-3 mt-3" alt="Aero 1" style="width: 70%;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GAP -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button id="gapButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#gapCollapse" aria-expanded="false" aria-controls="gapCollapse">
+                                <span id="descr1">GAP</span>
+                            </button>
+                        </h2>
+                        <div id="gapCollapse" class="accordion-collapse collapse" data-bs-parent="#competitorAccordion">
+                            <div class="accordion-body d-flex flex-column align-items-center">
+                                <div id="descr2" class="mb-3 p-2" style="background-color: #F3FFA7; color: black; border-radius: 5px;">
+                                    Before Size is Picked
+                                </div>
+                                <img src="./images/AEO/gap1.png" class="img-fluid rounded-4 mb-3" alt="Aero 1" style="width: 70%;">
+                                <div id="descr2" class="mb-3 mt-4 p-2" style="background-color: #B6FF9C; color: black; border-radius: 5px;">
+                                    After Size is Picked
+                                </div>
+                                <img src="./images/AEO/gap2.png" class="img-fluid rounded-4 mb-3 mt-3" alt="Aero 1" style="width: 70%;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nike -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button id="nikeButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nikeCollapse" aria-expanded="false" aria-controls="nikeCollapse">
+                                <span id="descr1">Nike</span>
+                            </button>
+                        </h2>
+                        <div id="nikeCollapse" class="accordion-collapse collapse" data-bs-parent="#competitorAccordion">
+                            <div class="accordion-body d-flex flex-column align-items-center">
+                                <div id="descr2" class="mb-3 p-2" style="background-color: #F3FFA7; color: black; border-radius: 5px;">
+                                    Before Size is Picked
+                                </div>
+                                <img src="./images/AEO/nike1.png" class="img-fluid rounded-4 mb-3" alt="Aero 1" style="width: 70%;">
+                                <img src="./images/AEO/nike2.png" class="img-fluid rounded-4 mb-3" alt="Aero 1" style="width: 70%;">
+
+                                <div id="descr2" class="mb-3 mt-4 p-2" style="background-color: #B6FF9C; color: black; border-radius: 5px;">
+                                    After Size is Picked
+                                </div>
+                                <img src="./images/AEO/nike3.png" class="img-fluid rounded-4 mb-3 mt-3" alt="Aero 1" style="width: 70%;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- H&M -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button id="hmButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hmCollapse" aria-expanded="false" aria-controls="hmCollapse">
+                                <span id="descr1">H&M</span>
+                            </button>
+                        </h2>
+                        <div id="hmCollapse" class="accordion-collapse collapse" data-bs-parent="#competitorAccordion">
+                            <div class="accordion-body d-flex flex-column align-items-center">
+                                <div id="descr2" class="mb-3 p-2" style="background-color: #F3FFA7; color: black; border-radius: 5px;">
+                                    Before Size is Picked
+                                </div>
+                                <img src="./images/AEO/hm1.png" class="img-fluid rounded-4 mb-3" alt="Aero 1" style="width: 70%;">
+                                <div id="descr2" class="mb-3 mt-4 p-2" style="background-color: #B6FF9C; color: black; border-radius: 5px;">
+                                    After Size is Picked
+                                </div>
+                                <img src="./images/AEO/hm2.png" class="img-fluid rounded-4 mb-3 mt-3" alt="Aero 1" style="width: 70%;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Abercrombie & Fitch -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button id="afButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#afCollapse" aria-expanded="false" aria-controls="afCollapse">
+                                <span id="descr1">Abercrombie & Fitch</span>
+                            </button>
+                        </h2>
+                        <div id="afCollapse" class="accordion-collapse collapse" data-bs-parent="#competitorAccordion">
+                            <div class="accordion-body d-flex flex-column align-items-center">
+                                <div id="descr2" class="mb-3 p-2" style="background-color: #F3FFA7; color: black; border-radius: 5px;">
+                                    Before Size is Picked
+                                </div>
+                                <img src="./images/AEO/af1.png" class="img-fluid rounded-4 mb-3" alt="Aero 1" style="width: 70%;">
+                                <img src="./images/AEO/af2.png" class="img-fluid rounded-4 mb-3" alt="Aero 1" style="width: 70%;">
+
+                                <div id="descr2" class="mb-3 mt-4 p-2" style="background-color: #B6FF9C; color: black; border-radius: 5px;">
+                                    After Size is Picked
+                                </div>
+                                <img src="./images/AEO/af3.png" class="img-fluid rounded-4 mb-3 mt-3" alt="Aero 1" style="width: 70%;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Levi's -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button id="levisButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#levisCollapse" aria-expanded="false" aria-controls="levisCollapse">
+                                <span id="descr1">Levi's</span>
+                            </button>
+                        </h2>
+                        <div id="levisCollapse" class="accordion-collapse collapse" data-bs-parent="#competitorAccordion">
+                            <div class="accordion-body d-flex flex-column align-items-center">
+                                <div id="descr2" class="mb-3 p-2" style="background-color: #F3FFA7; color: black; border-radius: 5px;">
+                                    Before Size is Picked
+                                </div>
+                                <img src="./images/AEO/levi1.png" class="img-fluid rounded-4 mb-3" alt="Aero 1" style="width: 70%;">
+                                <div id="descr2" class="mb-3 mt-4 p-2" style="background-color: #B6FF9C; color: black; border-radius: 5px;">
+                                    After Size is Picked
+                                </div>
+                                <img src="./images/AEO/levi2.png" class="img-fluid rounded-4 mb-3 mt-3" alt="Aero 1" style="width: 70%;">
+                                <img src="./images/AEO/levi3.png" class="img-fluid rounded-4 mb-3 mt-3" alt="Aero 1" style="width: 70%;">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Madewell -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button id="madewellButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#madewellCollapse" aria-expanded="false" aria-controls="madewellCollapse">
+                                <span id="descr1">Madewell</span>
+                            </button>
+                        </h2>
+                        <div id="madewellCollapse" class="accordion-collapse collapse" data-bs-parent="#competitorAccordion">
+                            <div class="accordion-body d-flex flex-column align-items-center">
+                                <div id="descr2" class="mb-3 p-2" style="background-color: #F3FFA7; color: black; border-radius: 5px;">
+                                    Before Size is Picked
+                                </div>
+                                <img src="./images/AEO/madewell1.png" class="img-fluid rounded-4 mb-3" alt="Aero 1" style="width: 70%;">
+                                <div id="descr2" class="mb-3 mt-4 p-2" style="background-color: #B6FF9C; color: black; border-radius: 5px;">
+                                    After Size is Picked
+                                </div>
+                                <img src="./images/AEO/madewell2.png" class="img-fluid rounded-4 mb-3 mt-3" alt="Aero 1" style="width: 70%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row  mt-5 mb-2 px-5">
+                <div id="descr2" class=" col h6"> After analyzing these companies, I had discovered these certain characteristics for some stores: </div>
+                <ol id = "descr2" class="text-start justify-content-center">
+                    <li > Using a red alert, they will almost always require users to pick a size before allowing them to pick up in stores.</li>
+                    <li class="mt-3"> Some stores have small, unnoticeable "Find in Store" texts</li>
+                    <li class="mt-3"> Color indications of what is available, few available, and out of stock can be visually readable</li>
+                    <li class="mt-3"> If users are prompted to choose their location first, it results in a longer BOPIS process due to the possibility that the location does not have their size</li>
+                </ol>
+        </div>
+
+        <div class="row ">
+            <div id = "descr1" class="col h5 text-start mb-2 px-5" style="color: #7753ed;" > 
+                Desktop & Mobile Website BOPIS Widget Issues
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div id="descr2" class="col h6 text-center mb-2" style="background-color: #C9B8FF; border-radius: 15px; padding: 12px; width: fit-content; margin-left: 48px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                AEO's "Pick a Size" button's gray and muted color makes it seem as if it is not clickable
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col d-flex justify-content-center align-items-center mb-2" style="border-radius: 15px; padding: 12px;">
+                <img src="./images/AEO/ae1.png" class="img-fluid rounded-4 mb-3" alt="Aero 1" style="width: 40%;">
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div id="descr2" class="col h6 text-center mb-2" style="background-color: #C9B8FF; border-radius: 15px; padding: 12px; width: fit-content; margin-left: 48px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                "Enter your location..." copy above the button does not match the customer call to action to "Pick a Size"
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col d-flex justify-content-center align-items-center mb-2" style="border-radius: 15px; padding: 12px;">
+                <img src="./images/AEO/ae2.png" class="img-fluid rounded-4 mb-3" alt="Aero 1" style="width: 40%;">
+            </div>
+        </div>
     </div>
 
 
-    <div class="container" style="width: 73%;">
+    <div class="container" style="width: 65%;">
         <div class="row">
-            <div id = "subhead2"  class="col display-6 mt-5 text-start mb-2 px-5" >
-                <div id = "ideate" style="padding-top: 140px; margin-top: -140px;">
-                    Ideation
-                </div> 
+            <div id="subhead2" class="col display-6 mt-5 text-start mb-2 px-5">
+                <div id="ideate" style="padding-top: 140px; margin-top: -140px;">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center mt-5 pt-5">
+                            <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                                <div style="width: 210px; height: 105px; background-color: #C9B8FF; border-radius: 210px 210px 0 0;"></div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                            <img id="process-icon" src="./images/AEO/icons/web-design.png" class="pt-5" alt="Ideate" style="width: 90px; position: relative; z-index: 2;">
+                        </div>
+                        <div class="row">
+                            <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                                <div style="width: 70%; margin: 0 auto; border-top: 2px solid #C9B8FF; border-bottom: 2px solid #C9B8FF;">
+                                    <div class="pt-2 pb-2">
+                                        Ideation
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -425,51 +1011,47 @@ Driving cross-platform improvements for American Eagle and Aerie’s BOPIS widge
     
         <div class="row">
             <div id = "descr2" class="col h6 text-start mb-2 px-5" >  
-                One of the first aspects in creating an A/B test is to develop a straightforward but well-rounded hypothesis that has all the key details. After many iterations and refinements, my team and I were able to create this hypothesis: 
+                One of the first aspects in creating an A/B test is to develop a straightforward but well-rounded hypothesis that has all the key details. After many iterations and refinements, my team and I were able to create this hypothesis to counter the current BOPIS Issues: 
             </div>
         </div>
         <div class="row">
-            <div id = "descr2" class="col h5 text-primary text-start mt-3 mb-2 px-5" >  
+            <div id = "descr2" class="col h5 text-primary text-center p-4 mt-3 mb-2" style="border-width: 1px; border-color:rgb(0, 115, 255); border-style: solid; border-radius: 15px; width: fit-content; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">  
                 <em>"We believe that if we enhance the visibility of the "pick a size" button and modify the copy within the NSA widget on the PDP then we will see increased interactions because more prominent aspects within the NSA widget will align our call to action with the customer action."</em>
             </div>
         </div>
 
         <div class="row">
-            <div class="col h4 mt-5 ms-5 d-flex justify-content-end" >
-                    <img src="./images/AEO/control .png" class = "rounded-3 img-fluid" alt="control" width="330px" height="150px">
+            <div class="col h4 mt-5" >
+                    <img src="./images/AEO/control .png" class = "rounded-3 img-fluid" alt="control" style="max-width: 100%;" >
+                    <div id = "descr2" class=" h6 text-center" >  
+                        <em>Control</em>
+                    </div>
             </div>
-            <div class="col h4 mt-5 d-flex justify-content-center" >
-                <img src="./images/AEO/arrow.0.png" class = "rounded-3" alt="arrow" width="150px" height="150px">
+            <div class="col h4 mt-5 d-flex justify-content-center"    >
+                <img src="./images/AEO/arrow.0.png" class = "rounded-3" alt="arrow" style="max-width: 30%;" >
             </div>
-            <div class="col h4 mt-5 d-flex justify-content-end" >
-                    <img src="./images/AEO/variant-1.png" class = "rounded-3 " alt="variant 1" width="270px" height="150px">
+            <div class="col h4 mt-5 " >
+                    <img src="./images/AEO/variant-1.png" class = "rounded-3 " alt="variant 1" style="max-width: 100%;" >
+                    <div id = "descr2" class=" h6 text-center" >  
+                        <em>Variant</em>
+                    </div>
             </div>
+            
         </div>
 
-        <div class="row">
-            <div id = "descr2" class="col h6 text-center ms-5 mb-2 px-5" >  
-                <em>Control</em>
-            </div>
-            <div id = "descr2" class="col h6 text-start ms-3 mb-2 px-5" >  
-   
-            </div>
-            <div id = "descr2" class="col h6 text-center mb-2 px-5">  
-                <em>Variant 1</em>
-            </div>
-        </div>
 
         <div class="row">
-            <div id = "descr2" class="col h6 text-start mb-2 px-5 mt-5" >  
+            <div id = "descr2" class="col h6 text-start mb-2 px-5 mt-5" style="color: #7753ed;" >  
                 For our final design, we decided to enhance 2 main aspects of the widget: 
             </div>
         </div>
-        <div class="row">
-            <div id = "descr2" class="col text-start mt-3 mb-2 px-5" >  
+        <div class="row  d-flex justify-content-center">
+            <div id = "descr2" class="col text-start mt-3 mb-2 p-3 px-5" style=" border-width: 1px; border-color:#7753ed; border-style: solid; border-radius: 15px; max-width: 500px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">  
                 1). The copy above the "Pick a Size" button 
             </div>
         </div>
-        <div class="row">
-            <div id = "descr2" class="col text-start mb-2 px-5" >  
+        <div class="row d-flex justify-content-center">
+            <div id = "descr2" class="col text-start mt-3 mb-2 p-3 px-5" style=" border-width: 1px; border-color:#7753ed; border-style: solid; border-radius: 15px; max-width: 500px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">  
                 2). UI of the "Pick a Size" button
             </div>
         </div>
@@ -482,10 +1064,28 @@ Driving cross-platform improvements for American Eagle and Aerie’s BOPIS widge
 
     <div class="container" style="width: 73%;">
         <div class="row">
-            <div id = "subhead2" class = "col display-6 text-start mt-5 mb-2 px-5" >
-                <div id = "ab-test" style="padding-top: 140px; margin-top: -140px;">
-                    A/B Test
-                </div> 
+            <div id="subhead2" class="col display-6 text-start mt-5 mb-2 px-5">
+                <div id="ab-test" style="padding-top: 140px; margin-top: -140px;">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center mt-5 pt-5">
+                            <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                                <div style="width: 210px; height: 105px; background-color: #C9B8FF; border-radius: 210px 210px 0 0;"></div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                            <img id="process-icon" src="./images/AEO/icons/ab-testing.png" class="pt-5" alt="A/B Test" style="width: 90px; position: relative; z-index: 2;">
+                        </div>
+                        <div class="row">
+                            <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                                <div style="width: 70%; margin: 0 auto; border-top: 2px solid #C9B8FF; border-bottom: 2px solid #C9B8FF;">
+                                    <div class="pt-2 pb-2">
+                                        A/B Test
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row ">
@@ -501,24 +1101,223 @@ Driving cross-platform improvements for American Eagle and Aerie’s BOPIS widge
             </div>
         </div>
         <div class="row">
-            <div id = "descr2" class="col h6 text-start mt-4 mb-2 px-5" >        
+            <div id = "descr2" class = "col h4 text-start mt-4 mb-2 px-5" >
+                <div>
+                    <span id = "descr1"> US High Level Results </span>| Desktop
+                </div> 
+            </div>
+        </div>
+        <div class="row mt-4 mb-2 d-flex justify-content-center">
+            <!-- Circle 1 -->
+            <div class="col-md-4 d-flex justify-content-center">
+                <div style="width: 200px; height: 200px; background-color: white; border: 2px solid #28a745; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 20px;">
+                    <div class="text-center">
+                        <span id="descr1" style="color: #28a745; font-size: 30px;">+3.28%</span>
+                        <br>
+                        <span id = "descr2" style="color: #28a745; font-size: 14px;">>99% Confidence</span>
+                
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circle 2 -->
+            <div class="col-md-4 d-flex justify-content-center">
+                <div style="width: 200px; height: 200px; background-color: white; border: 2px solid black; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 20px;">
+                    <div class="text-center">
+                        <span id="descr1" style="font-size: 30px;">-0.5%</span>
+                        <br>
+                        <span id = "descr2" style="font-size: 14px;">~60% Confidence</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circle 3 -->
+            <div class="col-md-4 d-flex justify-content-center mb-5">
+                <div style="width: 200px; height: 200px; background-color: white; border: 2px solid black; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 20px;">
+                    <div class="text-center">
+                        <span id="descr1" style="font-size: 30px;">-1.5%</span>
+                        <br>
+                        <span id = "descr2" style="font-size: 14px;">~60% Confidence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div id = "descr2" class = "col h4 text-start mt-5 mb-2 px-5" >
+                <div>
+                    <span id = "descr1"> US High Level Results </span>| Mobile
+                </div> 
+            </div>
+        </div>
+        <div class="row mt-4 mb-2 d-flex justify-content-center">
+            <!-- Circle 1 -->
+            <div class="col-md-4 d-flex justify-content-center">
+                <div style="width: 200px; height: 200px; background-color: white; border: 2px solid #28a745; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 20px;">
+                    <div class="text-center">
+                        <span id="descr1" style="color: #28a745; font-size: 30px;">+1.53%</span>
+                        <br>
+                        <span id = "descr2" style="color: #28a745; font-size: 14px;">>99% Confidence</span>
+                
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circle 2 -->
+            <div class="col-md-4 d-flex justify-content-center">
+                <div style="width: 200px; height: 200px; background-color: white; border: 2px solid black; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 20px;">
+                    <div class="text-center">
+                        <span id="descr1" style="font-size: 30px;">-0.8%</span>
+                        <br>
+                        <span id = "descr2" style="font-size: 14px;">~58% Confidence</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circle 3 -->
+            <div class="col-md-4 d-flex justify-content-center">
+                <div style="width: 200px; height: 200px; background-color: white; border: 2px solid black; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 20px;">
+                    <div class="text-center">
+                        <span id="descr1" style="font-size: 30px;">-0.8%</span>
+                        <br>
+                        <span id = "descr2" style="font-size: 14px;">~58% Confidence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="descr1" class="row mb-5 text-center d-flex justify-content-center">
+            <div class="col">
+                <div style="color: #28a745; font-size: 14px;">"Pick a Size" Interactions</div>
+            </div>
+            <div class="col">
+                <div style="font-size: 14px;">Add to Bag on PDP</div>
+            </div>
+            <div class="col">
+                <div style="font-size: 14px;">Conversion</div>
+            </div>
+        </div>
+
+        <!-- BOPIS Results Section -->
+
+        <div class="row mt-3">
+            <div id="descr1" class="col-12 h6 text-center px-5 mb-4">
+                <em>Increased interactions led to increased BOPIS orders but decreased overall RPV.</em>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center align-items-center mb-5">
+            <!-- BOPIS Order Box -->
+            <div class="col-md-4">
+                <div style="border: 2px solid #28a745; border-radius: 15px; padding: 30px;">
+                    <div id="descr1" class="mb-2">BOPIS Order % increase  </div>
+                    <div class="d-flex align-items-baseline">
+                        <div id="descr1" style="font-size: 24px; color: #28a745;">10.1%</div>
+                        <div id="descr1" class="mx-2">to</div>
+                        <div id="descr1" style="font-size: 24px; color: #28a745;">12.2%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOPIS Revenue Box -->
+            <div class="col-md-4">
+                <div style="border: 2px solid #28a745; border-radius: 15px; padding: 30px;">
+                    <div id="descr1" class="mb-2">BOPIS Revenue % increase </div>
+                    <div class="d-flex align-items-baseline">
+                        <div id="descr1" style="font-size: 24px; color: #28a745;">5.6%</div>
+                        <div id="descr1" class="mx-2">to</div>
+                        <div id="descr1" style="font-size: 24px; color: #28a745;">6.9%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div id="descr1" class="col-12 h4 text-start px-5 mb-4">
+Insights:
+            </div>
+        </div>
+            <div class="row px-5">
+                <div class="col-12 ">
+                    <p id="descr1" class="h6" style="line-height: 1.6;">
+                        An <span style="color: #28a745;">increased amount of BOPIS orders + revenue</span> may have resulted in a 
+                        <span style="color: #FF0000;">loss of total RPV</span> from a lack of 
+                        <strong>delivery/shipping fees, personalization,</strong> and 
+                        <strong>efficient search/checkout processes</strong>.
+                    </p>
+                </div>
+            </div>
+            <div class="row px-5">
+                <div class="col-12 mt-4">
+                    <p id="descr2" class="h6" style="line-height: 1.6;">
+                        <span style="color: #FF0000;">Monitoring Metrics (Data Outlier):</span> Although overall RPV was down, we discovered that specifically on the date the A/B test was released, there was a trend where BOPIS Order % decreased which potentially could have contributed to the result.
+                    </p>
+                </div>
+            </div>
+
+        <div class="row px-5">
+            <div id = "descr2" class="col h6 text-start mt-4 mb-2" >        
                 After the test was released, we were able to see significant changes. One of the main changes we noticed was that the "Pick a Size" interactions increased significantly which was our main goal, and our overall BOPIS orders and revenue also increased during the test. However, overall RPV and conversion decreased. Therefore, from a business perspective, the test needed to be pivoted in order to be fully implemented in the future. 
             </div>
         </div>
-        <div class="row">
-            <div id = "descr2" class="col h6 text-start mt-3 mb-2 px-5" >        
+        <div class="row px-5">
+            <div id = "descr2" class="col h6 text-start mt-4 mb-2" >        
                 From this test, we discovered so many positive aspects and findings surrounding the BOPIS widget, and it brought attention to questions such as "Does increased BOPIS create a gap in digital revenue?" and "Why?". Therefore, with further user research and ideation, I was able to create next step recommendations. Whether it may be creating new designs or revisiting our hypothesis, my team and I found that this widget had several complexities around it, and that our final recommendations consisted around: additional user research, considering different design options, and retesting and analyzing our data.
             </div>
         </div>
+
+  
     </div>
 
-</div>
-    <div class="container" style="width: 73%;">
-        <div id = "subhead2" class = "col h2 text-start mt-5 ms-4 mb-2 px-5" >
+    </div>
+    <div class="container" style="width: 65%;">
+        <div class="row">
+        <div id = "subhead2" class = "col h2 text-start mt-5 mb-2" >
             <div>
-                Created Design Recommendations
+                Next Steps
             </div> 
         </div>
+        </div>
+        <div class="row mt-4 mb-5">
+            <!-- Column 1 -->
+            <div class="col-md-4">
+                <div class="p-4" style="border: 2px solid #7868FF; border-radius: 15px; height: 100%;">
+                    <h5 id="descr1" class="mb-4 text-center">User Research with BOPIS on the PDP</h5>
+                    <ul id="descr2" style="list-style: none; padding-left: 0;">
+                        <li class="mb-3">• Evaluate whether BOPIS is a preference for AE customers & what pain points to adjust</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Column 2 -->
+            <div class="col-md-4">
+                <div class="p-4" style="border: 2px solid #7868FF; border-radius: 15px; height: 100%;">
+                    <h5 id="descr1" class="mb-4 text-center">Revisit hypothesis</h5>
+                    <ul id="descr2" style="list-style: none; padding-left: 0;">
+                        <li class="mb-3">• Customers need clarity for conversion - NSA widget may be unclear</li>
+                        <li class="mb-3">• Need a widget that doesn't distract users from main checkout flow</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Column 3 -->
+            <div class="col-md-4">
+                <div class="p-4" style="border: 2px solid #7868FF; border-radius: 15px; height: 100%;">
+                    <h5 id="descr1" class="mb-4 text-center">Test until we've Optimized Metrics</h5>
+                    <ul id="descr2" style="list-style: none; padding-left: 0;">
+                        <li class="mb-3">• With new solutions, we can continue to test & finalize a design that leads us to optimize interactions, RPV, BOPIS revenue, etc.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id = "subhead2" class = "col h2 text-start mt-5 mb-2" >
+                <div>
+                    Future Designed Recommendations
+                </div> 
+            </div>
+            </div>
         <div class="row">
             <div class="col h4 mt-5 ms-5 d-flex justify-content-center" >
                     <img src="./images/AEO/rec-1.png" class = "rounded-3" alt="control" width="290px" height="600px">
@@ -533,8 +1332,26 @@ Driving cross-platform improvements for American Eagle and Aerie’s BOPIS widge
         <div class="row">
             <div id = "subhead2"  class="col display-6 mt-5 ms-4 text-start mb-2 px-5" >
                 <div id = "reflection">
-                    Reflection
-                </div> 
+                    <div class="container">
+                        <div class="row d-flex justify-content-center mt-5 pt-5">
+                            <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                                <div style="width: 210px; height: 105px; background-color: #C9B8FF; border-radius: 210px 210px 0 0;"></div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                            <img id="process-icon" src="./images/AEO/icons/lamp.png" class="pt-5" alt="Reflection" style="width: 90px; position: relative; z-index: 2;">
+                        </div>
+                        <div class="row">
+                            <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                                <div style="width: 70%; margin: 0 auto; border-top: 2px solid #C9B8FF; border-bottom: 2px solid #C9B8FF;">
+                                    <div class="pt-2 pb-2">
+                                        Reflection
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -549,6 +1366,8 @@ Driving cross-platform improvements for American Eagle and Aerie’s BOPIS widge
             </div>
         </div>
     </div>
+
+
 
 
 <button onclick="topFunction()" id="myBtn" >
@@ -612,12 +1431,18 @@ function topFunction() {
         reset: false
     });
 
-    // Apply animation to project overview section
+    // ScrollReveal animations
+    sr.reveal('#comp-research-title', {
+        origin: 'right',
+        distance: '100px',
+        duration: 1200,
+        delay: 300
+    });
+
     sr.reveal('.project-overview-section', {
         delay: 300
     });
 
-    // Add fade-in animations for images
     sr.reveal('.background-pic1 img', {
         origin: 'right',
         distance: '100px',
@@ -641,8 +1466,7 @@ function topFunction() {
         interval: 100
     });
 
-    // Add fade-in for competitive analysis and other images
-    sr.reveal('.img-fluid:not(.background-pic1 img):not([src*="aeo.png"])', {
+    sr.reveal('.img-fluid:not(.background-pic1 img):not([src*="aeo.png"]):not([src*="aero"]):not([src*="gap"]):not([src*="nike"]):not([src*="hm"]):not([src*="af"]):not([src*="levi"]):not([src*="madewell"])', {
         origin: 'bottom',
         distance: '50px',
         duration: 1000,
@@ -650,7 +1474,6 @@ function topFunction() {
         interval: 200
     });
 
-    // Add fade-in for variant and control images
     sr.reveal('img[src*="control"]', {
         origin: 'left',
         distance: '100px',
@@ -665,7 +1488,6 @@ function topFunction() {
         delay: 400
     });
 
-    // Add fade-in for recommendation images
     sr.reveal('img[src*="rec-1"]', {
         origin: 'left',
         distance: '100px',
@@ -679,9 +1501,68 @@ function topFunction() {
         duration: 1000,
         delay: 400
     });
-</script>
 
-<script>
+    // Scroll handling
+    const scrollIndicator = document.getElementById('scroll-indicator');
+    let isScrolling;
+    window.lastScrollTop = 0;
+
+    function scrollToNextSection() {
+        const sections = ['overview-section1', 'process-section1'];
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollOffset = 50;
+
+        for (let i = 0; i < sections.length; i++) {
+            const section = document.getElementById(sections[i]);
+            if (section) {
+                const sectionTop = section.offsetTop;
+                if (currentScroll < sectionTop - scrollOffset) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    break;
+                }
+            }
+        }
+    }
+
+    window.addEventListener('scroll', () => {
+        const st = window.pageYOffset || document.documentElement.scrollTop;
+        const overviewSection = document.getElementById('overview-section1');
+        const processSection = document.getElementById('process-section1');
+        
+        if (!overviewSection || !processSection) return;
+        
+        const overviewTop = overviewSection.offsetTop;
+        const processSectionBottom = processSection.offsetTop + processSection.offsetHeight;
+        
+        // Only show indicator between overview start and process end
+        if (st < overviewTop || st > processSectionBottom) {
+            scrollIndicator.style.opacity = '0';
+            scrollIndicator.style.pointerEvents = 'none';
+            scrollIndicator.style.display = 'none'; // Completely hide the arrow
+            return;
+        }
+        
+        // Show indicator when scrolling up, hide when scrolling down
+        if (st > window.lastScrollTop) {
+            scrollIndicator.style.opacity = '0';
+        } else {
+            scrollIndicator.style.opacity = '1';
+            scrollIndicator.style.pointerEvents = 'auto';
+            scrollIndicator.style.display = 'block'; // Show the arrow
+        }
+        
+        window.lastScrollTop = st <= 0 ? 0 : st;
+
+        // Show indicator briefly after scrolling stops
+        clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+            if (st >= overviewTop && st <= processSectionBottom) {
+                scrollIndicator.style.opacity = '1';
+                scrollIndicator.style.display = 'block';
+            }
+        }, 100);
+    });
+
     // Intersection Observer for scroll snapping
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -696,7 +1577,7 @@ function topFunction() {
         threshold: 0.5
     });
 
-    // Observe both sections
+    // Observe sections
     const overviewSection = document.getElementById('overview-section1');
     const processSection = document.getElementById('process-section1');
     observer.observe(overviewSection);
