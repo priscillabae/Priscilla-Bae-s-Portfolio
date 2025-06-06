@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div class="container mt-5" style="max-width: 900px;">
+    <div class="container mt-5" id = "learn-more" style="max-width: 900px;">
           <div style="display: inline-block; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.querySelector('.btn').style.backgroundColor='#A4083A'; this.querySelector('.btn').style.color='white';" onmouseout="this.style.transform='translateY(0)'; this.querySelector('.btn').style.backgroundColor='#FFD9D2'; this.querySelector('.btn').style.color='black';">
             <img src="./images/character.png" alt="Character" style="max-width: 80px; z-index: 2; position: relative; margin-bottom: -36px; margin-left: 60px;">
             <br>
@@ -47,7 +47,37 @@
           </div>
       </div>
     </div>
+<style>
+  @media (max-width: 820px) {
+    #learn-more {
+      margin-left: 40px;
+    }
+     
+    .summary {
+      font-size: 1.2rem;
+    }
+  }
+  @media (max-width: 390px) {
+    #learn-more {
+      margin-left: 50px;
+            width: 400px;
+    }
+    #learn-more img {
+      width: 50px;
+      left:-30px;
+    }
+     #learn-more a{
+      font-size: .75rem;
+     }
 
+
+    .summary {
+      font-size: .65rem;
+      margin-left: 50px;
+      width: 300px;
+    }
+  }
+</style>
 
   <!--first part-->
 
@@ -120,7 +150,7 @@
   <div class="container">
     <div class="row p-4 mt-5text-dark text-start gx-5">
         <div class="col-12 ps-5">
-            <h1 id="subhead1" class="display-4 text-decoration-underline ps-5 ms-2">
+            <h1 id="subhead1" class="work display-4 text-decoration-underline ps-5 ms-2">
                 Work Experience
             </h1>
         </div>
