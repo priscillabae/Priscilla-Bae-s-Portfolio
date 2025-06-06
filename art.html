@@ -44,22 +44,23 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.8);
             border: none;
             cursor: pointer;
-            font-size: 24px;
+            font-size: 20px;
             z-index: 10;
+            color: black;
         }
 
         #prev {
-            left: 20px;
+            left: 25%;
         }
 
         #next {
-            right: 20px;
+            right: 25%;
         }
 
         /* Tablet Media Query */
@@ -78,10 +79,12 @@
                 height: 400px;
             }
 
-            #next, #prev {
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
+            #prev {
+                left: 15%;
+            }
+
+            #next {
+                right: 15%;
             }
 
             .navbar .container {
@@ -118,10 +121,12 @@
                 height: 320px;
             }
 
-            #next, #prev {
-                width: 35px;
-                height: 35px;
-                font-size: 18px;
+            #prev {
+                left: 9%;
+            }
+
+            #next {
+                right: 3%;
             }
 
             .navbar .container {
@@ -166,7 +171,7 @@
         }
 
         .navbar-nav .nav-link:hover {
-            color: #7868FF !important;
+            color: #666666 !important;
         }
 
         .navbar-brand {
@@ -183,7 +188,7 @@
         }
 
         .dropdown-item:hover {
-            background-color: #7868FF;
+            background-color: #666666;
             color: white;
         }
 
@@ -218,7 +223,7 @@
             }
 
             .nav-link:hover {
-                color: #7868FF !important;
+                color: #666666 !important;
             }
 
             .dropdown-menu {
@@ -232,7 +237,7 @@
             }
 
             .dropdown-item:hover {
-                background-color: #7868FF;
+                background-color: #666666;
                 color: white;
             }
         }
