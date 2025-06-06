@@ -12,50 +12,53 @@ function executeAsynchronously(texts) {
 
 function type(text, id, delay) {
   const elem = document.getElementById(id);
-  for (let i = 0; i < text.length; i++) {
-    setTimeout(() => {
-      elem.textContent += text.charAt(i);
-    }, i * delay);
+  if (elem) {
+    for (let i = 0; i < text.length; i++) {
+      setTimeout(() => {
+        elem.textContent += text.charAt(i);
+      }, i * delay);
+    }
   }
 }
 
-
-let items = document.querySelectorAll('.slider .item');
+// Art Carousel
+document.addEventListener('DOMContentLoaded', function() {
+    let items = document.querySelectorAll('.slider .item');
     let next = document.getElementById('next');
     let prev = document.getElementById('prev');
     
-    let active = 3;
+    let active = 0;
     function loadShow(){
-        let stt = 0;
-        items[active].style.transform = `none`;
-        items[active].style.zIndex = 1;
-        items[active].style.filter = 'none';
-        items[active].style.opacity = 1;
-        for(var i = active + 1; i < items.length; i++){
-            stt++;
-            items[i].style.transform = `translateX(${120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(-1deg)`;
-            items[i].style.zIndex = -stt;
-            items[i].style.filter = 'blur(5px)';
-            items[i].style.opacity = stt > 2 ? 0 : 0.6;
-        }
-        stt = 0;
-        for(var i = active - 1; i >= 0; i--){
-            stt++;
-            items[i].style.transform = `translateX(${-120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(1deg)`;
-            items[i].style.zIndex = -stt;
-            items[i].style.filter = 'blur(5px)';
-            items[i].style.opacity = stt > 2 ? 0 : 0.6;
-        }
+        items.forEach((item, index) => {
+            const offset = index - active;
+            const direction = offset > 0 ? 1 : -1;
+            const absOffset = Math.abs(offset);
+            
+            if (absOffset <= 2) {
+                item.style.opacity = absOffset === 0 ? '1' : '0.6';
+                item.style.transform = `translateX(${direction * 120 * absOffset}px) scale(${1 - 0.2 * absOffset})`;
+                item.style.zIndex = 3 - absOffset;
+                item.style.filter = absOffset === 0 ? 'none' : 'blur(5px)';
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = `translateX(${direction * 240}px) scale(0.6)`;
+                item.style.zIndex = 0;
+            }
+        });
     }
+
     loadShow();
+
     next.onclick = function(){
         active = active + 1 < items.length ? active + 1 : active;
         loadShow();
     }
+
     prev.onclick = function(){
         active = active - 1 >= 0 ? active - 1 : active;
         loadShow();
     }
+});
 
 
 

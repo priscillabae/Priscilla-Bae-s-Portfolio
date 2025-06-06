@@ -8,6 +8,235 @@
     <link rel="stylesheet" href="style.css">
     <title>Art & Design</title>
     <script defer src="script.js"></script>
+    <style>
+        /* Base styles */
+        .art-title {
+            padding-top: 120px;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item {
+            position: absolute;
+            width: 400px;
+            height: 500px;
+            transition: all 0.5s ease-in-out;
+            opacity: 0;
+            filter: blur(5px);
+            transform: scale(0.8);
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        #next, #prev {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 10;
+        }
+
+        #prev {
+            left: 20px;
+        }
+
+        #next {
+            right: 20px;
+        }
+
+        /* Tablet Media Query */
+        @media screen and (max-width: 820px) {
+            .art-title {
+                width: 90% !important;
+                padding-top: 100px;
+            }
+
+            .slider {
+                height: 500px;
+            }
+
+            .item {
+                width: 350px;
+                height: 400px;
+            }
+
+            #next, #prev {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .navbar .container {
+                padding: 0 20px;
+            }
+
+            .nav-link {
+                padding: 10px 20px !important;
+            }
+        }
+
+        /* Mobile Media Query */
+        @media screen and (max-width: 390px) {
+            .art-title {
+                width: 95% !important;
+                padding-top: 80px;
+            }
+
+            .design {
+                font-size: 2rem !important;
+            }
+
+            #descr2 h5 {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .slider {
+                height: 400px;
+            }
+
+            .item {
+                width: 280px;
+                height: 320px;
+            }
+
+            #next, #prev {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+
+            .navbar .container {
+                height: 80px !important;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .nav-link {
+                padding: 8px 15px !important;
+            }
+
+            footer {
+                padding: 30px 15px !important;
+            }
+
+            footer .ms-5 {
+                margin-left: 1rem !important;
+            }
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #FFD9D2 !important;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.75rem;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .navbar-nav .nav-link {
+            color: black !important;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #7868FF !important;
+        }
+
+        .navbar-brand {
+            color: black !important;
+        }
+
+        .dropdown-menu {
+            background-color: #FFD9D2;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .dropdown-item {
+            color: black;
+        }
+
+        .dropdown-item:hover {
+            background-color: #7868FF;
+            color: white;
+        }
+
+        @media screen and (max-width: 390px) {
+            .navbar {
+                background-color: #FFD9D2 !important;
+            }
+
+            .navbar .container {
+                height: 60px !important;
+            }
+
+            .navbar-brand {
+                font-size: 1.25rem;
+                color: black !important;
+            }
+
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+            }
+
+            .navbar-collapse {
+                background-color: #FFD9D2;
+                padding: 1rem;
+                border-radius: 0 0 10px 10px;
+            }
+
+            .nav-link {
+                padding: 0.5rem 1rem !important;
+                text-align: center;
+                color: black !important;
+            }
+
+            .nav-link:hover {
+                color: #7868FF !important;
+            }
+
+            .dropdown-menu {
+                text-align: center;
+                border: none;
+                background-color: #FFD9D2;
+            }
+
+            .dropdown-item {
+                color: black;
+            }
+
+            .dropdown-item:hover {
+                background-color: #7868FF;
+                color: white;
+            }
+        }
+    </style>
 </head>
 <body style="background-color:black;">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -16,33 +245,34 @@
 
 
 
-    <nav id = "navbar" class = "navbar navbar-expand-md fixed-top "><!--Collapses the navbar at a medium sized screen-->
-        <div class = "container" style="height: 100px;"> <!-- container inside of navbar to separate navbar from other content-->
-            <a id="PB" class ="navbar-brand text-white" href ="./index.html"><em>PB</em></a> 
-            <button class = "navbar-toggler" data-bs-toggle = "collapse" data-bs-target = "#collapse">Options</button>
-            <div class = "collapse navbar-collapse" id = "collapse">  <!--A button that is pressed to show different navigations-->
-                <ul id = "nav-text" class="navbar-nav ms-auto ">
-                    <li class = "nav-item">
-                        <a class="nav-link px-5 text-white" href ="about.html">About Me</a> <!--if the nav bar is clicked, takes the user to different parts of the page  -->
+    <nav id="navbar" class="navbar smart-scroll navbar-expand-md fixed-top">
+        <div class="container header-main" style="height: 75px;">
+            <a id="PB" class="navbar-brand text-white" href="index.html"><em>PB</em></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapse">
+                <ul id="nav-text" class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link px-5" href="about.html">About Me</a>
                     </li>
-                    <li class = "nav-item">
-                        <div class="dropdown show">
-                            <a class="btn dropdown-toggle text-white" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Experience 
+                    <li class="nav-item dropdown">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle px-5" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="dropdown-text">Experience</div>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" href="./index.html#nav-container">Work Experience</a>
-                              <a class="dropdown-item" href="./index.html#projects">Projects</a>
-                            </div>
-                          </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href="./index.html#nav-container">Work Experience</a></li>
+                                <li><a class="dropdown-item" href="./index.html#projects">Projects</a></li>
+                            </ul>
+                        </div>
                     </li>
-                    <li class = "nav-item">
-                        <a class="nav-link px-5 text-white" href ="art.html">Art & Design</a>
+                    <li class="nav-item">
+                        <a class="nav-link px-5" href="art.html">Art & Design</a>
                     </li>
-                    <li class = "nav-item">
-                        <a class="nav-link text-white" href ="https://drive.google.com/file/d/142vSZV0epUAXWcApz43jjP-5FqxHCxdz/view?usp=sharing">Resume</a>
+                    <li class="nav-item">
+                        <a class="nav-link px-5" href="https://drive.google.com/file/d/142vSZV0epUAXWcApz43jjP-5FqxHCxdz/view?usp=sharing">Resume</a>
                     </li>
-                    
                 </ul>
             </div>
         </div>
@@ -51,13 +281,13 @@
     <script>
         var prevScrollpos = window.pageYOffset;
         window.onscroll = function() {
-        var currentScrollPos = window.pageYOffset;
-          if (prevScrollpos > currentScrollPos) {
-            document.getElementById("navbar").style.top = "0";
-          } else {
-            document.getElementById("navbar").style.top = "-70px";
-          }
-          prevScrollpos = currentScrollPos;
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("navbar").style.top = "0";
+            } else {
+                document.getElementById("navbar").style.top = "-70px";
+            }
+            prevScrollpos = currentScrollPos;
         }
     </script>
 
@@ -80,59 +310,40 @@
 
     <div class="slider mt-5 mb-5">
         <div class="item mt-5">
-            <h1>
-                <img src="./images/art/art3.jpg" alt="art" class = "art" width="400px;" height="500px;">
-                <div id = "descr2" class = "mt-2 h6 text-white text-center"><em>No Place Like Home <br> (Oil)</em></div>
-            </h1>
+            <img src="./images/art/art3.jpg" alt="No Place Like Home" class="art">
+            <div id="descr2" class="mt-2 h6 text-white text-center"><em>No Place Like Home <br> (Oil)</em></div>
         </div>
         <div class="item">
-            <h1>
-                <img src="./images/art/art6.png" alt="art" class = "art mt-5" width="450px;" height="500px;">
-                <div id = "descr2" class = "mt-2 h6 text-white text-center"><em>Mission Impossible <br>(Digital)</em></div>
-            </h1>
+            <img src="./images/art/art6.png" alt="Mission Impossible" class="art">
+            <div id="descr2" class="mt-2 h6 text-white text-center"><em>Mission Impossible <br>(Digital)</em></div>
         </div>
         <div class="item">
-            <h1>
-                <img src="./images/art/art2.jpg" alt="art" class = "art mt-5" width="400px;" height="500px;">
-                <div id = "descr2" class = "mt-2 h6 text-white text-center"><em>Breath of Fresh Air <br>(Acrylic)</em></div>
-            </h1>
+            <img src="./images/art/art2.jpg" alt="Breath of Fresh Air" class="art">
+            <div id="descr2" class="mt-2 h6 text-white text-center"><em>Breath of Fresh Air <br>(Acrylic)</em></div>
         </div>
         <div class="item">
-            <h1>
-                <img src="./images/art/art1.jpg" alt="art" class = "art mt-5" width="400px;" height="500px;">
-                <div id = "descr2" class = "mt-2 h6 text-white text-center"><em>Metamorphasis <br>(Acrylic, Gouache, Water Color)</em></div>
-            </h1>
+            <img src="./images/art/art1.jpg" alt="Metamorphasis" class="art">
+            <div id="descr2" class="mt-2 h6 text-white text-center"><em>Metamorphasis <br>(Acrylic, Gouache, Water Color)</em></div>
         </div>
-        <div class="item mt-5">
-            <h1>
-                 <img src="./images/art/art5.jpg" alt="art" class = "art" width="400px;" height="500px;">
-                 <div id = "descr2" class = "mt-2 h6 text-white text-center"><em>A True Reflection <br>(Pencil, Watercolor)</em></div>
-
-            </h1>
+        <div class="item">
+            <img src="./images/art/art5.jpg" alt="A True Reflection" class="art">
+            <div id="descr2" class="mt-2 h6 text-white text-center"><em>A True Reflection <br>(Pencil, Watercolor)</em></div>
         </div>
-        <div class="item mt-5">
-            <h1>  
-                <img src="./images/art/art9.jpg" alt="art" class = "art" width="400px;" height="500px;">
-                <div id = "descr2" class = "mt-2 h6 text-white text-center"><em>Daydreaming <br>(Watercolor)</em></div>
-            </h1>
+        <div class="item">
+            <img src="./images/art/art9.jpg" alt="Daydreaming" class="art">
+            <div id="descr2" class="mt-2 h6 text-white text-center"><em>Daydreaming <br>(Watercolor)</em></div>
         </div>
-        <div class="item mt-5">
-            <h1>
-                <img src="./images/art/art8.PNG" alt="art" class = "art" width="450px;" height="500px;">
-                <div id = "descr2" class = "mt-2 h6 text-white text-center"><em>Who's Looking? <br>(Gouache, Acrylic)</em></div>
-            </h1>
+        <div class="item">
+            <img src="./images/art/art8.PNG" alt="Who's Looking?" class="art">
+            <div id="descr2" class="mt-2 h6 text-white text-center"><em>Who's Looking? <br>(Gouache, Acrylic)</em></div>
         </div>
-        <div class="item mt-5">
-            <h1>
-                <img src="./images/art/art7.png" alt="art" class = "art" width="450px;" height="500px;">
-                <div id = "descr2" class = "mt-2 h6 text-white text-center"><em>Night of Tears <br>(Pen)</em></div>
-            </h1>
+        <div class="item">
+            <img src="./images/art/art7.png" alt="Night of Tears" class="art">
+            <div id="descr2" class="mt-2 h6 text-white text-center"><em>Night of Tears <br>(Pen)</em></div>
         </div>
-        <div class="item mt-5">
-            <h1>
-                <img src="./images/art/art4.png" alt="art" class = "art" width="430px;" height="450px;">
-                <div id = "descr2" class = "mt-2 h6 text-white text-center"><em>Okay <br>(Mixed Media, Marker, Pen, Color Pencil)</em></div>
-            </h1>
+        <div class="item">
+            <img src="./images/art/art4.png" alt="Okay" class="art">
+            <div id="descr2" class="mt-2 h6 text-white text-center"><em>Okay <br>(Mixed Media, Marker, Pen, Color Pencil)</em></div>
         </div>
         
         <button id="next">></button>
