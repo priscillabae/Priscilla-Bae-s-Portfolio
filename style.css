@@ -601,22 +601,70 @@ border-color: black;
 
 .fade-in-left, .fade-in-right {
   opacity: 0;
-  transform: translateX(0);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateX(100px);
+  transition: all 1.2s ease-out;
 }
 
 .fade-in-left {
-  transform: translateX(-50px);
+  transform: translateX(-100px);
 }
 
 .fade-in-right {
-  transform: translateX(50px);
+  transform: translateX(100px);
 }
 
 .fade-in-visible {
   opacity: 1;
   transform: translateX(0);
 }
+
+#comp-research {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 1.2s ease-out;
+}
+
+#comp-research.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#comp-research #process-icon {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+  transition-delay: 0.2s;
+}
+
+#comp-research.visible #process-icon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#comp-research #half-circle {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 1s ease-out;
+  transition-delay: 0.1s;
+}
+
+#comp-research.visible #half-circle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#comp-research #process-text {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 1.2s ease-out;
+  transition-delay: 0.3s;
+}
+
+#comp-research.visible #process-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /**__________________________________________________________________________________**/
 
 /* Work cards layout for laptop */
@@ -2003,4 +2051,15 @@ footer h5#descr2 {
   a[href="./canon_marketing.html"] .parallax-foreground { background-image: url('./images/Canon_Marketing/para.png') !important; }
   a[href="./research.html"] .parallax-foreground { background-image: url('./images/Reddit/para.png') !important; } /* This targets the Reddit card */
   a[href="./roundtable.html"] .parallax-foreground { background-image: url('./images/RoundTable/para.png') !important; } /* This targets the Round Table Coffee card if it had a unique href */
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.8s ease-out;
+}
+
+.slide-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
 }

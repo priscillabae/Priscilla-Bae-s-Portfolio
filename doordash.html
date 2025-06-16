@@ -6,6 +6,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
     <title>DoorDash</title>
     <style>
         html {
@@ -19,9 +20,41 @@
             overflow-y: scroll;
         }
 
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 1s ease-out forwards;
+            opacity: 0;
+        }
+
         #overview-section6, #process-section6 {
             scroll-snap-align: start;
-            scroll-snap-stop: normal;
+            scroll-snap-stop: always;
             min-height: 100vh;
             position: relative;
             padding: 60px 0;
@@ -66,9 +99,73 @@
             background-size: cover;
             background-position: center;
         }
+
+        /* Scroll indicator styles */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 9999;
+            pointer-events: auto;
+            text-align: center;
+        }
+
+        .scroll-arrow {
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+
+        .scroll-arrow::before,
+        .scroll-arrow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 3px;
+            background-color: black;
+            border-radius: 1.5px;
+        }
+
+        .scroll-arrow::before {
+            transform: translate(-80%, -50%) rotate(45deg);
+        }
+
+        .scroll-arrow::after {
+            transform: translate(-20%, -50%) rotate(-45deg);
+        }
+
+        .swipe-text {
+            font-size: 12px;
+            color: black;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
     </style>
 </head>
 <body>
+    <div id="scroll-indicator" class="scroll-indicator" onclick="scrollToNextSection()">
+        <div class="swipe-text">SWIPE</div>
+        <div class="scroll-arrow"></div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
@@ -1019,6 +1116,59 @@ function topFunction() {
 </footer>
 
 <script>
+    // Initialize ScrollReveal
+    const sr = ScrollReveal({
+        origin: 'left',
+        distance: '100px',
+        duration: 1000,
+        delay: 200,
+        easing: 'cubic-bezier(0.5, 0, 0, 1)',
+        reset: false
+    });
+
+    // Configure animations for titles
+    sr.reveal('#search-title', { origin: 'left' });
+    sr.reveal('#solution-title', { origin: 'right' });
+    sr.reveal('#wireframing-title', { origin: 'left' });
+    sr.reveal('#roi-title', { origin: 'right' });
+    sr.reveal('#reflection-title', { origin: 'left' });
+
+    // Fade in animations for overview section
+    sr.reveal('#overview-section6 .display-6', {
+        delay: 300,
+        distance: '50px',
+        duration: 800
+    });
+    sr.reveal('#overview-section6 .h6', {
+        delay: 400,
+        distance: '50px',
+        duration: 800
+    });
+    sr.reveal('#overview-section6 .project-overview-section', {
+        delay: 500,
+        distance: '50px',
+        duration: 800
+    });
+
+    // Fade in animations for process section
+    sr.reveal('#process-section6 .display-6', {
+        delay: 300,
+        distance: '50px',
+        duration: 800
+    });
+    sr.reveal('#process-container', {
+        delay: 400,
+        distance: '50px',
+        duration: 800
+    });
+
+    // Fade in animation for doordash.png
+    sr.reveal('.background-pic img', {
+        delay: 300,
+        distance: '50px',
+        duration: 800
+    });
+
     // Intersection Observer for scroll snapping
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1105,6 +1255,40 @@ function topFunction() {
     newUiImage.addEventListener('click', function() {
         newIndex = (newIndex + 1) % newImagePaths.length;
         updateNewCarousel();
+    });
+</script>
+
+<script>
+    // Scroll indicator functionality
+    const scrollIndicator = document.getElementById('scroll-indicator');
+    const swipeText = document.querySelector('.swipe-text');
+
+    function scrollToNextSection() {
+        const overviewSection = document.getElementById('overview-section6');
+        const processSection = document.getElementById('process-section6');
+        
+        if (window.scrollY < overviewSection.offsetTop) {
+            overviewSection.scrollIntoView({ behavior: 'smooth' });
+        } else if (window.scrollY < processSection.offsetTop) {
+            processSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Hide SWIPE text when scrolling past first screen and hide entire indicator after process section
+    window.addEventListener('scroll', () => {
+        const overviewSection = document.getElementById('overview-section6');
+        const processSection = document.getElementById('process-section6');
+        
+        if (window.scrollY >= processSection.offsetTop + processSection.offsetHeight) {
+            scrollIndicator.style.display = 'none';
+        } else {
+            scrollIndicator.style.display = 'block';
+            if (window.scrollY >= overviewSection.offsetTop) {
+                swipeText.style.display = 'none';
+            } else {
+                swipeText.style.display = 'block';
+            }
+        }
     });
 </script>
 </body>

@@ -60,5 +60,61 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Initialize ScrollReveal
+const sr = ScrollReveal({
+    origin: 'left',
+    distance: '100px',
+    duration: 1200,
+    delay: 300,
+    easing: 'ease',
+    reset: false
+});
+
+// Configure animations for competitive research section
+const compResearchObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.2,
+    rootMargin: '50px'
+});
+
+// Observe the competitive research section
+const compResearch = document.getElementById('comp-research');
+if (compResearch) {
+    compResearchObserver.observe(compResearch);
+}
+
+sr.reveal('#comp-research', {
+    origin: 'left',
+    distance: '100px',
+    duration: 1200,
+    delay: 300
+});
+
+sr.reveal('#comp-research #process-icon', {
+    origin: 'bottom',
+    distance: '30px',
+    duration: 800,
+    delay: 200
+});
+
+sr.reveal('#comp-research #half-circle', {
+    origin: 'top',
+    distance: '50px',
+    duration: 1000,
+    delay: 100
+});
+
+sr.reveal('#comp-research #process-text', {
+    origin: 'left',
+    distance: '100px',
+    duration: 1200,
+    delay: 300
+});
+
 
 
