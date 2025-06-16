@@ -619,50 +619,27 @@ border-color: black;
 }
 
 #comp-research {
-  opacity: 0;
-  transform: translateX(100px);
-  transition: all 1.2s ease-out;
-}
-
-#comp-research.visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: none;
+  transition: none;
 }
 
 #comp-research #process-icon {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-  transition-delay: 0.2s;
-}
-
-#comp-research.visible #process-icon {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+  transition: none;
 }
 
 #comp-research #half-circle {
-  opacity: 0;
-  transform: translateY(-50px);
-  transition: all 1s ease-out;
-  transition-delay: 0.1s;
-}
-
-#comp-research.visible #half-circle {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+  transition: none;
 }
 
 #comp-research #process-text {
-  opacity: 0;
-  transform: translateX(100px);
-  transition: all 1.2s ease-out;
-  transition-delay: 0.3s;
-}
-
-#comp-research.visible #process-text {
   opacity: 1;
-  transform: translateX(0);
+  transform: none;
+  transition: none;
 }
 
 /**__________________________________________________________________________________**/
@@ -906,27 +883,16 @@ z-index: 2;
 
 /* AE page specific background */
 .ae-bg {
-background-image: url('./images/AEO/aeo.png');
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-position: relative;
-}
-
-.ae-bg::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: rgba(255, 255, 255, 0.4);
-z-index: 1;
+    background-image: url('./images/AEO/aeo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 .ae-bg .card-img-overlay {
-position: relative;
-z-index: 2;
+    position: relative;
+    z-index: 2;
 }
 
 /* canon ux page specific background */
@@ -936,6 +902,7 @@ background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
 position: relative;
+filter: brightness(1.4); /* Make the background image lighter */
 }
 
 /* canon marketing page specific background */
@@ -2062,4 +2029,121 @@ footer h5#descr2 {
 .slide-in-right.visible {
     opacity: 1;
     transform: translateX(0);
+}
+
+#process-section3 {
+    position: relative;
+    min-height: 100vh;
+    /* No background-image or filter here */
+}
+
+#process-section3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('./images/Canon_UX/process.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.5); /* Adjust brightness of the background image */
+    z-index: 1;
+}
+
+#process-section3 > * {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+#process-section3 h1,
+#process-section3 h2,
+#process-section3 h3,
+#process-section3 h4,
+#process-section3 h5,
+#process-section3 h6,
+#process-section3 p,
+#process-section3 span,
+#process-section3 div {
+    color: white;
+}
+
+#overview-section3 {
+    background-image: url('./images/Canon_UX/project.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+}
+
+#overview-section3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+}
+
+#overview-section3 > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Canon UX page specific navbar style */
+.ux-bg .navbar,
+.ux-bg .navbar-scroll {
+    background-color: #000000 !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .15);
+}
+
+
+
+.ux-bg .navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+#comp-research-title {
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+
+#comp-research-title .row {
+    opacity: 1;
+    transform: none;
+}
+
+#comp-research-title img {
+    opacity: 1;
+    transform: none;
+}
+
+#comp-research-title #descr1 {
+    opacity: 1;
+    transform: none;
+    z-index: 3; /* Ensure text is above other elements */
+}
+
+/* Animation styles for fade-in effect */
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 1.2s ease-out;
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 1.2s ease-out;
+}
+
+.fade-in-visible {
+  opacity: 1;
+  transform: translateX(0);
 }

@@ -72,8 +72,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
-    <div class = "bg-image ux-bg" style="background-image" >
-        <div class = "container card-img-overlay text-center" >
+    <div class = "bg-image ux-bg" >
+        <div class = "container card-img-overlay text-center text-light" >
             <div class = "row">
                 <div class = "col p-5" ></div> 
             </div>
@@ -90,7 +90,7 @@
                         </div> 
                 </div> 
                 <div class = "background-pic col text-start px-5">
-                    <img src="./images/Canon_UX/amlos.png" alt="Amlos" class="shadow-lg shadow-intensity-dark rounded-5 img-fluid" width="390px" height="230px">
+                    <img src="./images/Canon_UX/amlos.png" alt="Amlos" class="shadow-lg shadow-intensity-dark rounded-5 img-fluid fade-in-right" width="390px" height="230px">
                 </div>
             </div>
 
@@ -169,19 +169,19 @@
 
     <nav id="navbar" class="navbar smart-scroll navbar-expand-md fixed-top">
         <div class="container header-main" style="height: 75px;">
-          <a id="PB" class="navbar-brand" href="index.html"><em>PB</em></a>
+          <a id="PB" class="navbar-brand text-light" href="index.html"><em>PB</em></a>
           <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="collapse">
-            <ul id="nav-text" class="navbar-nav ms-auto align-items-center">
+            <ul id="nav-text" class="navbar-nav ms-auto align-items-center ">
               <li class="nav-item">
-                <a class="nav-link px-5" href="about.html">About Me</a>
+                <a class="nav-link px-5 text-light" href="about.html">About Me</a>
               </li>
               <li class="nav-item dropdown">
                 <div class="dropdown">
-                  <a class="nav-link dropdown-toggle px-5 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class = "dropdown-text">Experience</div>
+                  <a class="nav-link dropdown-toggle px-5 text-light " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class = "dropdown-text ">Experience</div>
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <li><a class="dropdown-item" href="./index.html#nav-container">UX/UI Design</a></li>
@@ -192,10 +192,10 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-5" href="art.html">Art & Design</a>
+                <a class="nav-link px-5 text-light" href="art.html">Art & Design</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link px-5" href="https://drive.google.com/file/d/142vSZV0epUAXWcApz43jjP-5FqxHCxdz/view?usp=sharing">Resume</a>
+              <li class="nav-item ">
+                <a class="nav-link px-5 text-light" href="https://drive.google.com/file/d/142vSZV0epUAXWcApz43jjP-5FqxHCxdz/view?usp=sharing">Resume</a>
               </li>
             </ul>
           </div>
@@ -243,7 +243,18 @@
                 As a UX Design Intern, I collaborated with the UX/UI team at ID8 to improve the interface and functionality of AMLOS, a hybrid collaboration system. I contributed fresh design ideas through sample interfaces and additional features built in Figma. To better understand user needs, I also led focus group studies that gathered feedback on how the general public and market would engage with the interface.
             </div>
     </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-12" style="position: relative;">
+            <div style="border: 2px solid black; padding: 3.5rem; margin-top: 1rem;background-color: white;">
+                <h2 class= "shadow-lg shadow-intensity-dark rounded-3"style="border: 1px solid red ; color: red; font-style: italic; position: absolute; top: 0; left: -1rem; transform: translateY(-30%); background: white; padding: .5rem 1.5rem; margin: 0; font-size: 3.0rem;">The Problem</h2>
+                <div id="descr1" class="h5 mb-0">
+                    The existing AMLOS system lacked the intuitive, modern design the team aimed for. Key features, such as multiple room views, did not adjust naturally, and the platform relied on third-party tools like Microsoft Teams and Zoom instead of functioning as a stand-alone hybrid solution. These limitations hindered user experience and innovation, prompting the need for a more integrated and user-friendly redesign.
+                </div>
+            </div>       
+        </div>
+    </div>
 </div>
+
 </section>
 
 <section id="process-section3" class="scroll-section" style="padding-top: 20vh;">
@@ -258,15 +269,15 @@
 <div id = "process-container" class="container" >
     <div class="row" style="width: 1200px;">
             <div id = "hover-1" class="col" style="width: 150px;" >
-                <a class="nav-link px-5" href ="./canon_ux.html#focus-group">
+                <a class="nav-link px-5" href ="./canon_ux.html#focus">
                     <div class="row">
-                        <div id = "half-circle" class="col d-flex justify-content-center">
-                            <img src="./images/Canon_UX/process2.jpg" alt="Overhead half circle" style="width: 250px;">
+                        <div id = "half-circle" class="col d-flex justify-content-center ms-2">
+                            <img src="./images/Canon_UX/process1.jpg" alt="Overhead half circle" style="width: 400px;">
                         </div> 
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-center">
-                            <img id = "process-icon" src="./images/Canon_UX/icons/multiple-users-silhouette.png" alt="Research Books" style="width: 70px;">
+                            <img id = "process-icon" src="./images/Canon_UX/icons/focus.png" alt="Research Books" style="width: 70px;">
                         </div>
                     </div>
                     <div class="row">
@@ -277,10 +288,10 @@
                 </a>
             </div>
             <div id = "hover-2" class="col" style="width: 150px;">
-                <a class="nav-link px-5" href ="./canon_ux.html#design">
+                <a class="nav-link px-5" href ="./canon_ux.html#mock">
                     <div class="row">
-                        <div class="col d-flex justify-content-center">
-                            <img id = "process-icon-top" src="./images/Canon_UX/icons/graphic-design.png" alt="Girl with List"> 
+                        <div class="col d-flex justify-content-center ms-2">
+                            <img id = "process-icon-top" src="./images/Canon_UX/icons/design.png" alt="Girl with List"> 
                         </div> 
                     </div>
                     <div class="row">
@@ -290,7 +301,7 @@
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-center">
-                            <img id = "half-circle-bot" src="./images/Canon_Marketing/process1.jpg" alt="Overhead half circle" style="width: 250px;">
+                            <img id = "half-circle-bot" src="./images/Canon_UX/process2.jpg" alt="Overhead half circle" style="width: 400px;">
 
                         </div>
                     </div>
@@ -299,13 +310,13 @@
         <div id = "hover-3" class="col" style="width: 150px;">
             <a class="nav-link px-5" href ="./canon_ux.html#reflection">
                 <div class="row">
-                    <div id = "half-circle" class="col d-flex justify-content-center px-3">
-                        <img src="./images/Canon_Marketing/process2.jpg" alt="Overhead half circle" style="width: 250px;">
+                    <div id = "half-circle" class="col d-flex justify-content-center px-3 ms-2">
+                        <img src="./images/Canon_UX/process1.jpg" alt="Overhead half circle" style="width: 400px;">
                     </div> 
                 </div>
                 <div class="row" >
                     <div class="col d-flex justify-content-center ">
-                        <img id = "process-icon" src="./images/Canon_UX/icons/idea.png" alt="Camera" style="width: 70px;">
+                        <img id = "process-icon" src="./images/Canon_UX/icons/lamp.png" alt="Camera" style="width: 80px;">
                     </div>
                 </div>
                 <div class="row">
@@ -320,18 +331,34 @@
 </section>
 
 
-<div class="container" style="width: 70%;">
+<div id = "focus" class="container mt-5 pt-5" style="width: 70%;">
     <div class="row">
-        <div id = "subhead2" class = "col display-6 text-start mt-3 mb-2 px-5" >
-            <div id = "focus-group">
-                Focus Group
+        <div id="subhead2" class="col display-6 text-start ">
+            <div id="focus-title" class="container fade-in-left">
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                        <div style="width: 210px; height: 105px; background-color: #cc0303; border-radius: 210px 210px 0 0;"></div>
+            </div> 
+        </div>
+                <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <img id="process-icon" src="./images/Canon_UX/icons/multiple-users-silhouette.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+    </div>
+    <div class="row">
+                    <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                        <div style="width: 70%; margin: 0 auto; border-top: 2px solid #cc0303; border-bottom: 2px solid #cc0303;">
+                            <div class="pt-2 pb-2">
+                                Focus Group
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     
 
     <div class="row">
-        <div id = "descr2" class = "col h6 text-start mb-2  px-5 " >
+        <div id = "descr2" class = "col h6 text-center mt-5 mb-2  px-5 lh-base " >
              Leading a group of  12 young adults, 18-24 years old, my team and I were able to create a group-focused study. While my team and I each led a group of 4 individuals while the other 4 individuals were placed into separate rooms. From there, we created a hypothetical scenario where these individuals were tasked with creating a new logo name and design for AMLOS through hybrid creative collaboration. By leading this scenario, we were able to gain further insights on how to improve the overall intuitiveness of the interface and apply user testing to creating an updated version.
         </div>
     </div>
@@ -348,86 +375,191 @@
 
 
 
-<div class="container" style="width: 70%;">
+<div id = "mock" class="container mt-5 pt-5" style="width: 70%;">
     <div class="row">
-        <div id = "subhead2" class = "col display-6 text-start mt-5 mb-2 px-5" >
-            <div id = "design">
-                Mock Designs
+        <div id="subhead2" class="col display-6 text-start ">
+            <div id="mock-title" class="container fade-in-right">
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                        <div style="width: 210px; height: 105px; background-color: #cc0303; border-radius: 210px 210px 0 0;"></div>
+            </div> 
+        </div>
+                <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <img id="process-icon" src="./images/Canon_UX/icons/graphic-design.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+    </div>
+    <div class="row">
+                    <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                        <div style="width: 70%; margin: 0 auto; border-top: 2px solid #cc0303; border-bottom: 2px solid #cc0303;">
+                            <div class="pt-2 pb-2">
+                                Mock Designs
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div> 
+        </div>
     </div>
 
 
     <div class="row">
-        <div id = "descr2" class="col h6 text-start mb-2  px-5" >
-                Our main focus was creating AMLOS features that created an essence of a stand-alone solution. This included implementing designs such as chat boxes, video carousels, audio options, etc. As I was able to pitch ideas to the AMLOS and UX design teams, we were able to collaboratively incorporate designs for the new version release. 
+        <div id = "descr2" class="col h6 text-start mb-2  px-5 mt-5 lh-base" >
+                Our main focus was creating AMLOS features that created an essence of a stand-alone solution.  <br><br>
+                This included implementing designs such as chat boxes, video carousels, audio options, etc. As I was able to pitch ideas to the AMLOS and UX design teams, we were able to collaboratively incorporate designs for the new version release. 
+            I brainstormed many different ideas ranging from:
+            <div class="accordion mt-4" id="ideasAccordion">
+                <!-- Tutorial Feature -->
+                <div class="accordion-item border-0 mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#tutorialFeature" aria-expanded="false" aria-controls="tutorialFeature" style="background-color: #fed0e0; border-radius: 15px; color: black;">
+                            Adding a Tutorial Feature
+                            
+                        </button>
+                    </h2>
+                    <div id="tutorialFeature" class="accordion-collapse collapse" data-bs-parent="#ideasAccordion">
+                        <div class="accordion-body">
+
+                            <div>I added a tutorial feature in AMLOS to help first-time users quickly understand the system's core functions. Since the interface was being redesigned for greater independence and usability, the tutorial ensured a smoother onboarding experience and reduced the learning curve for new users.
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4">
+                                    <img src="images/Canon_UX/tut1.png" alt="Tutorial Image 1" class="img-fluid" style="height: 95%;">
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="images/Canon_UX/tut2.png" alt="Tutorial Image 2" class="img-fluid">
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="images/Canon_UX/tut3.png" alt="Tutorial Image 3" class="img-fluid">
+                                </div>
+                            </div>
+
+                            <div>
+                                With the limited time left in the internship, the full prototype of the AMLOS feature was not completed, but we were able to create a starting place that utlizied the color pallette and aesthetics of the original UI.
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Screens -->
+                <div class="accordion-item border-0 mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#bottomScreens" aria-expanded="false" aria-controls="bottomScreens" style="background-color: #fed0e0; border-radius: 15px; color: black;">
+                            Simplification of Bottom Screens
+                            
+                        </button>
+                    </h2>
+                    <div id="bottomScreens" class="accordion-collapse collapse" data-bs-parent="#ideasAccordion">
+                        <div class="accordion-body">
+                            <!-- Current Design Section -->
+                            <div class="row g-0">
+                                <div class="col-12">
+                                    <div id="subhead2" class="h5 mb-2 mt-3 text-start">
+                                        <img src="./images/Canon_UX/original.png" class="rounded-3 img-fluid w-100" alt="Current Design">
+                                    </div>
+                                    <div id="subhead3" class="h6 text-start mb-2">
+                                        Current Design
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-0">
+                                <div class="col-12">
+                                    <div id="descr2" class="h6 text-start mt-3 mb-2 lh-base">
+                                        The current design for AMLOS consisted of a bottom panel of different screen options. These different options could give users customized views of whiteboards, presenters, meeting rooms, and spotlight zoom-in images. The interface allowed users to press each of these boxes, but because of similarity of these boxes and constant movement between the boxes and the screens, it would often confuse users as to which boxes were exactly on the screen. 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-0">
+                                <div class="col-12 d-flex justify-content-center">
+                                    <img src="./images/Canon_UX/arrow4.png" class="rounded-3 img-fluid" alt="Arrow pointing down" style="width: 50px; height: 50px;">
+                                </div>
+                            </div>
+
+                            <!-- Proposed Design Section -->
+                            <div class="row g-0">
+                                <div class="col-12">
+                                    <div id="subhead2" class="h5 mb-2 mt-3 text-start">
+                                        <img src="./images/Canon_UX/new.png" class="rounded-3 img-fluid w-100" alt="Proposed Design">
+                                    </div>
+                                    <div id="subhead3" class="h6 text-start mb-2">
+                                        Proposed Design
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-0">
+                                <div class="col-12">
+                                    <div id="descr2" class="h6 text-start mt-3 mb-2">
+                                        The idea I proposed was a method to show live images of each box to help users differentiate which screens they wanted to view. In addition, there would be an additional transparent layer over the boxes that were currently being viewed by the user. With this mock design, we were able to iterate and create more defined and simple design. 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Settings -->
+                <div class="accordion-item border-0 mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#userSettings" aria-expanded="false" aria-controls="userSettings" style="background-color: #fed0e0; border-radius: 15px; color: black;">
+                            Aesthetics and Personalized Use
+                            
+                        </button>
+                    </h2>
+                    <div id="userSettings" class="accordion-collapse collapse" data-bs-parent="#ideasAccordion">
+                        <div class="accordion-body">
+                            To enhance clarity and usability, I focused on simplifying the overall aesthetics of AMLOS by reducing visual clutter and adopting a more modern, minimal design language. This allowed users to navigate the interface more intuitively without feeling overwhelmed. Additionally, I introduced a persistent sidebar that displays all participants in the meeting. This feature gives users a clear overview of who is present, improving real-time awareness and collaboration—especially in hybrid settings where remote participants can easily be overlooked.
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <img src="images/Canon_UX/new2.png" alt="Tutorial Image 1" class="img-fluid">
+                                </div>
+                                <div class="col">
+                                    <img src="images/Canon_UX/new3.png" alt="Tutorial Image 2" class="img-fluid">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-
-
-    <div class="row ">
-        <div id = "subhead2" class="col h5  mb-2 mt-3 px-5" >
-                <img src="./images/Canon_UX/original.png" class = "rounded-3" alt="MHH" width="910px" height="120px">
-        </div>
-        <br>
-        <div id = "subhead3" class="col h6 text-end ms-2 mb-2 px-5" >
-                Current Design
-        </div>
-    </div>
-    
-    
-    <div class="row">
-        <div id = "descr2" class="col h6 text-start mt-3 mb-2 px-5" >
-                The current design for AMLOS consisted of a bottom panel of different screen options. These different options could give users customized views of whiteboards, presenters, meeting rooms, and spotlight zoom-in images. The interface allowed users to press each of these boxes, but because of similarity of these boxes and constant movement between the boxes and the screens, it would often confuse users as to which boxes were exactly on the screen. 
-        </div>
-    </div>
-    
-    <div class="row">
-        <div id = "descr2" class="col h6 d-flex justify-content-center mt-3" >
-                <img src="./images/Canon_UX/arrow4.png" class = "rounded-3 ms-3 img-fluid" alt="MHH" width="100px" height="100px">
-        </div>
-    </div>
-
-    <div class="row">
-        <div id = "subhead2" class="col h5  mb-2 mt-3 px-5" >
-                <img src="./images/Canon_UX/new.png" class = "rounded-3 img-fluid" alt="MHH" width="910px" height="120px">
-        </div>
-    </div>
-
-    <div class="row"></div>
-        <div id = "subhead3" class="col h6 text-end ms-5 mb-2 px-5" >
-                Proposed Design
-        </div>
-    </div>
-</div>
-
-<div class="container" style="width: 70%;">
-
-    <div class="row">
-        <div id = "descr2" class="col h6 text-start mt-3 mb-2 px-5" >
-                The idea I proposed was a method to show live images of each box to help users differentiate which screens they wanted to view. In addition, there would be an additional transparent layer over the boxes that were currently being viewed by the user.  With this mock design, we were able to iterate and create more defined and simple design. 
-        </div>
-    </div>
-
     <div class="row">
         <div id = "subhead4" class="col h5 text-center mt-5 mb-2 px-5" >
                 Final version is not yet released. 
         </div>
     </div>
-
+</div>
 </div>
 
-<div class="container" style="width: 70%;">
+
+
+   
+
+<div id = "reflection" class="container mt-5 pt-5" style="width: 70%;">
     <div class="row">
-        <div id = "subhead2" class = "col display-6 text-start mt-5 mb-2 px-5" >
-            <div id = "reflection">
-                Reflection
-            </div>
+        <div id="subhead2" class="col display-6 text-start ">
+            <div id="reflection-title" class="container fade-in-left">
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                        <div style="width: 210px; height: 105px; background-color: #cc0303; border-radius: 210px 210px 0 0;"></div>
+            </div> 
         </div>
+                <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <img id="process-icon" src="./images/Canon_UX/icons/idea.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
     </div>
     <div class="row">
-        <div id = "descr2" class="col h6 text-start mb-2 px-5" >
+                    <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                        <div style="width: 70%; margin: 0 auto; border-top: 2px solid #cc0303; border-bottom: 2px solid #cc0303;">
+                            <div class="pt-2 pb-2">
+                                Reflection
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <div id = "descr2" class="col h6 text-start mb-2 px-5 mt-2" >
             <div>
                 Through the second part of my internship, I learned how the small details impact the larger picture. Especially with a digital product, having multiple iterations and improvements from user testing created a fully-fleshed out and original solution that addressed several user challenges. It was extremely helpful learning from UX Design professionals and seeing their thought processes. 
             </div>
@@ -441,6 +573,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 
@@ -514,6 +647,29 @@ function topFunction() {
     const processSection = document.getElementById('process-section3');
     observer.observe(overviewSection);
     observer.observe(processSection);
+</script>
+
+<script>
+    const faders = document.querySelectorAll('.fade-in-left, .fade-in-right');
+
+    const appearOptions = {
+        threshold: 0.2
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('fade-in-visible');
+                appearOnScroll.unobserve(entry.target);
+            }
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
 </script>
 
 </body>
