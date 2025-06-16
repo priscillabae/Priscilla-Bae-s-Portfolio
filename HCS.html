@@ -7,6 +7,66 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Human Centered Design</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+        }
+
+        body {
+            scroll-snap-type: y proximity;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        #overview-section9, #process-section9 {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            min-height: 100vh;
+            position: relative;
+            padding: 60px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        #overview-section9.active, #process-section9.active {
+            scroll-snap-align: start;
+        }
+
+        #overview-section9 > .container, #process-section9 > .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        #overview-section9::before, #process-section9::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+            z-index: 0;
+        }
+
+        #overview-section9 {
+            background-image: url('./images/HCS/project-hcs.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        #process-section9 {
+            background-image: url('./images/HCS/process-hcs.png');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -125,8 +185,10 @@
                     <div class = "dropdown-text">Experience</div>
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="./index.html#nav-container">Work Experience</a></li>
-                    <li><a class="dropdown-item" href="./index.html#projects">Projects</a></li>
+                    <li><a class="dropdown-item" href="./index.html#nav-container">UX/UI Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#game-design">Game Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#ethical-design">Ethical Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#marketing">Product Marketing</a></li>
                   </ul>
                 </div>
               </li>
@@ -166,7 +228,7 @@
     </script>
 </div>
 
-
+<section id="overview-section9" class="scroll-section" style="padding-top: 20vh;">
 <div class="container">
     <div class="row">
         <div class="col px-2" ></div>
@@ -180,15 +242,16 @@
         <div id = "descr2" class = "pb-5 h6 ms-5 mt-3 text-center" style="width: 980px;">
             <div> When we are creating applications and softwares, designs can often get lost in translation. Whether it may be game or web applications, all kinds of softwares must have straightforward details that users can easily understand. Our goal of this project was to improve the user's understanding of the interactions.</div>
             <br>
-            <div>With an initial V.0 prototype of a simple “game-like” software our team wanted to increase the efficiency of the interaction design. The initial software had 12 gray box outlines and an indigo box. With different user-controlled buttons that moves the box up/down, rotates it, and changes the position and size of the box, the user must manipulate the indigo box to fit into the  shape of the 12 gray box outlines and submit the box. After all 12 box trials are submitted and completed, the sec/destination is given to the user. The overall goal of this software was to significantly improve and decrease the time from the original prototype. </div>
+            <div>With an initial V.0 prototype of a simple "game-like" software our team wanted to increase the efficiency of the interaction design. The initial software had 12 gray box outlines and an indigo box. With different user-controlled buttons that moves the box up/down, rotates it, and changes the position and size of the box, the user must manipulate the indigo box to fit into the  shape of the 12 gray box outlines and submit the box. After all 12 box trials are submitted and completed, the sec/destination is given to the user. The overall goal of this software was to significantly improve and decrease the time from the original prototype. </div>
             <br>
             <div>We wanted to mitigate any confusion in designs and create an intuitive and efficient interaction between humans and softwares.  Throughout this project, I was able to understand the importance of colors, buttons, positioning, and how to create a well-designed and user oriented software. </div>
         </div>
         <div class="col px-2"></div>
    </div>
 </div>
+</section>
 
-
+<section id="process-section9" class="scroll-section" style="padding-top: 20vh;">
 <div class="container">
     <div class="row">
         <div id = "subhead2" class = "col display-6 text-center mb-5 px-5" >
@@ -323,9 +386,8 @@
         </div>
     </div>
 </div>
+</section>
 
-
-<hr style="height:3px;border-width:0;color:black;background-color:black">
 
 <div class="container" style="width: 70%;">
     <div class="row"  >
@@ -590,6 +652,30 @@
                                 </div>
         </div>
     </div>
+</div>
+
+<br><br>
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-5 border-top" style="padding-bottom: 50px !important; padding-top: 50px !important;">
+    <div class="container container-fluid" >
+        <div class="row">
+            <div class="col">
+                <a id="PB" class ="navbar-brand ms-5 mb-3 text-light d-flex justify-content-center" href ="index.html"><em>PB</em></a> 
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col ms-5 text-light text-center">
+                <h5 id = descr2>Let's create meaningful designs together.</h5>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col ms-5 contact text-center">
+                <a href="mailto:priscillabbae@gmail.com" id = "descr2" class="text-light text-decoration-underline">priscillabbae@gmail.com</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
 
     <button onclick="topFunction()" id="myBtn" >
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
@@ -619,27 +705,28 @@
     }
     </script>
 
-    <br><br>
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-5 border-top" style="padding-bottom: 50px !important; padding-top: 50px !important;">
-        <div class="container container-fluid" >
-            <div class="row">
-                <div class="col">
-                    <a id="PB" class ="navbar-brand ms-5 mb-3 text-light d-flex justify-content-center" href ="index.html"><em>PB</em></a> 
-                </div>
-            </div>
-    
-            <div class="row">
-                <div class="col ms-5 text-light text-center">
-                    <h5 id = descr2>Let's create meaningful designs together.</h5>
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col ms-5 contact text-center">
-                    <a href="mailto:priscillabbae@gmail.com" id = "descr2" class="text-light text-decoration-underline">priscillabbae@gmail.com</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+   
 
+    <script>
+        // Intersection Observer for scroll snapping
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    entry.target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        // Observe sections
+        const overviewSection = document.getElementById('overview-section9');
+        const processSection = document.getElementById('process-section9');
+        observer.observe(overviewSection);
+        observer.observe(processSection);
+    </script>
 </body>
 </html>

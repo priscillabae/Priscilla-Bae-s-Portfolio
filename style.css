@@ -440,8 +440,8 @@ background-color: #A4ADFF;
 }
 
 .other-container .card{
-  height: 34rem;
-  width: 30rem;
+  height: 32rem;
+  width: 27rem;
 
 }
 
@@ -461,6 +461,7 @@ background-color: #A4ADFF;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
 }
 
 div#half-circle{
@@ -680,7 +681,6 @@ clear: both;
 
 /* Standardize regular card and image sizes */
 .card:not([style*="height: 250px"]) {
-  height: auto;
   margin-bottom: 2rem;
 }
 
@@ -1887,4 +1887,120 @@ footer h5#descr2 {
 .btn-light.btn-outline-dark:hover a {
     color: black;
     font-family: Lexenda;
+}
+
+@media (max-width: 820px) {
+  /* Ensure parallax-card maintains a fixed height to prevent collapse using high specificity */
+  div.card.parallax-card {
+    height: 32rem !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  /* Common styles for all parallax-foreground elements to disable parallax, remove filters, and fill card */
+  .parallax-card .parallax-foreground {
+    transform: none !important;
+    filter: none !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover !important;
+    background-position: center !important;
+    z-index: 1 !important;
+  }
+
+  /* Hide the parallax-bg for all cards */
+  .parallax-card .parallax-bg {
+    display: none !important;
+  }
+
+  /* Hide Lottie players within parallax-foreground to ensure para.png is visible */
+  a[href$=".html"] .parallax-foreground dotlottie-player {
+    display: none !important;
+  }
+
+  /* Ensure the card-body content is visible and properly positioned at the bottom */
+  .parallax-card .card-body {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 2 !important;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4)) !important;
+  }
+
+  /* Specific background images for each card's foreground */
+  a[href="./ae.html"] .parallax-foreground { background-image: url('./images/AEO/para.png') !important; }
+  a[href="./doordash.html"] .parallax-foreground { background-image: url('./images/Doordash/para.png') !important; }
+  a[href="./canon_ux.html"] .parallax-foreground { background-image: url('./images/Canon_UX/para.png') !important; }
+  a[href="./bakeshop.html"] .parallax-foreground { background-image: url('./images/Bakeshop/para.png') !important; }
+  a[href="./MHH.html"] .parallax-foreground { background-image: url('./images/MHH/para.png') !important; }
+  a[href="./HCS.html"] .parallax-foreground { background-image: url('./images/HCS/para.png') !important; }
+  a[href="./coinbase.html"] .parallax-foreground { background-image: url('./images/Coinbase/para.png') !important; }
+
+  /* NOTE: Canon Marketing, Reddit, and Round Table Coffee cards currently share the same 'href' for the card wrapper. */
+  /* The last rule for a given href will take precedence. If you need unique images, adjust their hrefs in index.html. */
+  a[href="./canon_marketing.html"] .parallax-foreground { background-image: url('./images/Canon_Marketing/para.png') !important; }
+  a[href="./research.html"] .parallax-foreground { background-image: url('./images/Reddit/para.png') !important; } /* This targets the Reddit card */
+  a[href="./roundtable.html"] .parallax-foreground { background-image: url('./images/RoundTable/para.png') !important; } /* This targets the Round Table Coffee card if it had a unique href */
+}
+
+@media (max-width: 390px) {
+  /* Ensure parallax-card maintains a fixed height to prevent collapse using high specificity */
+  div.card.parallax-card {
+    height: 32rem !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  /* Common styles for all parallax-foreground elements to disable parallax, remove filters, and fill card */
+  .parallax-card .parallax-foreground {
+    transform: none !important;
+    filter: none !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover !important;
+    background-position: center !important;
+    z-index: 1 !important;
+  }
+
+  /* Hide the parallax-bg for all cards */
+  .parallax-card .parallax-bg {
+    display: none !important;
+  }
+
+  /* Hide Lottie players within parallax-foreground to ensure para.png is visible */
+  a[href$=".html"] .parallax-foreground dotlottie-player {
+    display: none !important;
+  }
+
+  /* Ensure the card-body content is visible and properly positioned at the bottom */
+  .parallax-card .card-body {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 2 !important;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4)) !important;
+  }
+
+  /* Specific background images for each card's foreground */
+  a[href="./ae.html"] .parallax-foreground { background-image: url('./images/AEO/para.png') !important; }
+  a[href="./doordash.html"] .parallax-foreground { background-image: url('./images/Doordash/para.png') !important; }
+  a[href="./canon_ux.html"] .parallax-foreground { background-image: url('./images/Canon_UX/para.png') !important; }
+  a[href="./bakeshop.html"] .parallax-foreground { background-image: url('./images/Bakeshop/para.png') !important; }
+  a[href="./MHH.html"] .parallax-foreground { background-image: url('./images/MHH/para.png') !important; }
+  a[href="./HCS.html"] .parallax-foreground { background-image: url('./images/HCS/para.png') !important; }
+  a[href="./coinbase.html"] .parallax-foreground { background-image: url('./images/Coinbase/para.png') !important; }
+
+  /* NOTE: Canon Marketing, Reddit, and Round Table Coffee cards currently share the same 'href' for the card wrapper. */
+  /* The last rule for a given href will take precedence. If you need unique images, adjust their hrefs in index.html. */
+  a[href="./canon_marketing.html"] .parallax-foreground { background-image: url('./images/Canon_Marketing/para.png') !important; }
+  a[href="./research.html"] .parallax-foreground { background-image: url('./images/Reddit/para.png') !important; } /* This targets the Reddit card */
+  a[href="./roundtable.html"] .parallax-foreground { background-image: url('./images/RoundTable/para.png') !important; } /* This targets the Round Table Coffee card if it had a unique href */
 }

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>CMU Research</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+        }
+
+        body {
+            scroll-snap-type: y proximity;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        #overview-section5 {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            min-height: 100vh;
+            position: relative;
+            padding: 60px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        #overview-section5.active {
+            scroll-snap-align: start;
+        }
+
+        #overview-section5 > .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Blur filter for main content */
+        .main-content {
+            filter: blur(8px);
+            pointer-events: none;
+            user-select: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Popup styles */
+        .construction-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .construction-popup h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .construction-popup p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .construction-popup a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .construction-popup a:hover {
+            text-decoration: underline;
+        }
+
+        /* Ensure navbar stays above blur */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 200;
+            background-color: white;
+        }
+
+        /* Ensure all other content is below blur */
+        body > *:not(.navbar):not(.construction-popup):not(.main-content) {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <!-- Navbar outside of main-content -->
+    <nav id="navbar" class="navbar smart-scroll navbar-expand-md fixed-top">
+        <div class="container header-main" style="height: 75px;">
+          <a id="PB" class="navbar-brand" href="index.html"><em>PB</em></a>
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapse">
+            <ul id="nav-text" class="navbar-nav ms-auto align-items-center">
+              <li class="nav-item">
+                <a class="nav-link px-5" href="about.html">About Me</a>
+              </li>
+              <li class="nav-item dropdown">
+                <div class="dropdown">
+                  <a class="nav-link dropdown-toggle px-5 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class = "dropdown-text">Experience</div>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="./index.html#nav-container">UX/UI Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#game-design">Game Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#ethical-design">Ethical Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#marketing">Product Marketing</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-5" href="art.html">Art & Design</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-5" href="https://drive.google.com/file/d/142vSZV0epUAXWcApz43jjP-5FqxHCxdz/view?usp=sharing">Resume</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <!-- Add popup -->
+    <div class="construction-popup">
+        <h2>Page Under Construction</h2>
+        <p>Email Me for More Information</p>
+        <a href="mailto:priscillabbae@gmail.com">priscillabbae@gmail.com</a>
+    </div>
+
+    <!-- Wrap all content except navbar and popup in main-content -->
+    <div class="main-content">
+        <div class = "bg-image research-bg" style="background-image">
+            <div class = "container card-img-overlay text-center" >
+                <div class = "row">
+                    <div class = "col p-5" ></div> 
+                </div>
+                <div class = "row">
+                    <div class = "col p-3"></div> 
+                </div>
+
+
+                <div class = "row justify-content-center gx-5" >
+                    <div id = "subhead1" class = "col display-4 text-end px-5">
+                        Countering Information Overload
+                            <div id = "descr1" class = "col h4 mt-5">
+                               <strong> <em>CARNEGIE MELLON UNIVERSITY</em> </strong>
+                            </div> 
+                    </div> 
+                    <div class = "background-pic col text-start px-5">
+                        <img src="./images/Research/train.png" alt="Amlos" class="img-fluid shadow-lg shadow-intensity-dark rounded-5" width="390px" height="230px">
+                    </div>
+                </div>
+
+                <div class = "row col-md-9 offset-md-1">
+                    <div id = "descr1" class = "col mt-5 mb-3 h5 text-end "  >
+                        Creating an inclusion/exclusion algorithm using an Naive Bayes model to determine scientific articles for cancer research                </div>
+                </div>
+                <div class = "mt-4 row justify-content-center">
+                    <hr style="width:1200px;height:2px;border-width:0;color:black;background-color:black">
+                </div>
+
+                <div class = "row">
+                    <div id = "proj_head" class = "col h2 mt-3" >
+                        <em>Role</em>
+                        <div class="row">
+                            <div id = "proj_sub" class="mt-3 col h6">
+                                Research Assistant 
+                            </div>
+                        </div>
+                    </div> 
+                    <div id = "proj_head" class = "col h2 mt-3" >
+                        <em>Timeline</em>
+                        <div class="row">
+                            <div id = "proj_sub" class="mt-3 col h6">
+                                May - August 2022
+                            </div>
+                        </div>
+                    </div> 
+                    <div id = "proj_head" class = "col h2 mt-3" >
+                        <em>Skills</em>
+                        <div class="row">
+                            <div id = "proj_sub" class="mt-3 col h6">
+                                Classification
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id = "proj_sub" class="mt-3 col h6">
+                                Research 
+                            </div>
+                        </div>
+                    </div> 
+                    <div id = "proj_head" class = "col h2 mt-3" >
+                        <em>Tools</em>
+                        <div class="row">
+                            <div id = "proj_sub" class="mt-3 col h6">
+                                Colaboratory 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id = "proj_sub" class="mt-3 col h6">
+                                Sysrev 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id = "proj_sub" class="mt-3 col h6">
+                                Zotero
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id = "proj_sub" class="mt-3 col h6">
+                                Python
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                 <div id = "subhead2" class = "col display-6 text-center mt-5 px-5" style="width: 100%;">
+                    Project Overview
+                </div> 
+            </div>
+        </div>
+
+        <div class="container " style="width: 70%;">
+            <div class="row">
+                <div id = "descr2" class = "col h6 mt-3 mb-5 text-center">
+                    <div> 
+                        With so much information available at our fingertips, it can be difficult to comprehend it all.  Using a research methodology called knowledge synthesis, allowed my research team and I to collect relevant information on cancer immunotherapy to find important research articles.
+                    </div>
+                    <br>
+                    <div>
+                        My team and I developed advanced search strategies for databases and learned how Natural Language Processing can be used to annotate and search documents. With hands-on experience with each step of the research process, I was able to contribute to an ongoing research project that developed a novel dataset. 
+                    </div>             
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+
+        <div class="container " style="width: 70%;">
+            <div class="row">
+                <div id = "subhead2" class = "col display-6 mt-5 text-start">
+                    <div> 
+                        Pain Points 
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id = "descr2" class="col mt-3 h6 text start" >
+                    With Sysrev, a document review platform, and  Zotero,  a research assistant software, my team and I were tasked with organizing research articles based off of relevancy to cancer immunotherapy. We classified these articles by confirming whether or not they had specific key words such as "cancer", "nanoparticles", "nano", "disease",  "tissue", "immunotherapy", etc.
+                </div> 
+            </div>
+            <div class="row">
+                <div id = "descr2" class="col h6 text start" >
+                    After marking to include these articles, we would read through them again in order to confirm the relevancy and researched over 300 articles in order to have data for the model.
+                </div>
+            </div>
+            <div class="row">
+                <div class = "col d-flex justify-content-center mt-3 mb-3">
+                    <img src="./images/Research/include:exclude.png" alt="Amlos" class = "img-fluid rounded-3 border border-2 border-dark" width="700px" height="300px">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class = "col d-flex justify-content-center mb-3">
+                    <img src="./images/Research/keywords.png" alt="Amlos" class = "img-fluid rounded-3 border border-2 border-dark" width="700px" height="350px">
+                </div>
+            </div>
+
+            <div class="row">
+                <div id = "descr2" class="col h6 mt-3 text start" >
+                    Then, with Google Colaboratory, my team and I then downloaded the inclusion/exclusion data and sectioned the data by Article Title, if it was Included/Excluded, Category of Article, Abstract, the Prediction Percentage, and many more categories. Our overall goal was to create a model that could include/exclude articles like we were doing but at a more efficient pace.
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center mt-3 mb-3" >
+                        <img src="./images/Research/articles.png" class = "img-fluid rounded-3 border border-2 border-dark" alt="MHH" width="900px" height="350px">
+                </div>
+            </div>
+
+            <div class="row">
+                <div id = "descr2" class="col h6 mt-3 text start" >
+                    We split the data into training and testing models and tested our model on the data. Creating a Confusion Matrix, I was able to classify articles if they had "disease but not cancer", "not disease but not cancer", both, or none.  With the training model,  it resulted in a 99.13% success rate in predicting the category of articles correctly. 
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col d-flex justify-content-center mt-3 mb-3" >
+                    <img src="./images/Research/train.png" class = "img-fluid rounded-3 border border-2 border-dark" alt="MHH" width="600px" height="350px">
+                </div>
+            </div>
+            <div class="row">
+                <div id = "descr2" class="col h6 mt-3 text start" >
+                    This was just a fraction of the work we overall completed as we would classify different areas such as article titles, abstracts, journals, authors, etc. For example, we were able to classify the models based off of article title to see if it had important keywords that would give us a precursor into seeing if the article was relevant or not. Through this, our team gained a lot of information and data from the included articles as we were able to use it to further research cancer immunotherapy methodologies and use the excluded articles for future research studies in disease fields other than cancer. 
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container " style="width: 70%;">
+            <div class="row">
+                <div id = "subhead2" class = "col display-6 mt-5 text-start">
+                    <div> 
+                        Reflection 
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id = "descr2" class="col mt-3 h6 text start" >
+                    This was a very useful project in understanding how statistical machine learning models can help with increasing the efficiencies in administrative human behavior. Especially, in this project, I had the opportunity to delve into the complexities of implementing statistical machine learning models and witness their impact on real-world data.
+                </div> 
+            </div>
+            <div class="row">
+                <div id = "descr2" class="col h6 text start" >
+                    One key aspect that stood out during the project was the importance of meticulous data preprocessing. Cleaning and transforming raw data into a suitable format for machine learning algorithms proved to be a critical step in ensuring the accuracy and reliability of our models. This process involved handling missing values, normalizing features, and addressing outliers, highlighting the crucial role of data quality in the success of machine learning endeavors.
+                </div>
+            </div>
+            <div class="row">
+                <div id = "descr2" class="col h6 text start" >
+                    Experimenting with various models allowed us to grasp the nuances of each algorithm and discern their strengths and limitations in different scenarios. Understanding the trade-offs between model complexity and interpretability became a recurring theme, emphasizing the need for a thoughtful approach in model selection.
+                </div>
+            </div>
+            <div class="row">
+                <div id = "descr2" class="col h6 text start" >
+                    Furthermore, collaboration within the team was a key factor in navigating the challenges posed by the project. Sharing ideas, discussing results, and collectively troubleshooting issues fostered a collaborative spirit that proved instrumental in overcoming obstacles.
+                </div>
+            </div>
+            <div class="row">
+                <div id = "descr2" class="col h6 text start" >
+                    Reflecting on the project, I recognize the continuous learning curve that statistical machine learning presents. The ever-expanding landscape of algorithms, techniques, and tools necessitates a commitment to ongoing learning and adaptation. This experience has not only equipped me with practical skills in statistical machine learning but has also instilled in me a deeper appreciation for the interdisciplinary nature of data science.
+                </div>
+            </div>
+         </div>
+         <br><br>
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-5 border-top" style="padding-bottom: 50px !important; padding-top: 50px !important;">
+            <div class="container container-fluid" >
+                <div class="row">
+                    <div class="col">
+                        <a id="PB" class ="navbar-brand ms-5 mb-3 text-light d-flex justify-content-center" href ="index.html"><em>PB</em></a> 
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col ms-5 text-light text-center">
+                        <h5 id = descr2>Let's create meaningful designs together.</h5>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col ms-5 contact text-center">
+                        <a href="mailto:priscillabbae@gmail.com" id = "descr2" class="text-light text-decoration-underline">priscillabbae@gmail.com</a>
+                    </div>
+                </div>
+                </div>
+        </footer>
+
+        <script>
+            // Intersection Observer for scroll snapping
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        entry.target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        entry.target.classList.remove('active');
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            // Observe section
+            const overviewSection = document.getElementById('overview-section5');
+            observer.observe(overviewSection);
+        </script>
+    </div>
+</body>
+</html>

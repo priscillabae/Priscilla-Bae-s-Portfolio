@@ -7,12 +7,429 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Canon Marketing</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Scroll behavior */
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+        }
+
+        body {
+            scroll-snap-type: y proximity;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        /* Section styles */
+        #overview-section4, #process-section4 {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            min-height: 100vh;
+            position: relative;
+            padding: 60px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        #overview-section4.active, #process-section4.active {
+            scroll-snap-align: start;
+        }
+
+        #overview-section4 > .container, #process-section4 > .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Background images and overlays */
+        #overview-section4 {
+            background-image: url('./images/Canon_Marketing/project-mark.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        #process-section4 {
+            background-image: url('./images/Canon_Marketing/process-mark.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        #overview-section4::before, #process-section4::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5); /* White overlay for lightening */
+            z-index: 0;
+        }
+
+        /* Hover effect styles */
+        .hover-1, .hover-2, .hover-3, .hover-4 {
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .hover-1:hover, .hover-2:hover, .hover-3:hover, .hover-4:hover {
+            transform: translateY(-5px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #333;
+        }
+
+        .hero {
+            background-color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        .features {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .testimonials {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card .author {
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            background-color: black;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #007bff;
+        }
+
+        /* Project-specific styles */
+        .project-header {
+            background-color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .project-header h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .project-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .project-section {
+            margin-bottom: 60px;
+        }
+
+        .project-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .project-section p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .project-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .project-links a {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                margin-top: 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .feature-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-header h1 {
+                font-size: 28px;
+            }
+
+            .project-header p {
+                font-size: 16px;
+            }
+
+            .project-section h2 {
+                font-size: 24px;
+            }
+
+            .project-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Title animations */
+        .fade-in-left {
+            opacity: 0;
+            animation: fadeInLeft 1.2s ease-out forwards;
+            transform: translateX(-100px);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            animation: fadeInRight 1.2s ease-out forwards;
+            transform: translateX(100px);
+        }
+
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
-    <div class = "bg-image marketing-bg" style="background-image">
+    <div class = "bg-image marketing-bg" >
         <div class = "container card-img-overlay text-center" >
             <div class = "row">
                 <div class = "col p-5" ></div> 
@@ -105,38 +522,41 @@
         </div>
     </div>
 
-        <nav id="navbar" class="navbar smart-scroll navbar-expand-md fixed-top">
-            <div class="container header-main" style="height: 75px;">
-              <a id="PB" class="navbar-brand" href="index.html"><em>PB</em></a>
-              <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="collapse">
-                <ul id="nav-text" class="navbar-nav ms-auto align-items-center">
-                  <li class="nav-item">
-                    <a class="nav-link px-5" href="about.html">About Me</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <div class="dropdown">
-                      <a class="nav-link dropdown-toggle px-5 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class = "dropdown-text">Experience</div>
-                      </a>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="./index.html#nav-container">Work Experience</a></li>
-                        <li><a class="dropdown-item" href="./index.html#projects">Projects</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link px-5" href="art.html">Art & Design</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link px-5" href="https://drive.google.com/file/d/142vSZV0epUAXWcApz43jjP-5FqxHCxdz/view?usp=sharing">Resume</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+    <nav id="navbar" class="navbar smart-scroll navbar-expand-md fixed-top">
+        <div class="container header-main" style="height: 75px;">
+          <a id="PB" class="navbar-brand" href="index.html"><em>PB</em></a>
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapse">
+            <ul id="nav-text" class="navbar-nav ms-auto align-items-center">
+              <li class="nav-item">
+                <a class="nav-link px-5" href="about.html">About Me</a>
+              </li>
+              <li class="nav-item dropdown">
+                <div class="dropdown">
+                  <a class="nav-link dropdown-toggle px-5 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class = "dropdown-text">Experience</div>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="./index.html#nav-container">UX/UI Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#game-design">Game Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#ethical-design">Ethical Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#marketing">Product Marketing</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-5" href="art.html">Art & Design</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-5" href="https://drive.google.com/file/d/142vSZV0epUAXWcApz43jjP-5FqxHCxdz/view?usp=sharing">Resume</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
     <script>
         const navEl = document.querySelector('.navbar');
         window.addEventListener('scroll', () => {
@@ -161,35 +581,38 @@
         }
     </script>
 
-
+<section id="overview-section4" class="scroll-section" style="padding-top: 20vh;">
     <div class="container">
         <div class="row">
-             <div id = "subhead2" class = "col display-6 text-center mt-5 px-5" style="width: 100%;">
+             <div id = "subhead2" class = "col display-6 text-center px-5" style="width: 100%;">
                 Project Overview
             </div> 
         </div>
     </div>
 
-    <div class="container " style="width: 70%;">
+    <div class="container " style="width: 65%;">
         <div class="row">
-            <div id = "descr2" class = "col h6 mt-3 mb-5 text-center">
-                <div> 
-                    A majority of the working population does not prefer the hybrid workplace as it decreases productivity. However, inevitably, the world is moving towards a digital workplace, and several HR leaders predict that most offices will become hybrid.  Furthermore, with the digital revolution, AI products surface, and there is a decreased need for office workers in specific sectors. However, creative work cannot be automated. 
-                </div>
-                <br>
+            <div id = "descr2" class = "col h6 mb-5 text-center lh-base">
                 <div>
-                    Therefore, our team at Canon wanted to emphasize how our product would increase productivity and decrease overall frustrations with the hybrid workplace - specifically in creative office spaces. 
-                </div>
-                <br>
-                <div>
-                    During my internship over the past summer, I directed and led a product focused photoshoot, 
-                    creating in-depth storyboards, shot lists, and  set materials. The purpose of this photoshoot was to implement the pictures into future campaigns and an upcoming sales pitch. We mainly focused on translating our ideas into eye-catching images.  Working with the public relations team, we identified main challenges of hybrid work, Canon’s immersive solution, AMLOS, and the results of the solution. 
-                </div>              
+                    During my summer internship at Canon, I led a product-focused photoshoot to highlight how our solution, AMLOS, can improve productivity and reduce frustration in creative office environments. I directed the photoshoot, creating storyboards, shot lists, and set materials, with the goal of incorporating the images into future campaigns and sales pitches. I worked closely with the public relations and the product marketing team to showcase the challenges of hybrid work and how AMLOS addresses them.                </div>
+                <br>       
             </div>
         </div>
     </div>
+    <div class="container project-overview-section mt-3 mb-5" style="width: 75%;">
+        <div class="row justify-content-center">
+            <div class="col-12" style="position: relative;">
+                <div style="border: 2px solid #000; padding: 3rem; margin-top: 1rem;background-color: white;">
+                    <h2 class= "shadow-lg shadow-intensity-dark rounded-3"style="border: 1px solid #000 ; color: black; font-style: italic; position: absolute; top: 0; left: -1rem; transform: translateY(-30%); background: #FFA053; padding: .5rem 1.5rem; margin: 0; font-size: 3.0rem;">The Problem</h2>
+                    <div id="descr1" class="h5 mb-0">
+                        The majority of the workforce dislikes hybrid work models due to reduced productivity, yet the shift to digital and hybrid offices is inevitable. While AI and automation are reducing jobs in some sectors, creative roles remain irreplaceable, and  our role as Product Marketers was to showcase how AMLOS facilitates this in the hybrid space.  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-
+<section id="process-section4" class="scroll-section" style="padding-top: 20vh;">
 
     <div class="container" style="width: 73%;">
         <div class="row">
@@ -215,7 +638,7 @@
                         </div>
                         <div class="row">
                             <div class="col d-flex justify-content-center mt-5">
-                                <h6 id = "process-text"> Research</h6>
+                                <h6 id = "process-text"> Marketing Pitch</h6>
                             </div>
                         </div>
                     </a>
@@ -279,18 +702,135 @@
             </div>
         </div>
     </div>
+</section>
 
-    <hr style="height:2px;border-width:0;color:black;background-color:black">
 
 
-   <div class="container" style="width: 73%;">
-        <div class="row">
-            <div id = "subhead2" class = "col display-6 text-start mt-5 mb-2 px-5" >
-                <div id = "market-research">
-                    Market Research
-                </div> 
+<div id = "market-research" class="container" style="width: 65%;">
+    <div class="row">
+        <div id="subhead2" class="col display-6 text-start mt-5 ">
+            <div id="marketing-title" class="container">
+                <div class="row d-flex justify-content-center mt-5 pt-5">
+                    <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                        <div style="width: 210px; height: 105px; background-color: #FFD986; border-radius: 210px 210px 0 0;"></div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <img id="process-icon" src="./images/Canon_Marketing/icons/books-stack-of-three.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+                </div>
+                <div class="row">
+                    <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                        <div style="width: 90%; margin: 0 auto; border-top: 2px solid #FFD986; border-bottom: 2px solid #FFD986;">
+                            <div class="pt-2 pb-2">
+                                Creating a Marketing Pitch
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+
+    <div class="row">
+        <div class="col h6 d-flex justify-content-center text-center align-items-center mt-4 lh-base" id = "descr2">
+            In order to create a focused and strategic photoshoot that aligned closely with Canon's brand and message, I created a sales and marketing pitch. This allowed me to dig deeper into AMLOS' current pain points and further understand its unique value propositions. Furthermore, I was able to create a story in the pitch and ultimately translate the ideas to the final storyboard and photoshoot.
+        </div>
+    </div>
+    <div class="row">
+        <div class="col h1 mt-4 " id = "subhead2">
+            The Pitch
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col h4 d-flex justify-content-center text-center align-items-center mt-5" id = "descr1">
+        <em>It takes one person to have an exceptional idea.</em> 
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col h6 d-flex justify-content-center text-center align-items-center mt-2" id = "descr2">
+            And the most creative ideas can be inspired from the most trivial interactions or details
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col mt-5 d-flex justify-content-center text-center align-items-center">
+            <img src="./images/Canon_Marketing/apple.png"  class = "rounded-4 shadow-intensity-dark shadow-lg" alt="Sketch of Camera">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col h4 mt-5" id = "descr2">
+        When we look at Instagram's history...
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col h6 mt-3 lh-base" id = "descr2">
+        In 2010, it started out as <span id = "descr1">Burbn</span>:  a location-based social networking app, where users could check in, make plans, and share pictures with friends. It was created by Kevin Systrom and Mike Krieger and inpspired by their love for Kentucky whiskey.
+        <br> <br>
+        But with this concept, nothing quite made it revolutionary.
+        <br><br>
+        So...
+        </div>
+    </div>
+    <div class="row">
+        <div class="col h6 mt-3 border border-dark border-1 rounded-4 p-3  d-flex justify-content-center text-center align-items-center" id = "descr1" style="background-color: #FFD986;">
+            How did Kevin Systrom
+            transform Burbn into the
+            Instagram we know today?
+        </div>
+    </div>
+    <div class="row">
+        <div class="col h6 mt-3 d-flex justify-content-center align-items-center" id = "descr2" >
+        <ul>
+            <li>Systrom, Instagram's founder, garnered
+                inspiration in Italy when his professor
+                gave him a Holga, a plastic camera</li>
+                <br>
+            <li>He began to see the beauty in filtering
+                photos through developing film</li>
+                <br>
+            <li>Instagram's uniqueness roots from its filter
+                aesthetics</li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col h6 mt-3 rounded-4 p-3  d-flex justify-content-center text-center align-items-center"  id = "descr1" style="border: solid; border-width: 3px; border-color: #FFD986; color: #FFA053;">
+            However, he didn't realize to add in and focus on this one aspect that revolutionized Instagram until 
+             one conversation with his wife.
+         </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <h4 id="descr1">Everyone has their own trivial experiences that contribute towards their creative process...</h4>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 text-end ">
+            <h5 id="descr1" style="color: black; font-style: italic;">However, <span style="color: #FFA053;">collaboration</span> triggers these creative inspirations.</h5>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center mt-4">
+        <div class="col-8 p-5" style=" border: 2px solid #FFA053; border-radius: 10px;">
+            <h4 id = "descr2"class="text-center text-dark">But what happens when we can't notice or communicate these small details in our creative brainstorming sessions anymore?</h4>
+        </div>
+    </div>
+    <div class="row mt-4 mb-5">
+        <div class="col-12 text-end ">
+            <h5 id="descr1">Well, this is exactly what's happening in our modern hybrid workplaces.</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col h1 mt-4 " id = "subhead2">
+            Market Research Behind the Story
+        </div>
+    </div>
 
         <div class="row">
             <div id = "subhead2" class="col h1 text-danger text-center mt-5 mb-2 px-5" >
@@ -312,7 +852,7 @@
 
 
         <div class="row">
-            <div id = "subhead3" class="col ms-5 mt-5 h5 d-flex justify-content-center" >
+            <div id = "subhead3" class="col mt-5 h5 d-flex justify-content-center" >
                     <strong>Hybrid work is inevitable but widely unfavored. </strong>
             </div>
         </div>
@@ -322,64 +862,194 @@
                     <img src="./images/Canon_Marketing/pain_points.png" class = "rounded-3 img-fluid" alt="MHH" width="950px" height="400px">
             </div>
         </div>
+        <div class="row">
+            <div id = "descr1" class="col mt-5 h4" >
+                    <strong> For the Physical Worker in a Hybrid Workspace... </strong>
+            </div>
+        </div>
+        <div class="row">
+            <div id = "descr2" class="col h5 mt-4 mb-2" >
+                Concepts are easily shared,
+                <br> <br>
+                Physical prototypes are passed around,
+                <br><br>
+                Sketches are drawn,
+                <br><br>
+                but <span style="color: #FFA053;">remote users are forgotten.</span> 
+            </div>
+        </div> 
 
         <div class="row">
-            <div id = "subhead4" class="col ms-5 mt-3 h5 d-flex text-center justify-content-center" >
+            <div id = "subhead4" class="col ms-5 mt-5 mb-5 h5 d-flex text-center justify-content-center border border-dark border-2 rounded-4 p-4" >
                 <div style ="width: 600px;">
-                    Check out more of the market research I did in IMCCA’s article I assisted on  <a class = "text-primary" href="https://www.nxtbook.com/emerald/CommercialIntegratorSecuritySales/septoct2023/index.php?startid=45#/p/44"> here!</a>
+                    Check out more of the market research I did in IMCCA's article I assisted on  <a class = "text-primary" href="https://www.nxtbook.com/emerald/CommercialIntegratorSecuritySales/septoct2023/index.php?startid=45#/p/44"> here!</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col h1 mt-5 " id = "subhead2">
+                User Story
+            </div>
+        </div>
+        <div class="row">
+            <div id = "descr1" class="col mt-5 h4" >
+               <img class = "rounded-4" src="./images/Canon_Marketing/user1.png" alt="Worker ">
+            </div>
+            <div id = "descr2" class="col h6 d-flex text-center align-items-center" >
+                <div class = "p-5 border border-dark border-2 border-radius rounded-4">  Bethany, your creative director, is working from home today while your
+                    team is brainstorming an innovative idea for a brand-new movie project.</div>
+            
+            </div>
+        </div>
+        <div class="row">
+            <div id = "descr1" class="col mt-5 h4" >
+               <img class = "rounded-4" src="./images/Canon_Marketing/user2.png" alt="Worker ">
+            </div>
+            <div id = "descr2" class="col h6 d-flex text-center align-items-center" >
+                <div class = "p-4 border border-dark border-2 border-radius rounded-4 ">  
+                    The whole team is in the office having an ideation meeting on
+                    whiteboards, but she can't see the sketches.
+                <br><br>
+                She creates amazing storyboards but doesn't understand the concepts,
+                being miles away from the office.
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id = "descr1" class="col mt-5 h4" >
+               <img class = "rounded-4" src="./images/Canon_Marketing/user3.png" alt="Worker ">
+            </div>
+            <div id = "descr2" class="col h6 d-flex text-center align-items-center" >
+                <div class = "p-5 border border-dark border-2 border-radius rounded-4">  
+                    Your entire team is not reaching the full potential of their ideas,
+impacting your creativity, innovation, and success</div>
+            
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col h4 d-flex justify-content-center text-center align-items-center mt-5" id = "descr1">
+            AMLOS Brings the Office to You.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col h6 d-flex justify-content-center text-center align-items-center mt-2" id = "descr2">
+            <em>Merge the physical and virtual worlds</em> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col h4 d-flex justify-content-center text-center align-items-center mt-5" id = "descr1">
+            <img class = "rounded-4" src="./images/Canon_Marketing/f1.png" alt="">
+            </div>
+            <div class="col h4 d-flex justify-content-center text-center align-items-center mt-5" id = "descr1">
+                <img class = "rounded-4" src="./images/Canon_Marketing/f2.png" alt="">
+            </div>
+            <div class="col h4 d-flex justify-content-center align-items-center mt-2" id = "descr1">
+                <img class = "rounded-4" src="./images/Canon_Marketing/f3.png" alt="">
+            </div>
+        </div>
+
+        <div class="row mt-5 mb-5 d-flex justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <a href="https://drive.google.com/file/d/1TwuskIT_NxISGnDQjTfxehwXwrOxBRSY/view?usp=sharing">
+                <div class="card border-primary card-hover-animation" style="border-color: #FFA053 !important;">
+                    <div class="card-body text-center">
+                        <h4 id = "descr1" class="card-title mt-3" style="color: #FFA053;">View the Full Marketing Pitch Here</h4>
+                        <img src="./images/Canon_Marketing/pitch_preview.png" alt="Marketing Pitch Preview" class="img-fluid rounded-3 mt-3 mb-3" style="max-width: 100%; height: auto; border: 2px solid #FFA053;">
+                        <a href="https://drive.google.com/file/d/1TwuskIT_NxISGnDQjTfxehwXwrOxBRSY/view?usp=sharing" id = "descr1" class="btn btn-primary" style="background-color: #FFA053; border-color: #FFA053;">View</a>
+                    </div>
+                </div>
+                 </a>
+            </div>
+        </div>
+
+ </div>
+
+
+
+
+
+ <div id = "shotlist" class="container" style="width: 65%;">
+    <div class="row">
+        <div id="subhead2" class="col display-6 text-start mt-3">
+            <div id="shotlist-title" class="container">
+                <div class="row d-flex justify-content-center mt-5 pt-5">
+                    <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                        <div style="width: 210px; height: 105px; background-color: #FFD986; border-radius: 210px 210px 0 0;"></div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <img id="process-icon" src="./images/Canon_Marketing/icons/business.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+                </div>
+                <div class="row">
+                    <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                        <div style="width: 70%; margin: 0 auto; border-top: 2px solid #FFD986; border-bottom: 2px solid #FFD986;">
+                            <div class="pt-2 pb-2">
+                                Developing a Shot List
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-
-
-   <div class="container" style="width: 73%;">
+    <div class="row">
+        <div id = "descr2" class="col h6 text-center mb-2 mt-3 lh-base" >      
+            After creating the marketing pitch, I knew what direction to take with the photoshoot. I wanted to showcase the user story and direct the storyboard with three main points:
+            <br> <br> Hybrid Work Enviroment and Challenges Before AMLOS
+            <br> <br> Main Features of AMLOS
+            <br> <br> Hybrid Work Environment and Successes After AMLOS
+            
+        </div>
+    </div>
         <div class="row">
-            <div id = "subhead2" class = "col display-6 text-start mt-5 mb-2 px-5" >
-                <div id = "shotlist">
-                    Developing a Shotlist
-                </div> 
+            <div id = "descr1" class="col h5 text-center mb-2 mt-3" style="color: #FFA053;" >
+                But first, in order to create the photoshoot, we needed a story. 
             </div>
         </div>
+
         <div class="row">
-            <div id = "descr2" class="col h5 text-start mb-2 px-5" >
-                In order to create the photoshoot, we needed a story. 
+            <div class="col h1 mt-5" id = "subhead2">
+                Photoshoot Concept 
             </div>
         </div>
+
         <div class="row">
-            <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
+            <div id = "descr2" class="col h6 text-start mb-2" >        
                 My team and I created an idea that the basis of our photoshoot would be a camera company creating packaging ideas through a hybrid meeting to creatively collaborate.
             </div>
         </div>
         <div class="row">
-            <div id = "descr2" class="col h6 text-start mb-2 px-5" >  
+            <div id = "descr2" class="col h6 text-start mb-2" >  
                     Therefore, with this foundation, I created sketches in the perspective of package designers that we could implement in the staging background of the photoshoot, attending to every detail. 
             </div>
         </div>
 
         <div class="row ">
-            <div id = "subhead2" class="col mt-4 mb-2 px-5" >
+            <div id = "subhead2" class="col mt-4 mb-2" >
                     <img src="./images/Canon_Marketing/sketch1.png" class = "img-fluid" alt="MHH" width="400px" height="300px">
                             <br>
                     <img src="./images/Canon_Marketing/sketch4.png" class = "img-fluid" alt="MHH" width="400px" height="300px">
             </div>
-            <div id = "subhead2" class="col mt-3 mb-2 px-5" >
+            
+
+            <div id = "subhead2" class="col mt-5 mb-2" >
                     <img src="./images/Canon_Marketing/sketch2.png" class = "rounded-3 img-fluid" alt="MHH" width="400px" height="650px">
             </div>
         </div> 
     </div> 
 
-    <div class="container" style="width: 73%;">
+    <div class="container mt-3" style="width: 65%;">
         <div class="row">
-            <div id = "subhead4" class="col h5 text-start mb-2 px-5" >
+            <div id = "subhead4" class="col h5 text-start mb-2" >
                     What we wanted to capture:
             </div>
         </div>
         <div class="row">
-            <div id = "descr2"  class="col h5 text-start mb-2 px-5" >
+            <div id = "descr2"  class="col h5 text-start mb-2" >
                 <div>
                     <ol>
                         <li id = "subhead3">How remote users felt excluded and unheard in team meetings </li>
@@ -407,118 +1077,148 @@
             </div>
         </div>
     </div>
-    <div class="container" style="width: 73%;">
+    <div class="container" style="width: 65%;">
         <div class="row ">
-            <div id = "subhead3"  class="col h5 text-start mt-3 mb-4 px-5" >
-                    Shotlist Sketches:
+            <div id = "subhead3"  class="col h5 text-start mt-3 mb-4" >
+                    Shotlist Sketches (a few examples):
             </div>
         </div>
     </div>
 
 
-    <div class="container" style="width: 80%;">
-        <div class="row  ms-2 ">
-            <div id = "subhead2" class="col h4 d-flex justify-content-center" >
-                    <img src="./images/Canon_Marketing/shotlist_1.png" class = "img-fluid rounded-3 ms-3 border border-dark border-3" alt="MHH" width="300px" height="200px">
+    <div class="container" style="width: 65%;">
+        <div class="row ">
+            <div id = "subhead2" class="col-4 h4 d-flex justify-content-center" >
+                    <img src="./images/Canon_Marketing/shotlist_1.png" class = "img-fluid rounded-3 border border-dark border-3" alt="MHH" >
             </div>
-            <div id = "subhead2" class="col h4 d-flex justify-content-center" >
-                    <img src="./images/Canon_Marketing/shotlist_2.png" class = "img-fluid rounded-3 border border-dark border-3" alt="MHH" width="300px" height="200px">
-                <br>
+            <div id = "subhead2" class="col-4 h4 d-flex justify-content-center" >
+                    <img src="./images/Canon_Marketing/shotlist_2.png" class = "img-fluid rounded-3 border border-dark border-3" alt="MHH" >
             </div>
-            <div id = "subhead2" class="col h4 d-flex justify-content-center" >
-                    <img src="./images/Canon_Marketing/shotlist_3.png" class = "img-fluid rounded-3 border border-dark border-3" alt="MHH" width="300px" height="200px">
+            <div id = "subhead2" class="col-4 h4 d-flex justify-content-center" >
+                    <img src="./images/Canon_Marketing/shotlist_3.png" class = "img-fluid rounded-3 border border-dark border-3" alt="MHH">
             </div>
         </div> 
-        <div class="row ms-2 ">
-            <div id = "subhead2" class="col h4 mt-2 d-flex justify-content-center" >
-                    <img src="./images/Canon_Marketing/arrow4.png" class = "img-fluid" alt="MHH" width="100px" height="100px">
+        <div class="row ">
+            <div id = "subhead2" class="col-4 h4 mt-2 d-flex justify-content-center" >
+                    <img src="./images/Canon_Marketing/arrow4.png" class = "img-fluid" alt="MHH" style="max-width: 30%;">
             </div>
-            <div id = "subhead2" class="col h4 mt-2 d-flex justify-content-center" >
-                    <img src="./images/Canon_Marketing/arrow4.png" class = "img-fluid" alt="MHH" width="100px" height="100px">
+            <div id = "subhead2" class="col-4 h4 mt-2 d-flex justify-content-center" >
+                    <img src="./images/Canon_Marketing/arrow4.png" class = "img-fluid" alt="MHH" style="max-width: 30%;" >
                 <br>
             </div>
-            <div id = "subhead2" class="col h4 mt-2 d-flex justify-content-center" >
-                    <img src="./images/Canon_Marketing/arrow4.png" class = "img-fluid" alt="MHH" width="100px" height="100px">
+            <div id = "subhead2" class="col-4 h4 mt-2 d-flex justify-content-center" >
+                    <img src="./images/Canon_Marketing/arrow4.png" class = "img-fluid" alt="MHH"  style="max-width: 30%;">
             </div>
         </div> 
     </div>
-    <div class="container" style="width: 80%;">
-        <div class="row ms-2">
-            <div id = "subhead2" class="col h4 d-flex justify-content-center" >
-                    <img src="./images/Canon_Marketing/shot1.png" class = "img-fluid rounded-3 ms-3 border border-dark border-3" alt="MHH" width="300px" height="200px">
+    <div class="container" style="width: 65%;">
+        <div class="row">
+            <div id = "subhead2" class="col-4 h4 d-flex justify-content-center" >
+                    <img src="./images/Canon_Marketing/shot1.png" class = "img-fluid rounded-3 border border-dark border-3" alt="MHH" width="300px" height="200px">
             </div>
-            <div id = "subhead2" class="col h4 d-flex justify-content-center" >
+            <div id = "subhead2" class="col-4 h4 d-flex justify-content-center" >
                     <img src="./images/Canon_Marketing/shot2.png" class = "img-fluid rounded-3 border border-dark border-3" alt="MHH" width="300px" height="200px">
                 <br>
             </div>
-            <div id = "subhead2" class="col h4 d-flex justify-content-center" >
+            <div id = "subhead2" class="col-4 h4 d-flex justify-content-center" >
                     <img src="./images/Canon_Marketing/shot3.png" class = "img-fluid rounded-3 border border-dark border-3" alt="MHH" width="300px" height="200px">
             </div>
         </div> 
 
         <div class="row ">
             <div id = "subhead2" class="col h4 mt-5 d-flex justify-content-center" >
-                    <img src="./images/Canon_Marketing/marketing.png" class = " img-fluid rounded-3 ms-4" alt="MHH" width="980px" height="400px">
+                    <img src="./images/Canon_Marketing/marketing.png" class = " img-fluid rounded-3" alt="MHH" width="980px" height="400px">
             </div>
         </div>   
     </div>
-    <div class="container" style="width: 73%;">
+    <div id = "staging" class="container" style="width: 65%;">
         <div class="row">
-            <div id = "subhead2"  class="col display-6 mt-5 text-start mb-2 px-5" >
-                <div id = "staging">
-                    Staging the Shoot
-                </div> 
+            <div id="subhead2" class="col display-6 text-center mt-5 ">
+                <div id="staging-title" class="container">
+                    <div class="row d-flex justify-content-center mt-5 pt-5">
+                        <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                            <div style="width: 210px; height: 105px; background-color: #FFD986; border-radius: 210px 210px 0 0;"></div>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                        <img id="process-icon" src="./images/Canon_Marketing/icons/capture.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+                    </div>
+                    <div class="row">
+                        <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                            <div style="width: 70%; margin: 0 auto; border-top: 2px solid #FFD986; border-bottom: 2px solid #FFD986;">
+                                <div class="pt-2 pb-2">
+                                    Staging the Shoot
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     
+    
         <div class="row">
-            <div id = "descr2" class="col h6 text-start mb-2 px-5" >  
+            <div id = "descr2" class="col h6 text-center mt-3 mb-2 lh-base" >  
                     Especially in a space of creative collaboration, the details are what really matter. Using the packaging sketches and office props, my team and I intricately worked to set the stage. 
             </div>
         </div>
         <div class="row">
-            <div id = "descr2" class="col h6 text-start mb-2 px-5" >  
-                    We wanted to portray a real-life situation to potential users to emphasize how AMLOS’ features could bridge the gap between physical and remote office employees.
+            <div id = "descr2" class="col h6 text-center mb-2 lh-base" >  
+                    We wanted to portray a real-life situation to potential users to emphasize how AMLOS' features could bridge the gap between physical and remote office employees.
             </div>
         </div>
 
         <div class="row">
-            <div id = "subhead2" class="col h4 mt-5 d-flex justify-content-center" >
-                    <img src="./images/Canon_Marketing/stage_1.png" class = "img-fluid rounded-3" alt="MHH" width="430px" >
+            <div id = "subhead2" class="col-4 h4 mt-5 d-flex justify-content-center" >
+                    <img src="./images/Canon_Marketing/stage_1.png" class = "img-fluid rounded-3" alt="MHH"  >
             </div>
-            <div id = "subhead2" class="col h4 mt-5 d-flex justify-content-end" >
-                    <img src="./images/Canon_Marketing/stage_2.png" class = "img-fluid rounded-3" alt="MHH" width="430px" >
+            <div id = "subhead2" class="col-4 h4 mt-5 d-flex justify-content-center" >
+                    <img src="./images/Canon_Marketing/stage_2.png" class = "img-fluid rounded-3" alt="MHH" >
             </div>
+            <div id = "subhead2" class="col-4 h4 mt-5 d-flex justify-content-center" >
+                <img src="./images/Canon_Marketing/directing.png" class = "img-fluid rounded-3" alt="MHH"  >
         </div>
+        </div>
+
+    </div>
+
+    <div id = "reflection" class="container" style="width: 65%;">
         <div class="row">
-            <div id = "subhead2" class="col h4 mt-5 d-flex justify-content-center" >
-                <div style ="width: 390px;">
-                    <img src="./images/Canon_Marketing/directing.png" class = "img-fluid rounded-3" alt="MHH" width="430px" height="400px">
+            <div id="subhead2" class="col display-6 text-center mt-5">
+                <div id="reflection-title" class="container">
+                    <div class="row d-flex justify-content-center mt-5 pt-5">
+                        <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                            <div style="width: 210px; height: 105px; background-color: #FFD986; border-radius: 210px 210px 0 0;"></div>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                        <img id="process-icon" src="./images/Canon_Marketing/icons/lamp.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+                    </div>
+                    <div class="row">
+                        <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                            <div style="width: 70%; margin: 0 auto; border-top: 2px solid #FFD986; border-bottom: 2px solid #FFD986;">
+                                <div class="pt-2 pb-2">
+                                    Reflection
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="container" style="width: 73%;">
+    
         <div class="row">
-            <div id = "subhead2"  class="col display-6 mt-5 text-start mb-2 px-5" >
-                <div id = "reflection">
-                    Reflection
-                </div> 
-            </div>
-        </div>
-        <div class="row">
-            <div id = "descr2" class="col h6 d-flex text-start mb-2 px-5" >  
+            <div id = "descr2" class="col h6 d-flex mt-4 text-center mb-2 lh-base" >  
                     Throughout this internship, I was truly able to understand the importance of collaboration and creative execution. From the start, I was very inspired by this project as I was able to gain a deeper understanding of market research, competitive analysis, storyboarding, staging, and product marketing for a technological product. 
             </div>
         </div>
         <div class="row">
-            <div id = "descr2" class="col h6 d-flex text-start mb-2 px-5">
+            <div id = "descr2" class="col h6 d-flex text-center mb-2 lh-base">
                 Learning more about the behind the scenes of product development and how AMLOS was marketed towards a specific audience helped me grasp how a new product was launched and how to effectively address day-to-day challenges through a product. 
             </div>
         </div>
         <div class="row">
-            <div id = "descr2" class="col h6 d-flex text-start mb-2 px-5">
+            <div id = "descr2" class="col h6 d-flex text-center mb-5 lh-base">
                 With a creative mindset and a phenomenal team, we were able to successfully incorporate these pictures in a sales pitch targeted towards Dealers that would distribute the product. The creative process was both enlightening and very inspiring to me as I got to develop a vision into a reality!
             </div>
         </div>
@@ -574,5 +1274,108 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Intersection Observer for scroll snapping
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    entry.target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        // Observe sections
+        const overviewSection = document.getElementById('overview-section4');
+        const processSection = document.getElementById('process-section4');
+        observer.observe(overviewSection);
+        observer.observe(processSection);
+
+        // Image fade-in animation observer
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (!img.classList.contains('fade-in')) {
+                        img.classList.add('fade-in');
+                    }
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '50px'
+        });
+
+        // Title fade-in animation observer
+        const titleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const title = entry.target;
+                    if (!title.classList.contains('fade-in-left') && !title.classList.contains('fade-in-right')) {
+                        const isEven = title.dataset.index % 2 === 0;
+                        title.classList.add(isEven ? 'fade-in-left' : 'fade-in-right');
+                    }
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '100px'
+        });
+
+        // Section item animation observer
+        const sectionItemObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const item = entry.target;
+                    if (!item.classList.contains('fade-in-item')) {
+                        item.classList.add('fade-in-item');
+                    }
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '50px'
+        });
+
+        // Observe all images
+        document.querySelectorAll('img').forEach(img => {
+            imageObserver.observe(img);
+        });
+
+        // Target specific title elements
+        const titleElements = [
+            document.querySelector('#marketing-title'),
+            document.querySelector('#shotlist-title'),
+            document.querySelector('#staging-title'),
+            document.querySelector('#reflection-title')
+        ];
+
+        // Add data-index and observe each title
+        titleElements.forEach((element, index) => {
+            if (element) {
+                element.dataset.index = index;
+                titleObserver.observe(element);
+            }
+        });
+
+        // Add section-item class to all items in overview and process sections
+        const sectionItems = [
+            ...document.querySelectorAll('#overview-section4 .row > div'),
+            ...document.querySelectorAll('#process-section4 .row > div')
+        ];
+
+        // Observe each section item
+        sectionItems.forEach(item => {
+            if (item) {
+                item.classList.add('section-item');
+                sectionItemObserver.observe(item);
+            }
+        });
+    </script>
 </body>
 </html>

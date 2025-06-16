@@ -6,7 +6,67 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Human Centered Design</title>
+    <title>Bakeshop</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+        }
+
+        body {
+            scroll-snap-type: y proximity;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        #overview-section7, #process-section7 {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            min-height: 100vh;
+            position: relative;
+            padding: 60px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        #overview-section7.active, #process-section7.active {
+            scroll-snap-align: start;
+        }
+
+        #overview-section7 > .container, #process-section7 > .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        #overview-section7::before, #process-section7::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+            z-index: 0;
+        }
+
+        #overview-section7 {
+            background-image: url('./images/Bakeshop/bg_1.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        #process-section7 {
+            background-image: url('./images/Bakeshop/bg_2.png');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -124,8 +184,10 @@
                     <div class = "dropdown-text">Experience</div>
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="./index.html#nav-container">Work Experience</a></li>
-                    <li><a class="dropdown-item" href="./index.html#projects">Projects</a></li>
+                    <li><a class="dropdown-item" href="./index.html#nav-container">UX/UI Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#game-design">Game Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#ethical-design">Ethical Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#marketing">Product Marketing</a></li>
                   </ul>
                 </div>
               </li>
@@ -165,7 +227,7 @@
     </script>
 </div>
 
-
+<section id="overview-section7" class="scroll-section" style="padding-top: 20vh;">
 <div class="container">
     <div class="row">
          <div id = "subhead2" class = "col display-6 text-center mt-5 px-5" style="width: 100%;">
@@ -178,11 +240,11 @@
     <div class="row">
         <div id = "descr2" class = "col h6 mt-3 mb-5 text-center">
             <div> 
-                In modern businesses, having one concentrated digital home base for products is extremely crucial as it connects distanced users to a singular product. In an introductory course, “Programming Usable Interfaces” at Carnegie Mellon, I mastered the basics of web development, gaining the flexibility to bring creative ideas to life and the technical insight needed to navigate websites effectively.
+                In modern businesses, having one concentrated digital home base for products is extremely crucial as it connects distanced users to a singular product. In an introductory course, "Programming Usable Interfaces" at Carnegie Mellon, I mastered the basics of web development, gaining the flexibility to bring creative ideas to life and the technical insight needed to navigate websites effectively.
              </div>
             <br>
             <div>
-                Using HTML, CSS, and JavaScript, I was able to showcase a BunBun Bake Shop’s unique offerings and create an engaging online presence. Starting from a blank slate allowed me to fully control the layout and functionality, ensuring the website was visually appealing, user-friendly, and responsive across devices. I implemented features like a gallery of baked goods, individual product galleries, and an interactive cart - all designed to enhance user engagement. 
+                Using HTML, CSS, and JavaScript, I was able to showcase a BunBun Bake Shop's unique offerings and create an engaging online presence. Starting from a blank slate allowed me to fully control the layout and functionality, ensuring the website was visually appealing, user-friendly, and responsive across devices. I implemented features like a gallery of baked goods, individual product galleries, and an interactive cart - all designed to enhance user engagement. 
             </div>  
             <br>
             <div>
@@ -191,8 +253,9 @@
         </div>
     </div>
 </div>
+</section>
 
-
+<section id="process-section7" class="scroll-section" style="padding-top: 20vh;">
 
 <div class="container " style="width: 70%;">
     <div class="row">
@@ -285,8 +348,7 @@
         </div>
     </div>
 </div>
-
-<hr style="height:2px;border-width:0;color:black;background-color:black">
+</section>
 
 
 <div class="container" style="width: 73%;">
@@ -369,7 +431,7 @@
     </div>
     <div class="row mt-4">
         <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-            To enhance usability, I used bold fonts to differentiate active states, such as when users hover over the products , ensuring clear visual feedback. This approach not only reinforces the shop’s branding but also improves navigation by making important actions stand out. The combination of a cohesive color palette and intentional typography creates a user-friendly interface that is both aesthetically pleasing and functionally effective, encouraging users to engage with the site. 
+            To enhance usability, I used bold fonts to differentiate active states, such as when users hover over the products , ensuring clear visual feedback. This approach not only reinforces the shop's branding but also improves navigation by making important actions stand out. The combination of a cohesive color palette and intentional typography creates a user-friendly interface that is both aesthetically pleasing and functionally effective, encouraging users to engage with the site. 
         </div>
     </div>
     <div class="row mt-4">
@@ -491,7 +553,7 @@
     </div>
     <div class="row">
         <div id = "descr2" class="col h6 d-flex text-start mb-2 px-5" >  
-            Working on the BunBun Bakeshop website was an incredibly eye-opening experience that allowed me to sharpen my web development skills while exploring the creative and technical aspects of building a fully functional e-commerce platform. From designing a visually cohesive interface with a warm tan color scheme to coding essential features like the "Add to Cart" and “Remove” functionalities, this project challenged me to think holistically about user experience and technical execution. It taught me the importance of balancing aesthetics with usability, ensuring that every design choice enhances the site's functionality. 
+            Working on the BunBun Bakeshop website was an incredibly eye-opening experience that allowed me to sharpen my web development skills while exploring the creative and technical aspects of building a fully functional e-commerce platform. From designing a visually cohesive interface with a warm tan color scheme to coding essential features like the "Add to Cart" and "Remove" functionalities, this project challenged me to think holistically about user experience and technical execution. It taught me the importance of balancing aesthetics with usability, ensuring that every design choice enhances the site's functionality. 
         </div>
     </div>
     <div class="row">
@@ -528,6 +590,26 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+// Intersection Observer for scroll snapping
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            entry.target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            entry.target.classList.remove('active');
+        }
+    });
+}, {
+    threshold: 0.5
+});
+
+// Observe sections
+const overviewSection = document.getElementById('overview-section7');
+const processSection = document.getElementById('process-section7');
+observer.observe(overviewSection);
+observer.observe(processSection);
 </script>
 
 <br><br>

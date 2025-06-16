@@ -27,6 +27,11 @@
             scroll-snap-stop: always;
         }
 
+        #process-section1, #overview-section1 {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
         .scroll-section.active {
             scroll-snap-align: start;
         }
@@ -199,28 +204,28 @@
                 <div class="col p-3"></div> 
             </div>
 
-            <div class="row justify-content-center gx-5" style="width:1100px;">
+            <div class="row justify-content-center gx-5" style="width:1200px;">
                 <div id="subhead1" class="col-6 display-5 text-end pe-2">
                        Product Management + UX/CX Design (Website) 
                         <div id="descr1" class="col h4 mt-3">
                            <strong> <em>AEO Inc.</em> </strong>
                         </div> 
                 </div> 
-                <div class="background-pic1 col-5 ps-3">
+                <div class="background-pic1 col-5 ">
                     <img src="./images/AEO/ae-main.png" alt="AEO logo" class="shadow-lg shadow-intensity-dark rounded-5 img-fluid" width="390px" height="230px">
                 </div>
             </div>
  
 
-            <div class="row justify-content-center" style="width:1000px;">
+            <div class="row justify-content-end" style="width:1090px;">
                 <div id="descr1" class="col-10 offset-2 mt-5 mb-3 h5" style="text-align: right; padding-right: 0;">
 Driving cross-platform improvements for American Eagle and Aerie's BOPIS widget, focusing on seamless, intuitive design.                 </div>
             </div>
             <div class = "mt-4 row justify-content-center">
-                <hr style="width:1200px;height:2px;border-width:0;color:black;background-color:black">
+                <hr style="width:900px;height:2px;border-width:0;color:black;background-color:black">
             </div>
 
-            <div class = "row">
+            <div class = "row justify-content-center">
                 <div id = "proj_head" class = "col h2 mt-3" >
                     <em>Role</em>
                     <div class="row">
@@ -313,8 +318,10 @@ Driving cross-platform improvements for American Eagle and Aerie's BOPIS widget,
                     <div class = "dropdown-text">Experience</div>
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="./index.html#nav-container">Work Experience</a></li>
-                    <li><a class="dropdown-item" href="./index.html#projects">Projects</a></li>
+                    <li><a class="dropdown-item" href="./index.html#nav-container">UX/UI Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#game-design">Game Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#ethical-design">Ethical Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#marketing">Product Marketing</a></li>
                   </ul>
                 </div>
               </li>
@@ -553,7 +560,7 @@ Driving cross-platform improvements for American Eagle and Aerie's BOPIS widget,
 
         <br>
         <div class="row">
-            <div id = "descr2" class="col h6 text-start mb-2 px-5" style="line-height: 1.6     >  
+            <div id = "descr2" class="col h6 text-start mb-2 px-5" style="line-height: 1.6;">  
                 This research allowed AEO to find trending mobile app navigation
                 features that could be applied to their app to create a more seamless
                 experience for users. I was able to identify and analyze certain
@@ -1475,13 +1482,13 @@ function topFunction() {
     });
 
     // Remove fade-in animation for competitive analysis images
-    sr.reveal('.img-fluid:not(.background-pic1 img):not([src*="aeo.png"]):not([src*="lifestyle.png"]):not([src*="lists.png"]):not([src*="subcategories.png"]):not([src*="hs-1.png"]):not([src*="hs-2.png"])', {
-        origin: 'bottom',
-        distance: '50px',
-        duration: 1000,
-        delay: 200,
-        interval: 200
-    });
+    // sr.reveal('.img-fluid:not(.background-pic1 img):not([src*="aeo.png"]):not([src*="lifestyle.png"]):not([src*="lists.png"]):not([src*="subcategories.png"]):not([src*="hs-1.png"]):not([src*="hs-2.png"])', {
+    //     origin: 'bottom',
+    //     distance: '50px',
+    //     duration: 1000,
+    //     delay: 200,
+    //     interval: 200
+    // });
 
     sr.reveal('img[src*="control"]', {
         origin: 'left',
@@ -1509,6 +1516,27 @@ function topFunction() {
         distance: '100px',
         duration: 1000,
         delay: 400
+    });
+
+    sr.reveal('#ideate', {
+        origin: 'left',
+        distance: '100px',
+        duration: 1200,
+        delay: 300
+    });
+
+    sr.reveal('#ab-test', {
+        origin: 'right',
+        distance: '100px',
+        duration: 1200,
+        delay: 300
+    });
+
+    sr.reveal('#reflection', {
+        origin: 'left',
+        distance: '100px',
+        duration: 1200,
+        delay: 300
     });
 
     // Scroll handling

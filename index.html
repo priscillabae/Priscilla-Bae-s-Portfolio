@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
   <script defer src="scrolling.js"></script>
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
   <title>Priscilla Bae</title>
 </head>
 <body>
@@ -98,8 +99,10 @@
                 <div class = "dropdown-text">Experience</div>
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="./index.html#nav-container">Work Experience</a></li>
-                <li><a class="dropdown-item" href="./index.html#projects">Projects</a></li>
+                <li><a class="dropdown-item" href="./index.html#nav-container">UX/UI Design</a></li>
+                <li><a class="dropdown-item" href="./index.html#game-design">Game Design</a></li>
+                <li><a class="dropdown-item" href="./index.html#ethical-design">Ethical Design</a></li>
+                <li><a class="dropdown-item" href="./index.html#marketing">Product Marketing</a></li>
               </ul>
             </div>
           </li>
@@ -146,159 +149,40 @@
     <h1> - </h1>
   </div>
   
-  <!-- Work Experience title -->
-  <div class="container">
-    <div class="row p-4 mt-5text-dark text-start gx-5">
-        <div class="col-12 ps-5">
-            <h1 id="subhead1" class="work display-4 text-decoration-underline ps-5 ms-2">
-                Work Experience
-            </h1>
-        </div>
-    </div>
-  </div>
+
+   
+<div class="lol ps-5 ms-5">
+  
+
 
   <!-- MHH and AEO UX Description -->
   <div class="other-container">
-    <div class="row p-4 text-dark text-start gx-5 work-cards">
-      <div class="col-12 mb-5">
+    <div class="row mt-5 pt-5text-dark text-start">
+      <div class="col">
+          <h1 id="subhead1" class="work display-4 text-decoration-underline mt-5">
+              UX/UI Design + Development
+          </h1>
+      </div>
+  </div>
+    <div class="row text-dark text-start work-cards mt-4">
+      <div class="col mb-5 ">
         <div id="subhead1" class="text-start h1 mb-4">
           <span style="color:#24282B" class="header3">AMERICAN EAGLE INC.</span>
         </div>
         <div id="descr4" class="header4 h6 mb-4">Product Management + UX/CX Design</div>
         <a href="./ae.html">
-        <div class="card shadow-lg rounded-4">
-          <img src="./images/AEO/ae-main.png" class="card-img-top rounded-top-4" alt="American Eagle website interface">
-          <div class="card-body">
-            <h6 id="descr1" class="card-title"> Experience Design | Retail Tech | Internship </h6>
-            <p id="descr2" class="card-text mt-4 mb-4">
-              Driving cross-platform improvements for Aerie and American Eagle's BOPIS widget, focusing on seamless, intuitive design.            </p>
-            <em><a href="./ae.html" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
+        <div class="card shadow-lg rounded-4 parallax-card" style="position: relative; overflow: hidden;">
+          <div class="parallax-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./images/AEO/para2.png'); background-size: cover; background-position: center;"></div>
+          <div class="parallax-foreground" style="position: absolute; top: 60px; left: 130px; width: 55%; height: 40%; background-image: url('./images/AEO/para.png'); background-size: cover; background-position: start; transform: translateX(0); filter: drop-shadow(20px 5px 6px #978885);"></div>
+          <div class="card-body" style="position: absolute; bottom: -50px; left: 0; width: 100%; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4));">
+            <h6 id="descr1" class="card-title text-light mt-2">Experience Design | Retail Tech | Internship</h6>
+            
+            <em><a href="./ae.html" style="position: absolute; top: 90px; left: 15px;" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
           </div>
         </div>
       </a>
       </div>
 
-      <div class="col-12 mb-5">
-        <div id="subhead1" class="text-start h1 mb-4">
-          <span style="color:#24282B" class="header3">ALI MUSTAFA GAMES</span>
-        </div>
-        <div id="descr4" class="header4 h6 mb-4">Game Design & Transformation</div>
-        <a href="./MHH.html">
-        <div class="card shadow-lg rounded-4">
-          <img src="./images/MHH/logo.png" class="card-img-top rounded-top-4 " alt="American Eagle website interface">
-          <div class="card-body">
-            <h6 id="descr1" class="card-title">Senior HCI Capstone | Design Lead | Digital Design </h6>
-            <p id="descr2" class="card-text mt-4 mb-4">
-              Reimagining the Muslim Party Game as a digital experience that celebrates culture, connection, and play.
-            </p>
-            <em><a href="./MHH.html" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
-          </div>
-        </div>
-      </a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="mb-5"></div>
-  
-
-<!-- third part -->
-
-
-
-<div class="mb-5"></div>
-<!-- First row end -->
-
-
-<!-- Canon Description -->
-
-
-<div class = "other-container container d-flex justify-content-center" style= "width: 1200;">
-    <div class ="row p-4 text-dark text-start gx-5" >
-        <div class = "col">
-            <div id = "subhead1" class = "row text-start h1 mb-4">
-                <span style="color:darkred" class = " col header3">CANON USA</span>
-            </div>
-            <div id = "descr4" class = "header4 h6 mb-4">
-                Increasing User Intuitiveness
-                <div class="card shadow-lg shadow-intensity-dark rounded-4 mt-4" style="height: 250px;" >
-                    <div class="row">
-                      <div class="col-md-4">
-                        <img src="./images/Canon_UX/cover.png" class="card-img canon-image rounded-start-4 " alt="ux" style=" width:160px;height: 248px;">
-                      </div>
-                      <div class="col mt-3">
-                        <div class="card-body">
-                          <p id = "descr2" class="card-text mt-2">Enabling clear and intuitive designs in a platform for hybrid work models to increase productivity</p>
-                          <p id = "descr1" class="card-text mt-3"><small class="text-muted">UX/UI Design | Internship</small></p>
-                          <em><a style="width: 150px;" href="./canon_ux.html" id = "descr1" class="btn btn1 btn-light border border-dark stretched-link">See more  &#8594;</a></em>
-                        </div>
-                      </div>
-                    </div>
-                 </div>
-            </div>
-
-                <div id = "descr4" class = "header4 h6 mb-4 mt-4">
-                    Product Campaign Collateral
-                    <div class="card shadow-lg shadow-intensity-dark rounded-4 mb-3 mt-4 " style=" height: 250px;" >
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="./images/Canon_Marketing/stage_2.png" class="card-img canon-image rounded-start-4 " alt="ux" style="width:160px;height: 248px;">
-                            </div>
-                            <div class="col mt-3">
-                                <div class="card-body">
-                                    <p id = "descr2" class="card-text mt-2">Translating challenges, features, and results in a product photoshoot for campaigns and collateral</p>
-                                    <p id = "descr1" class="card-text mt-3"><small class="text-muted">Storyboarding | Marketing</small></p>
-                                    <em><a style="width: 150px;" href="./canon_marketing.html" id = "descr1" class="btn btn1 btn-light border border-dark stretched-link">See more  &#8594;</a></em>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-
-        <div class = "col px-5">
-            <div id = "subhead1" class = "text-start h1 mb-4">
-                <span style="color:#50005A" class = "header3">Carnegie Mellon University</span>
-            </div>
-            <div id = "descr4" class = "header4 h6 mb-4">
-                Countering Information Overload
-            </div>
-            <a href="./research.html">
-                <div class="card shadow-lg shadow-intensity-dark rounded-4 " style="height: 580px;">
-                    <img src="./images/Research/train.png" class="card-img-top rounded-top-4" alt="Final HCS" style="height: 19rem;">
-                    <div class="card-body">
-                      <h6 id = "descr1" class="card-title">Data Visualization |  Research  </h6>
-                      <p id = "descr2" class="card-text mt-4 mb-5">Creating an inclusion/exclusion algorithm using an Naive Bayes model to determine scientific articles for cancer research
-                    </p>
-                      <em><a href="./research.html" id = "descr1" class="btn btn1 btn-light border border-dark ">See more  &#8594;</a></em>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-<div id = "projects" class="mb-5"></div>
-
-<!-- Projects title -->
-<section class="project-section">
-    <div class="container">
-        <div class="row p-4 mt-5 text-dark text-start gx-5">
-            <div class="col-12 ps-5">
-                <h1 id="subhead1" class="display-4 text-decoration-underline ps-5 ms-2">
-                    Projects
-                </h1>
-            </div>
-        </div>
-    </div>
-
-    <!-- Project cards -->
-    <div class="other-container">
-        <div class="row p-4 text-dark text-start gx-5">
             <div class="col">
                 <div id = "subhead1" class = "text-start h1 mb-4">
                     <span style="color:orangered" class = "header3">DOORDASH</span>
@@ -307,54 +191,137 @@
                     Adaptive User Interface for Groceries
                 </div>
                 <a href="./doordash.html">
-                    <div class="card shadow-lg shadow-intensity-dark rounded-4">
-                        <img src="./images/Doordash/doordash.png" class="card-img-top rounded-top-4" alt="..." style="height: 19rem;">
-                        <div class="card-body">
-                          <h6 id = "descr1" class="card-title">Design for AI Project | UX/UI Design </h6>
-                          <p id = "descr2" class="card-text mt-4 mb-4"> Improving Doordash's user interactions through a simple and straightforward AUI implementation for existing and new DoorDash grocery shoppers
-                        </p>
-                          <em><a href="./doordash.html" id = "descr1" class="btn btn1 btn-light border border-dark ">See more  &#8594;</a></em>
+            <div class="card shadow-lg shadow-intensity-dark rounded-4 parallax-card" style="position: relative; overflow: hidden;">
+                <div class="parallax-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./images/Doordash/para2.png'); background-size: cover; background-position: center;"></div>
+                <div class="parallax-foreground" style="position: absolute; top: 50px; left: 140px; width: 40%; height: 50%; background-image: url('./images/Doordash/para.png'); background-size: cover; background-position: start; transform: translateX(0); filter: drop-shadow(5px 10px 20px #744f29);"></div>
+                <div class="card-body" style="position: absolute; bottom: -50px; left: 0; width: 100%; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4)); padding: 1rem;">
+                  <h6 id = "descr1" class="card-title text-light mb-2 mt-2">Design for AI Project | AUI | CX Improvement</h6>
+                  <em><a href="./doordash.html" style="position: absolute; top: 90px; left: 15px;" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
+                </div>
+            </div>
+        </a>
+    </div>
+
+      <div class="col mb-5">
+        <div id="subhead1" class="text-start h1 mb-4 mt-4">
+          <span style="color:red" class="header3">CANON USA</span>
+        </div>
+        <div id="descr4" class="header4 h6 mb-4">Simplifying User Interactions</div>
+        <a href="./canon_ux.html">
+            <div class="card shadow-lg shadow-intensity-dark rounded-4 parallax-card" style="position: relative; overflow: hidden;">
+                <div class="parallax-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./images/Canon_UX/para2.png'); background-size: cover; background-position: center;"></div>
+              <div class="parallax-foreground" style="position: absolute; top: 60px; left: 120px; width:60%; height: 50%; background-image: url('./images/Canon_UX/para.png'); background-size: cover; background-position: start; transform: translateX(0); filter: drop-shadow(6px 5px 15px rgb(161, 1, 1));"></div>
+              <div class="card-body" style="position: absolute; bottom: -50px; left: 0; width: 100%; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4)); padding: 0.5rem;">
+                <h6 id="descr1" class="card-title text-light mt-2" style="font-size: 0.9rem; margin-top: 0.2rem; margin-bottom: 0.5rem;">Interaction Design | Focus Group | Internship</h6>
+                <em><a href="./canon_ux.html" style="position: absolute; top: 90px; left: 15px;" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
                         </div>
                     </div>
                 </a>
             </div>
             <div class = "col px-5">
-                    <div id = "subhead1" class = "text-start h1 mb-4">
+        <div id = "subhead1" class = "text-start h1 mb-4 mt-4">
                         <span style="color:tan" class = "header3">PROGRAMMING INTERFACES</span>
                     </div>
                     <div id = "descr4" class = "header4 h6 mb-4">
                         Front End Development: Bunbun Bakery
                     </div>
                     <a href="./bakeshop.html">
-                        <div class="card shadow-lg shadow-intensity-dark rounded-4 pb-5" >
-                            <img src="./images/Bakeshop/bakeshop.png" class="card-img-top rounded-top-4" alt="BakeShop" style="height: 19rem;">
-                            <div class="card-body">
-                              <h6 id = "descr1" class="card-title">UX Engineering | HTML - CSS - JS</h6>
-                              <p id = "descr2" class="card-text mt-4 mb-4">Curating and building design + engineering skills by creating a functional bakery shop website, mastering HTML, CSS, and JS
-                            </p>
-                              <em><a href="./bakeshop.html" id = "descr1" class="btn btn1 btn-light border border-dark ">See more  &#8594;</a></em>
+                      <div class="card shadow-lg shadow-intensity-dark rounded-4 parallax-card" style="position: relative; overflow: hidden;">
+                        <div class="parallax-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./images/Bakeshop/para2.png'); background-size: cover; background-position: center;"></div>
+                            <div class="parallax-foreground" style="position: absolute; top: 30px; left: 100px; transform: translate(-50%, -50%); width: 300px; height: 300px; filter: drop-shadow(6px 5px 15px rgb(82, 48, 1));">
+                                <dotlottie-player src="https://lottie.host/ad79f827-b3d5-4613-b2c5-48676edbedf1/fxNzJbLyxo.lottie" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></dotlottie-player>
+                            </div>
+                            <div class="card-body" style="position: absolute; bottom: -50px; left: 0; width: 100%; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4)); padding: 0.5rem;">
+                              <h6 id = "descr1" class="card-title text-light mt-2" style="font-size: 0.9rem; margin-top: 0.2rem; margin-bottom: 0.5rem;">UX Engineering | HTML - CSS - JS</h6>
+                              <em><a href="./bakeshop.html" style="position: absolute; top: 90px; left: 15px;" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
+          </div>
+        </div>
+      </a>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+  <div id="game-design" class="container text-white">
+    <h1> - </h1>
+  </div>
+
+
+
+    <!-- Project cards -->
+    <div class="other-container">
+      <div class="row mt-5 pt-5 text-dark text-start gx-5">
+        <div class="col">
+            <h1 id="subhead1" class="display-4 text-decoration-underline">
+                Game Design & Interactive Systems
+            </h1>
+        </div>
+    </div>
+      <div class="row text-dark text-start work-cards mt-4">
+        <div class="col mb-5">
+            <div id="subhead1" class="text-start h1 mb-4">
+              <span style="color:#24282B" class="header3">ALI MUSTAFA GAMES</span>
+            </div>
+            <div id="descr4" class="header4 h6 mb-4">Game Design & Transformation</div>
+            <a href="./MHH.html">
+              <div class="card shadow-lg shadow-intensity-dark rounded-4 parallax-card" style="position: relative; overflow: hidden;">
+                <div class="parallax-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./images/MHH/para2.png'); background-size: cover; background-position: center;"></div>
+              <div class="parallax-foreground" style="position: absolute; top: 10px; left: 120px; transform: translate(-50%, -50%); width: 300px; height: 300px; filter: drop-shadow(6px 5px 15px rgb(1, 136, 194));">
+                <dotlottie-player src="https://lottie.host/d15b70bd-fd8b-4eda-998e-a25262097567/9ySz9nD9WR.lottie" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></dotlottie-player>
+                </div>
+              <div class="card-body" style="position: absolute; bottom: -50px; left: 0; width: 100%; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4)); padding: 0.5rem;">
+                <h6 id="descr1" class="card-title text-light mt-2" style="font-size: 0.9rem; margin-top: 0.2rem; margin-bottom: 0.5rem;">Senior HCI Capstone | Design Lead | Digital Design </h6>
+                <em><a href="./MHH.html" style="position: absolute; top: 90px; left: 15px;" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
+                    </div>
+            </div>
+          </div>
+            <div class = "col px-5">
+                    <div id = "subhead1" class = "text-start h1 mb-4">
+                <span style="color:grey" class = "header3">HUMAN-CENTERED DESIGN</span>
+                    </div>
+                    <div id = "descr4" class = "header4 h6 mb-4">
+                Efficient Interactions
+                    </div>
+            <a href="./HCS.html">
+              <div class="card shadow-lg shadow-intensity-dark rounded-4 parallax-card" style="position: relative; overflow: hidden;">
+                <div class="parallax-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./images/HCS/para2.png'); background-size: cover; background-position: center;"></div>
+                    <div class="parallax-foreground" style="position: absolute; top: 5px; left: 20px; width: 100%; height: 70%; background-image: url('./images/HCS/para.png'); background-size: cover; background-position: start; transform: translateX(0); filter: drop-shadow(6px 5px 6px #3cfa88);"></div>
+                    <div class="card-body" style="position: absolute; bottom: 0; left: 0; width: 100%; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4));">
+                      <h6 id = "descr1" class="card-title text-light">Interactive Design |  User Research</h6>
+                      <p id = "descr2" class="card-text mt-4 mb-4 text-light">Creating more efficient and intuitive designs for human and technological interactions
+                    </p>
+                      <em><a href="./HCS.html" id = "descr1" class="btn btn1 btn-light border border-dark ">See more  &#8594;</a></em>
                             </div>
                         </div>
                     </a>
             </div>
+        
         </div>
     </div>
-</section>
+
+
+<!-- Projects title -->
+
+
+<div id="ethical-design" class="container text-white">
+  <h1> - </h1>
+</div>
 
 
 
-
-
-
-<div class="mb-5"></div>
-
-
-
-
-
-<div class = "other-container container d-flex justify-content-center" style= "width: 1200;">
-    <div class ="row p-4 text-dark text-start gx-5" >
-        <div class = "col">
+<div class = "other-container">
+  <div class="row mt-5 pt-5 text-dark text-start gx-5">
+    <div class="col">
+        <h1 id="subhead1" class="display-4 text-decoration-underline">
+          User-Centered Ethical Design 
+        </h1>
+    </div>
+</div>
+  <div class="row text-dark text-start work-cards mt-4">
+    <div class = "col mb-5">
             <div id = "subhead1" class = "text-start h1 mb-4">
                 <span style="color:#0038FF" class = "header3">COINBASE</span>
             </div>
@@ -362,33 +329,33 @@
                 Ethically Designed Transactions
             </div>
             <a href="./coinbase.html">
-                <div class="card shadow-lg shadow-intensity-dark rounded-4">
-                    <img src="./images/Coinbase/refine2.png" class="card-img-top rounded-top-4" alt="..." style="height: 19rem;">
-                    <div class="card-body">
-                      <h6 id = "descr1" class="card-title">IDO Project | Prototyping | Storyboarding </h6>
-                        <p id = "descr2" class="card-text mt-4 mb-4">                             
-                            Redesigning Coinbase's mobile features to simplify overly complex systems, increasing transparency through apparent transaction fees
-                        </p>
-                      <em><a href="./coinbase.html" id = "descr1" class="btn btn1 btn-light border border-dark ">See more  &#8594;</a></em>
+              <div class="card shadow-lg shadow-intensity-dark rounded-4 parallax-card" style="position: relative; overflow: hidden;">
+                <div class="parallax-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./images/Coinbase/para2.png'); background-size: cover; background-position: center;"></div>
+                    <div class="parallax-foreground" style="position: absolute; top: 40px; left: 100px; transform: translate(-50%, -50%); width: 300px; height: 300px; filter: drop-shadow(6px 5px 15px rgb(60, 72, 0));">
+                        <dotlottie-player src="https://lottie.host/0a2b1336-bc41-4c30-99b3-f4b52f918281/04xQ1bhKZx.lottie" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></dotlottie-player>
+                    </div>
+                    <div class="card-body" style="position: absolute; bottom: -50px; left: 0; width: 100%; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4)); padding: 0.5rem;">
+                      <h6 id = "descr1" class="card-title text-light mt-2" style="font-size: 0.9rem; margin-top: 0.2rem; margin-bottom: 0.5rem;">IDO Project | Prototyping | Storyboarding </h6>
+                      <em><a href="./coinbase.html" style="position: absolute; top: 90px; left: 15px;" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
                     </div>
                 </div>
             </a>
         </div>
-        <div class = "col px-5">
-                <div id = "subhead1" class = "text-start h1 mb-4">
-                    <span style="color:grey" class = "header3">HUMAN-CENTERED DESIGN</span>
+        <div class="col mb-5">
+          <div id="subhead1" class="text-start h1 mb-4">
+            <span style="color:orange" class="header3"> REDDIT</span>
                 </div>
-                <div id = "descr4" class = "header4 h6 mb-4">
-                    Efficient Interactions
+          <div id="descr4" class="header4 h6 mb-4">        Gamifying Bias Detection
                 </div>
-                <a href="./HCS.html">
-                    <div class="card shadow-lg shadow-intensity-dark rounded-4 pb-5" >
-                        <img src="./images/HCS/final.png" class="card-img-top rounded-top-4" alt="BakeShop" style="height: 19rem;">
-                        <div class="card-body">
-                          <h6 id = "descr1" class="card-title">Interactive Design |  User Research</h6>
-                          <p id = "descr2" class="card-text mt-4 mb-4">Creating more efficient and intuitive designs for human and technological interactions
-                        </p>
-                          <em><a href="./HCS.html" id = "descr1" class="btn btn1 btn-light border border-dark ">See more  &#8594;</a></em>
+          <a href="./reddit.html">
+            <div class="card shadow-lg shadow-intensity-dark rounded-4 parallax-card" style="position: relative; overflow: hidden;">
+              <div class="parallax-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./images/Reddit/para2.png'); background-size: cover; background-position: center;"></div>
+            <div class="parallax-foreground" style="position: absolute; top: 40px; left: 140px; transform: translate(-50%, -50%); width: 250px; height: 250px; filter: drop-shadow(6px 5px 25px rgb(72, 31, 0));">
+              <dotlottie-player src="https://lottie.host/2fe53f61-b5ca-404e-a0de-f39a850ab564/ZXZQPsXs35.lottie" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></dotlottie-player>
+            </div>
+            <div class="card-body" style="position: absolute; bottom: -50px; left: 0; width: 100%; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4)); padding: 0.5rem;">
+              <h6 id="descr1" class="card-title text-light mt-2" style="font-size: 0.9rem; margin-top: 0.2rem; margin-bottom: 0.5rem;">Storyboarding |  Photoshoot Campaign | Internship </h6>
+              <em><a href="./reddit.html" style="position: absolute; top: 90px; left: 15px;" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
                         </div>
                     </div>
                 </a>
@@ -398,8 +365,60 @@
 
 
 
+<div id="marketing" class="container text-white">
+  <h1> - </h1>
+</div>
 
 
+
+<div class = "other-container">
+  <div class="row mt-5 pt-5 text-dark text-start gx-5">
+    <div class="col">
+        <h1 id="subhead1" class="display-4 text-decoration-underline">
+          Product Marketing
+        </h1>
+    </div>
+</div>
+  <div class="row text-dark text-start work-cards mt-4">
+    <div class="col mb-5">
+      <div id="subhead1" class="text-start h1 mb-4">
+        <span style="color:red" class="header3">CANON USA</span>
+      </div>
+      <div id="descr4" class="header4 h6 mb-4">        Product Campaign Collateral
+      </div>
+      <a href="./canon_marketing.html">
+        <div class="card shadow-lg shadow-intensity-dark rounded-4 parallax-card" style="position: relative; overflow: hidden;">
+          <div class="parallax-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./images/Canon_Marketing/para2.png'); background-size: cover; background-position: center;"></div>
+        <div class="parallax-foreground" style="position: absolute; top: 90px; left: 140px; width: 50%; height: 30%; background-image: url('./images/Canon_Marketing/para.png'); background-size: cover; background-position: start; transform: translateX(0); filter: drop-shadow(6px 10px 15px red);"></div>
+        <div class="card-body" style="position: absolute; bottom: -50px; left: 0; width: 100%; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4)); padding: 0.5rem;">
+          <h6 id="descr1" class="card-title text-light mt-2" style="font-size: 0.9rem; margin-top: 0.2rem; margin-bottom: 0.5rem;">Storyboarding |  Photoshoot Campaign | Internship </h6>
+          <em><a href="./canon_marketing.html" style="position: absolute; top: 90px; left: 15px;" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
+        </div>
+      </div>
+    </a>
+    </div>
+
+    <div class="col mb-5 ">
+      <div id="subhead1" class="text-start h1 mb-4">
+        <span style="color:darkkhaki" class="header3">ROUND TABLE COFFEE</span>
+      </div>
+      <div id="descr4" class="header4 h6 mb-4">        Product Campaign Collateral
+      </div>
+      <a href="./RTC.html">
+        <div class="card shadow-lg shadow-intensity-dark rounded-4 parallax-card" style="position: relative; overflow: hidden;">
+          <div class="parallax-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./images/RoundTable/para2.png'); background-size: cover; background-position: center;"></div>
+        <div class="parallax-foreground" style="position: absolute; top: 50px; left: 130px; width: 55%; height: 45%; background-image: url('./images/RoundTable/para.png'); background-size: cover; background-position: start; transform: translateX(0); filter: drop-shadow(10px 10px 10px rgb(39, 9, 0));"></div>
+        <div class="card-body" style="position: absolute; bottom: -50px; left: 0; width: 100%; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4)); padding: 0.5rem;">
+          <h6 id="descr1" class="card-title text-light mt-2" style="font-size: 0.9rem; margin-top: 0.2rem; margin-bottom: 0.5rem;">Storyboarding |  Photoshoot Campaign | Internship </h6>
+          <em><a href="./RTC.html" style="position: absolute; top: 90px; left: 15px;" id="descr1" class="btn btn1 btn-light border border-dark">See more &#8594;</a></em>
+        </div>
+      </div>
+    </a>
+    </div>
+  </div>
+
+  </div>
+</div>
 
 
 <div class="mb-5"></div>
@@ -408,6 +427,7 @@
 
 <div class="mb-5"></div>
 <!-- HCS end -->
+</div>
 
 
 <button onclick="topFunction()" id="myBtn" >
@@ -436,6 +456,38 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+    // Parallax scroll effect
+    window.addEventListener('scroll', function() {
+        const cards = document.querySelectorAll('.parallax-card');
+        
+        cards.forEach(card => {
+            const foreground = card.querySelector('.parallax-foreground');
+            const isAEO = card.closest('a[href="./ae.html"]') !== null;
+            
+            if (card) {
+                const rect = card.getBoundingClientRect();
+                const scrollPosition = window.scrollY;
+                const cardTop = rect.top + scrollPosition;
+                const cardBottom = cardTop + rect.height;
+                
+                // Only apply parallax when card is in view
+                if (scrollPosition + window.innerHeight > cardTop && scrollPosition < cardBottom) {
+                    const scrollProgress = (scrollPosition - cardTop) / (cardBottom - cardTop);
+                    
+                    if (card.closest('a[href="./coinbase.html"]') !== null || card.closest('a[href="./canon_marketing.html"]') !== null) {
+                        // For Ali Mustafa Games and Coinbase: Move from -200px to 0px to show full image aggressively
+                        const translateX = -200 + (Math.pow(scrollProgress, 0.02) * 400);
+                        foreground.style.transform = `translateX(${translateX}px)`;
+                    } else {
+                        // For other cards (e.g., AEO, Canon USA, Programming Interfaces, Reddit, and Round Table Coffee): Original parallax effect
+                        const translateX = scrollProgress * 100;
+                        foreground.style.transform = `translateX(${translateX}px)`;
+                    }
+                }
+            }
+        });
+    });
 </script>
 
 <footer class="footer d-flex pt-3 flex-wrap justify-content-between align-items-center py-5 border-top" style="padding-bottom: 50px !important; padding-top: 50px !important;">
@@ -456,7 +508,6 @@ function topFunction() {
           </div>
       </div>
     </div>
-    
 </footer>
 
 </body>
