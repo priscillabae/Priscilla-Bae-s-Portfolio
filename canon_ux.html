@@ -62,28 +62,28 @@
         }
 
         #process-section3 {
-            background-image: url('./images/Canon_UX/process-ux.png');
+            background-image: url('./images/Canon_UX/project-ux.png');
             background-size: cover;
             background-position: center;
         }
     </style>
 </head>
 <body>
-    <nav id="navbar" class="navbar navbar-expand-md fixed-top">
+    <nav id="navbar" class="navbar smart-scroll navbar-expand-md fixed-top">
         <div class="container header-main" style="height: 75px;">
-          <a id="PB" class="navbar-brand text-light" href="index.html"><em>PB</em></a>
+          <a id="PB" class="navbar-brand" href="index.html"><em>PB</em></a>
           <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="collapse">
-            <ul id="nav-text" class="navbar-nav ms-auto align-items-center ">
+            <ul id="nav-text" class="navbar-nav ms-auto align-items-center">
               <li class="nav-item">
-                <a class="nav-link px-5 text-light" href="about.html">About Me</a>
+                <a class="nav-link px-5" href="about.html">About Me</a>
               </li>
               <li class="nav-item dropdown">
                 <div class="dropdown">
-                  <a class="nav-link dropdown-toggle px-5 text-light " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class = "dropdown-text ">Experience</div>
+                  <a class="nav-link dropdown-toggle px-5 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class = "dropdown-text">Experience</div>
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <li><a class="dropdown-item" href="./index.html#nav-container">UX/UI Design</a></li>
@@ -94,10 +94,10 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-5 text-light" href="art.html">Art & Design</a>
+                <a class="nav-link px-5" href="art.html">Art & Design</a>
               </li>
-              <li class="nav-item ">
-                <a class="nav-link px-5 text-light" href="https://drive.google.com/file/d/142vSZV0epUAXWcApz43jjP-5FqxHCxdz/view?usp=sharing">Resume</a>
+              <li class="nav-item">
+                <a class="nav-link px-5" href="https://drive.google.com/file/d/142vSZV0epUAXWcApz43jjP-5FqxHCxdz/view?usp=sharing">Resume</a>
               </li>
             </ul>
           </div>
@@ -106,6 +106,30 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <script>
+        const navEl = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY >= 200) {
+                navEl.classList.add('navbar-scroll');
+            } else if (window.scrollY < 200){
+                navEl.classList.remove('navbar-scroll');
+            }
+        });
+    </script>
+
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+          if (prevScrollpos > currentScrollPos) {
+            document.getElementById("navbar").style.top = "0";
+          } else {
+            document.getElementById("navbar").style.top = "-70px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+    </script>
 
     <div class = "bg-image ux-bg" >
         <div class = "container card-img-overlay text-center text-light" >
@@ -235,7 +259,7 @@
     <section id="process-section3" class="scroll-section" style="padding-top: 20vh;">
     <div class="container" style="width: 73%;">
         <div class="row">
-            <div id = "subhead2" class = "col display-6 text-center mt-5 mb-2 px-5" >
+            <div id = "subhead2" class = "col display-6 text-center mt-5 mb-2 px-5 text-dark" >
                 Process
             </div>
         </div>
@@ -252,12 +276,12 @@
                         </div>
                         <div class="row">
                             <div class="col d-flex justify-content-center">
-                                <img id = "process-icon" src="./images/Canon_UX/icons/focus.png" alt="Research Books" style="width: 70px;">
+                                <img id = "process-icon" src="./images/Canon_UX/icons/multiple-users-silhouette.png" alt="Research Books" style="width: 70px;">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col d-flex justify-content-center mt-5">
-                                <h6 id = "process-text"> Focus Group</h6>
+                                <h6 id = "process-text" class="text-dark"> Focus Group</h6>
                             </div>
                         </div>
                     </a>
@@ -266,12 +290,12 @@
                     <a class="nav-link px-5" href ="./canon_ux.html#mock">
                         <div class="row">
                             <div class="col d-flex justify-content-center ms-2">
-                                <img id = "process-icon-top" src="./images/Canon_UX/icons/design.png" alt="Girl with List"> 
+                                <img id = "process-icon-top" src="./images/Canon_UX/icons/graphic-design.png" alt="Girl with List"> 
                             </div> 
                         </div>
                         <div class="row">
                             <div class="col d-flex justify-content-center mt-5">
-                                <h6 id = "process-text-bot"> Design</h6>
+                                <h6 id = "process-text-bot" class="text-dark"> Design</h6>
                             </div>
                         </div>
                         <div class="row">
@@ -291,12 +315,12 @@
                     </div>
                     <div class="row" >
                         <div class="col d-flex justify-content-center ">
-                            <img id = "process-icon" src="./images/Canon_UX/icons/lamp.png" alt="Camera" style="width: 80px;">
+                            <img id = "process-icon" src="./images/Canon_UX/icons/idea.png" alt="Camera" style="width: 80px;">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-center mt-5">
-                            <h6 id = "process-text"> Reflection</h6>
+                            <h6 id = "process-text" class="text-dark"> Reflection</h6>
                         </div>
                     </div>
                 </a>
