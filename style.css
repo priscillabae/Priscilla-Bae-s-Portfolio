@@ -902,7 +902,7 @@ background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
 position: relative;
-filter: brightness(1.4); /* Make the background image lighter */
+filter: saturate(0.7) contrast(0.9); /* Make the background image more muted */
 }
 
 /* canon marketing page specific background */
