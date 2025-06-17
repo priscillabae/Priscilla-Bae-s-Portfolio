@@ -66,9 +66,77 @@
             background-size: cover;
             background-position: center;
         }
+
+        /* Scroll indicator styles */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 9999;
+            pointer-events: auto;
+            text-align: center;
+            display: none;
+            display: flex; /* Use flexbox for centering children */
+            flex-direction: column; /* Stack children vertically */
+            align-items: center; /* Center horizontally */
+            justify-content: center; /* Center vertically */
+        }
+
+        .scroll-arrow {
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+
+        .scroll-arrow::before,
+        .scroll-arrow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 3px;
+            background-color: #000000; /* Color from MHH.html */
+            border-radius: 1.5px;
+        }
+
+        .scroll-arrow::before {
+            transform: translate(-80%, -50%) rotate(45deg); /* Shape from MHH.html */
+        }
+
+        .scroll-arrow::after {
+            transform: translate(-20%, -50%) rotate(-45deg); /* Shape from MHH.html */
+        }
+
+        .swipe-text {
+            color: #000000;
+
+            font-size: 14px;
+            margin-bottom: 0; /* Remove margin to bring it very close */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
     </style>
 </head>
 <body>
+    <div id="scroll-indicator" class="scroll-indicator" onclick="scrollToNextSection()">
+        <div class="swipe-text">S W I P E</div>
+        <div class="scroll-arrow ms-2"></div>
+    </div>
+
     <nav id="navbar" class="navbar smart-scroll navbar-expand-md fixed-top">
         <div class="container header-main" style="height: 75px;">
           <a id="PB" class="navbar-brand" href="index.html"><em>PB</em></a>
@@ -103,9 +171,6 @@
           </div>
         </div>
       </nav>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
     <script>
         const navEl = document.querySelector('.navbar');
@@ -224,26 +289,26 @@
 
 
 
-    </div>
+</div>
 
-    <section id="overview-section3" class="scroll-section" style="padding-top: 20vh;">
+<section id="overview-section3" class="scroll-section" style="padding-top: 20vh;">
 
-    <div class="container">
-        <div class="row">
-             <div id = "subhead2" class = "col display-6 text-center px-5" style="width: 100%;">
-                Project Overview
-            </div> 
-        </div>
+<div class="container">
+    <div class="row">
+         <div id = "subhead2" class = "col display-6 text-center px-5 fade-in-left" style="width: 100%;">
+            Project Overview
+        </div> 
     </div>
-    <div class="container " style="width: 70%;">
-        <div class="row">
-            <div id = "descr2" class = " col h6 mt-3 mb-3 text-center lh-base">
-                <div> 
-                    As a UX Design Intern, I collaborated with the UX/UI team at ID8 to improve the interface and functionality of AMLOS, a hybrid collaboration system. I contributed fresh design ideas through sample interfaces and additional features built in Figma. To better understand user needs, I also led focus group studies that gathered feedback on how the general public and market would engage with the interface.
-                </div>
+</div>
+<div class="container fade-in-left" style="width: 70%;">
+    <div class="row fade-in-left">
+        <div id = "descr2" class = " col h6 mt-3 mb-3 text-center lh-base fade-in-left">
+            <div> 
+                As a UX Design Intern, I collaborated with the UX/UI team at ID8 to improve the interface and functionality of AMLOS, a hybrid collaboration system. I contributed fresh design ideas through sample interfaces and additional features built in Figma. To better understand user needs, I also led focus group studies that gathered feedback on how the general public and market would engage with the interface.
+            </div>
     </div>
-    <div class="row justify-content-center mt-5">
-        <div class="col-12" style="position: relative;">
+    <div class="row justify-content-center mt-5 fade-in-left">
+        <div class="col-12 fade-in-left" style="position: relative;">
             <div style="border: 2px solid black; padding: 3.5rem; margin-top: 1rem;background-color: white;">
                 <h2 class= "shadow-lg shadow-intensity-dark rounded-3"style="border: 1px solid red ; color: red; font-style: italic; position: absolute; top: 0; left: -1rem; transform: translateY(-30%); background: white; padding: .5rem 1.5rem; margin: 0; font-size: 3.0rem;">The Problem</h2>
                 <div id="descr1" class="h5 mb-0">
@@ -252,161 +317,161 @@
             </div>       
         </div>
     </div>
-    </div>
+</div>
 
-    </section>
+</section>
 
-    <section id="process-section3" class="scroll-section" style="padding-top: 20vh;">
-    <div class="container" style="width: 73%;">
-        <div class="row">
-            <div id = "subhead2" class = "col display-6 text-center mt-5 mb-2 px-5 text-dark" >
-                Process
-            </div>
+<section id="process-section3" class="scroll-section" style="padding-top: 20vh;">
+<div class="container" style="width: 73%;">
+    <div class="row">
+            <div id = "subhead2" class = "col display-6 text-center mt-5 mb-2 px-5 text-dark fade-in-right" >
+            Process
         </div>
     </div>
+</div>
 
-    <div id = "process-container" class="container" >
-        <div class="row" style="width: 1200px;">
-                <div id = "hover-1" class="col" style="width: 150px;" >
-                    <a class="nav-link px-5" href ="./canon_ux.html#focus">
-                        <div class="row">
-                            <div id = "half-circle" class="col d-flex justify-content-center ms-2">
-                                <img src="./images/Canon_UX/process1.jpg" alt="Overhead half circle" style="width: 400px;">
-                            </div> 
-                        </div>
-                        <div class="row">
-                            <div class="col d-flex justify-content-center">
-                                <img id = "process-icon" src="./images/Canon_UX/icons/multiple-users-silhouette.png" alt="Research Books" style="width: 70px;">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col d-flex justify-content-center mt-5">
-                                <h6 id = "process-text" class="text-dark"> Focus Group</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div id = "hover-2" class="col" style="width: 150px;">
-                    <a class="nav-link px-5" href ="./canon_ux.html#mock">
-                        <div class="row">
-                            <div class="col d-flex justify-content-center ms-2">
-                                <img id = "process-icon-top" src="./images/Canon_UX/icons/graphic-design.png" alt="Girl with List"> 
-                            </div> 
-                        </div>
-                        <div class="row">
-                            <div class="col d-flex justify-content-center mt-5">
-                                <h6 id = "process-text-bot" class="text-dark"> Design</h6>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col d-flex justify-content-center">
-                                <img id = "half-circle-bot" src="./images/Canon_UX/process2.jpg" alt="Overhead half circle" style="width: 400px;">
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            <div id = "hover-3" class="col" style="width: 150px;">
-                <a class="nav-link px-5" href ="./canon_ux.html#reflection">
+<div id = "process-container" class="container fade-in-right" >
+    <div class="row" style="width: 1200px;">
+            <div id = "hover-1" class="col fade-in-right" style="width: 150px;" >
+                <a class="nav-link px-5" href ="./canon_ux.html#focus">
                     <div class="row">
-                        <div id = "half-circle" class="col d-flex justify-content-center px-3 ms-2">
+                        <div id = "half-circle" class="col d-flex justify-content-center ms-2">
                             <img src="./images/Canon_UX/process1.jpg" alt="Overhead half circle" style="width: 400px;">
                         </div> 
                     </div>
-                    <div class="row" >
-                        <div class="col d-flex justify-content-center ">
-                            <img id = "process-icon" src="./images/Canon_UX/icons/idea.png" alt="Camera" style="width: 80px;">
-                        </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                                <img id = "process-icon" src="./images/Canon_UX/icons/multiple-users-silhouette.png" alt="Research Books" style="width: 70px;">
+                            </div>
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-center mt-5">
-                            <h6 id = "process-text" class="text-dark"> Reflection</h6>
+                                <h6 id = "process-text" class="text-dark"> Focus Group</h6>
+                            </div>
+                    </div>
+                </a>
+            </div>
+            <div id = "hover-2" class="col fade-in-right" style="width: 150px;">
+                <a class="nav-link px-5" href ="./canon_ux.html#mock">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center ms-2">
+                                <img id = "process-icon-top" src="./images/Canon_UX/icons/graphic-design.png" alt="Girl with List"> 
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center mt-5">
+                                <h6 id = "process-text-bot" class="text-dark"> Design</h6>
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <img id = "half-circle-bot" src="./images/Canon_UX/process2.jpg" alt="Overhead half circle" style="width: 400px;">
+
                         </div>
                     </div>
                 </a>
             </div>
+        <div id = "hover-3" class="col fade-in-right" style="width: 150px;">
+            <a class="nav-link px-5" href ="./canon_ux.html#reflection">
+                <div class="row">
+                    <div id = "half-circle" class="col d-flex justify-content-center px-3 ms-2">
+                        <img src="./images/Canon_UX/process1.jpg" alt="Overhead half circle" style="width: 400px;">
+                    </div> 
+                </div>
+                <div class="row" >
+                    <div class="col d-flex justify-content-center ">
+                            <img id = "process-icon" src="./images/Canon_UX/icons/idea.png" alt="Camera" style="width: 80px;">
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center mt-5">
+                            <h6 id = "process-text" class="text-dark"> Reflection</h6>
+                        </div>
+                </div>
+            </a>
         </div>
     </div>
-    </section>
+</div>
+</section>
 
     </div> 
 </div>
 
-    <div id = "focus" class="container mt-5 pt-5" style="width: 70%;">
-        <div class="row">
-            <div id="subhead2" class="col display-6 text-start ">
+<div id = "focus" class="container mt-5 pt-5" style="width: 70%;">
+    <div class="row">
+        <div id="subhead2" class="col display-6 text-start ">
                 <div id="focus-title" class="container fade-in-left">
-                    <div class="row d-flex justify-content-center mt-5">
-                        <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
-                            <div style="width: 210px; height: 105px; background-color: #cc0303; border-radius: 210px 210px 0 0;"></div>
-                </div> 
-            </div>
-                    <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
-                        <img id="process-icon" src="./images/Canon_UX/icons/multiple-users-silhouette.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                        <div style="width: 210px; height: 105px; background-color: #cc0303; border-radius: 210px 210px 0 0;"></div>
+            </div> 
         </div>
-        <div class="row">
-                        <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
-                            <div style="width: 70%; margin: 0 auto; border-top: 2px solid #cc0303; border-bottom: 2px solid #cc0303;">
-                                <div class="pt-2 pb-2">
-                                    Focus Group
-                                </div>
+                <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <img id="process-icon" src="./images/Canon_UX/icons/multiple-users-silhouette.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+    </div>
+    <div class="row">
+                    <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                        <div style="width: 70%; margin: 0 auto; border-top: 2px solid #cc0303; border-bottom: 2px solid #cc0303;">
+                            <div class="pt-2 pb-2">
+                                Focus Group
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+    </div>
+    
 
-        <div class="row">
-            <div id = "descr2" class = "col h6 text-center mt-5 mb-2  px-5 lh-base " >
-                 Leading a group of  12 young adults, 18-24 years old, my team and I were able to create a group-focused study. While my team and I each led a group of 4 individuals while the other 4 individuals were placed into separate rooms. From there, we created a hypothetical scenario where these individuals were tasked with creating a new logo name and design for AMLOS through hybrid creative collaboration. By leading this scenario, we were able to gain further insights on how to improve the overall intuitiveness of the interface and apply user testing to creating an updated version.
-            </div>
+    <div class="row">
+        <div id = "descr2" class = "col h6 text-center mt-5 mb-2  px-5 lh-base " >
+             Leading a group of  12 young adults, 18-24 years old, my team and I were able to create a group-focused study. While my team and I each led a group of 4 individuals while the other 4 individuals were placed into separate rooms. From there, we created a hypothetical scenario where these individuals were tasked with creating a new logo name and design for AMLOS through hybrid creative collaboration. By leading this scenario, we were able to gain further insights on how to improve the overall intuitiveness of the interface and apply user testing to creating an updated version.
         </div>
+    </div>
 
-        <div class="row">
-            <div id = "subhead2" class="col h4 d-flex justify-content-center mt-3 mb-2 ms-3 g-0" >
-                    <img src="./images/Canon_UX/focus1.jpg" class = "rounded-3 g-0 img-fluid" alt="MHH" width="400px" height="200px">
-            </div>
-            <div id = "subhead2" class="col g-0 h4 d-flex justify-content-start mt-3 mb-2" >
-                    <img src="./images/Canon_UX/focus2.jpg" class = "rounded-3 ms-3 img-fluid" alt="MHH" width="400px" height="200px">
+    <div class="row">
+        <div id = "subhead2" class="col h4 d-flex justify-content-center mt-3 mb-2 ms-3 g-0" >
+                <img src="./images/Canon_UX/focus1.jpg" class = "rounded-3 g-0 img-fluid" alt="MHH" width="400px" height="200px">
+        </div>
+        <div id = "subhead2" class="col g-0 h4 d-flex justify-content-start mt-3 mb-2" >
+                <img src="./images/Canon_UX/focus2.jpg" class = "rounded-3 ms-3 img-fluid" alt="MHH" width="400px" height="200px">
+        </div>
+    </div>
+</div>
+
+
+
+<div id = "mock" class="container mt-5 pt-5" style="width: 70%;">
+    <div class="row">
+        <div id="subhead2" class="col display-6 text-start ">
+                <div id="mock-title" class="container fade-in-right">
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                        <div style="width: 210px; height: 105px; background-color: #cc0303; border-radius: 210px 210px 0 0;"></div>
+            </div> 
+        </div>
+                <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <img id="process-icon" src="./images/Canon_UX/icons/graphic-design.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+    </div>
+    <div class="row">
+                    <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                        <div style="width: 70%; margin: 0 auto; border-top: 2px solid #cc0303; border-bottom: 2px solid #cc0303;">
+                            <div class="pt-2 pb-2">
+                                Mock Designs
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
 
-
-    <div id = "mock" class="container mt-5 pt-5" style="width: 70%;">
-        <div class="row">
-            <div id="subhead2" class="col display-6 text-start ">
-                <div id="mock-title" class="container fade-in-right">
-                    <div class="row d-flex justify-content-center mt-5">
-                        <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
-                            <div style="width: 210px; height: 105px; background-color: #cc0303; border-radius: 210px 210px 0 0;"></div>
-                </div> 
-            </div>
-                    <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
-                        <img id="process-icon" src="./images/Canon_UX/icons/graphic-design.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
-        </div>
-        <div class="row">
-                        <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
-                            <div style="width: 70%; margin: 0 auto; border-top: 2px solid #cc0303; border-bottom: 2px solid #cc0303;">
-                                <div class="pt-2 pb-2">
-                                    Mock Designs
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div id = "descr2" class="col h6 text-start mb-2  px-5 mt-5 lh-base" >
-                    Our main focus was creating AMLOS features that created an essence of a stand-alone solution.  <br><br>
-                    This included implementing designs such as chat boxes, video carousels, audio options, etc. As I was able to pitch ideas to the AMLOS and UX design teams, we were able to collaboratively incorporate designs for the new version release. 
-                I brainstormed many different ideas ranging from:
+    <div class="row">
+        <div id = "descr2" class="col h6 text-start mb-2  px-5 mt-5 lh-base" >
+                Our main focus was creating AMLOS features that created an essence of a stand-alone solution.  <br><br>
+                This included implementing designs such as chat boxes, video carousels, audio options, etc. As I was able to pitch ideas to the AMLOS and UX design teams, we were able to collaboratively incorporate designs for the new version release. 
+            I brainstormed many different ideas ranging from:
                 <div class="accordion mt-4" id="ideasAccordion">
                     <!-- Tutorial Feature -->
                     <div class="accordion-item border-0 mb-3">
@@ -431,16 +496,16 @@
                                     <div class="col-md-4">
                                         <img src="images/Canon_UX/tut3.png" alt="Tutorial Image 3" class="img-fluid">
                                     </div>
-                                </div>
+        </div>
 
                                 <div>
                                     With the limited time left in the internship, the full prototype of the AMLOS feature was not completed, but we were able to create a starting place that utlizied the color pallette and aesthetics of the original UI.
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </div>
+    </div>
 
+        </div>
+        </div>
+    </div>
+    
                     <!-- Bottom Screens -->
                     <div class="accordion-item border-0 mb-3">
                         <h2 class="accordion-header">
@@ -460,22 +525,22 @@
                                         <div id="subhead3" class="h6 text-start mb-2">
                                             Current Design
                                         </div>
-                                    </div>
-                                </div>
-
+        </div>
+    </div>
+    
                                 <div class="row g-0">
                                     <div class="col-12">
                                         <div id="descr2" class="h6 text-start mt-3 mb-2 lh-base">
                                             The current design for AMLOS consisted of a bottom panel of different screen options. These different options could give users customized views of whiteboards, presenters, meeting rooms, and spotlight zoom-in images. The interface allowed users to press each of these boxes, but because of similarity of these boxes and constant movement between the boxes and the screens, it would often confuse users as to which boxes were exactly on the screen. 
                                         </div>
-                                    </div>
-                                </div>
+        </div>
+    </div>
 
                                 <div class="row g-0">
                                     <div class="col-12 d-flex justify-content-center">
                                         <img src="./images/Canon_UX/arrow4.png" class="rounded-3 img-fluid" alt="Arrow pointing down" style="width: 50px; height: 50px;">
-                                    </div>
-                                </div>
+        </div>
+    </div>
 
                                 <!-- Proposed Design Section -->
                                 <div class="row g-0">
@@ -484,10 +549,10 @@
                                             <img src="./images/Canon_UX/new.png" class="rounded-3 img-fluid w-100" alt="Proposed Design">
                                         </div>
                                         <div id="subhead3" class="h6 text-start mb-2">
-                                            Proposed Design
-                                        </div>
-                                    </div>
-                                </div>
+                Proposed Design
+        </div>
+    </div>
+</div>
 
                                 <div class="row g-0">
                                     <div class="col-12">
@@ -497,8 +562,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+        </div>
+    </div>
 
                     <!-- User Settings -->
                     <div class="accordion-item border-0 mb-3">
@@ -524,35 +589,35 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div id = "subhead4" class="col h5 text-center mt-5 mb-2 px-5" >
-                    Final version is not yet released. 
-            </div>
+    <div class="row">
+        <div id = "subhead4" class="col h5 text-center mt-5 mb-2 px-5" >
+                Final version is not yet released. 
         </div>
     </div>
     </div>
+</div>
 
 
 
        
 
-    <div id = "reflection" class="container mt-5 pt-5" style="width: 70%;">
-        <div class="row">
-            <div id="subhead2" class="col display-6 text-start ">
+<div id = "reflection" class="container mt-5 pt-5" style="width: 70%;">
+    <div class="row">
+        <div id="subhead2" class="col display-6 text-start ">
                 <div id="reflection-title" class="container fade-in-left">
-                    <div class="row d-flex justify-content-center mt-5">
-                        <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
-                            <div style="width: 210px; height: 105px; background-color: #cc0303; border-radius: 210px 210px 0 0;"></div>
-                </div> 
-            </div>
-                    <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
-                        <img id="process-icon" src="./images/Canon_UX/icons/idea.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                        <div style="width: 210px; height: 105px; background-color: #cc0303; border-radius: 210px 210px 0 0;"></div>
+            </div> 
         </div>
-        <div class="row">
-                <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
-                    <div style="width: 70%; margin: 0 auto; border-top: 2px solid #cc0303; border-bottom: 2px solid #cc0303;">
-                        <div class="pt-2 pb-2">
-                            Reflection
+                <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <img id="process-icon" src="./images/Canon_UX/icons/idea.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+    </div>
+    <div class="row">
+                    <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                        <div style="width: 70%; margin: 0 auto; border-top: 2px solid #cc0303; border-bottom: 2px solid #cc0303;">
+                            <div class="pt-2 pb-2">
+                                Reflection
                         </div>
                     </div>
                 </div>
@@ -572,10 +637,10 @@
                 Especially as I got to lead a focus group, I learned how to manage a large amount of people and navigate through user testing sessions without any bias. It was very insightful hearing feedback from users and getting to apply this feedback to the new version of AMLOS.
             </div>
         </div>
+            </div>
+        </div>
     </div>
 </div>
-</div>
-    </div>
 
 
 <button onclick="topFunction()" id="myBtn" >
@@ -629,6 +694,22 @@ function topFunction() {
 </footer>
 
 <script>
+    function scrollToNextSection() {
+        const sections = document.querySelectorAll('.scroll-section');
+        const currentScroll = window.pageYOffset;
+        
+        for (let section of sections) {
+            const sectionTop = section.offsetTop;
+            if (sectionTop > currentScroll + 100) {
+                window.scrollTo({
+                    top: sectionTop,
+                    behavior: 'smooth'
+                });
+                break;
+            }
+        }
+    }
+
     // Intersection Observer for scroll snapping
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -671,6 +752,27 @@ function topFunction() {
     faders.forEach(fader => {
         appearOnScroll.observe(fader);
     });
+</script>
+
+<!-- New script for Scroll Indicator visibility (only for first screen - scroll position based) -->
+<script>
+    const scrollIndicator = document.getElementById('scroll-indicator');
+
+    function updateScrollIndicatorVisibility() {
+        if (window.scrollY === 0) {
+            // User is at the very top of the page, show the indicator
+            scrollIndicator.style.display = 'block';
+        } else {
+            // User has scrolled down, hide the indicator
+            scrollIndicator.style.display = 'none';
+        }
+    }
+
+    // Add event listener for scroll
+    window.addEventListener('scroll', updateScrollIndicatorVisibility);
+
+    // Initial check on page load
+    updateScrollIndicatorVisibility();
 </script>
 
 </body>
