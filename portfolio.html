@@ -6,7 +6,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Portfolio</title>
+    <title>Canon UX/UI Design</title>
     <style>
         html {
             scroll-behavior: smooth;
@@ -19,7 +19,7 @@
             overflow-y: scroll;
         }
 
-        #overview-section7, #process-section7 {
+        #overview-section3, #process-section3 {
             scroll-snap-align: start;
             scroll-snap-stop: always;
             min-height: 100vh;
@@ -32,48 +32,194 @@
             z-index: 1;
         }
 
-        #overview-section7.active, #process-section7.active {
-            scroll-snap-align: start;
-        }
-
-        #overview-section7 > .container, #process-section7 > .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        #overview-section7::before, #process-section7::before {
+        #overview-section3::before, #process-section3::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.1); /* Reduced white overlay opacity */
             z-index: 0;
         }
 
-        #overview-section7 {
+        #overview-section3.active, #process-section3.active {
+            scroll-snap-align: start;
+        }
+
+        #overview-section3 > .container, #process-section3 > .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative; /* Ensure content is above the overlay */
+            z-index: 2; /* Ensure content is above the overlay */
+        }
+
+        #overview-section3 {
             background-image: url('./images/Bakeshop/bg_1.png');
             background-size: cover;
             background-position: center;
         }
 
-        #process-section7 {
+        #process-section3 {
             background-image: url('./images/Bakeshop/bg_2.png');
             background-size: cover;
             background-position: center;
+            color: black; /* Ensure text is black */
+        }
+
+        #process-section3 > .container {
+            color: black; /* Ensure container text is black */
+        }
+
+        #process-section3 h6 {
+            color: black !important; /* Force black color for h6 elements */
+        }
+
+        #process-section3 .process-text {
+            color: black !important; /* Force black color for process text */
+        }
+
+        /* Scroll indicator styles */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 9999;
+            pointer-events: auto;
+            text-align: center;
+            display: none;
+            display: flex; /* Use flexbox for centering children */
+            flex-direction: column; /* Stack children vertically */
+            align-items: center; /* Center horizontally */
+            justify-content: center; /* Center vertically */
+        }
+
+        .scroll-arrow {
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+
+        .scroll-arrow::before,
+        .scroll-arrow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 3px;
+            background-color: #000000; /* Color from MHH.html */
+            border-radius: 1.5px;
+        }
+
+        .scroll-arrow::before {
+            transform: translate(-80%, -50%) rotate(45deg); /* Shape from MHH.html */
+        }
+
+        .scroll-arrow::after {
+            transform: translate(-20%, -50%) rotate(-45deg); /* Shape from MHH.html */
+        }
+
+        .swipe-text {
+            color: #000000;
+
+            font-size: 14px;
+            margin-bottom: 0; /* Remove margin to bring it very close */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
         }
     </style>
 </head>
 <body>
+    <div id="scroll-indicator" class="scroll-indicator" onclick="scrollToNextSection()">
+        <div class="swipe-text">S W I P E</div>
+        <div class="scroll-arrow ms-2"></div>
+    </div>
+
+    <nav id="navbar" class="navbar smart-scroll navbar-expand-md fixed-top">
+        <div class="container header-main" style="height: 75px;">
+          <a id="PB" class="navbar-brand" href="index.html"><em>PB</em></a>
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapse">
+            <ul id="nav-text" class="navbar-nav ms-auto align-items-center">
+              <li class="nav-item">
+                <a class="nav-link px-5" href="about.html">About Me</a>
+              </li>
+              <li class="nav-item dropdown">
+                <div class="dropdown">
+                  <a class="nav-link dropdown-toggle px-5 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class = "dropdown-text">Experience</div>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="./index.html#nav-container">UX/UI Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#game-design">Game Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#ethical-design">Ethical Design</a></li>
+                    <li><a class="dropdown-item" href="./index.html#marketing">Product Marketing</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-5" href="art.html">Art & Design</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-5" href="https://drive.google.com/file/d/1-Cqor8ftTAGU8MIY5hjOgW4am7614qeV/view?usp=sharing">Resume</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
-    <div class = "bg-image bakeshop-bg" style="background-image">
-        <div class = "container card-img-overlay text-center" >
+    <script>
+        // Initialize all dropdowns
+        var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+        var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+            return new bootstrap.Dropdown(dropdownToggleEl)
+        });
+
+        // Navbar scroll behavior
+        const navEl = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY >= 200) {
+                navEl.classList.add('navbar-scroll');
+            } else if (window.scrollY < 200){
+                navEl.classList.remove('navbar-scroll');
+            }
+        });
+
+        // Navbar hide/show behavior
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("navbar").style.top = "0";
+            } else {
+                document.getElementById("navbar").style.top = "-70px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
+
+    <div class = "bg-image portfolio-bg" style="background-image: url('./images/Bakeshop/bakeshop-back.jpg');">
+        <div class = "container card-img-overlay text-dark" style="width: 70%;" >
             <div class = "row">
                 <div class = "col p-5" ></div> 
             </div>
@@ -84,25 +230,29 @@
 
             <div class = "row justify-content-center gx-5" >
                 <div id = "subhead1" class = "col display-3 text-end px-5">
-                       Front End Web Development
-                        <div id = "descr1" class = "col h4 mt-3">
-                           <strong> <em>PERSONAL PORTFOLIO</em> </strong>
-                        </div> 
+                    Front End Web Development
+                    <div id = "descr1" class = "col h4 mt-3">
+                       <strong> <em>PERSONAL PORTFOLIO</em> </strong>
+                    </div> 
                 </div> 
-                <div class = "background-pic col text-start px-5">
-                    <img src="./images/Bakeshop/portfolio.png" alt="Amlos" class="img-fluid shadow-lg shadow-intensity-dark rounded-5" width="390px" height="230px">
+                <div class = "background-pic col text-end">
+                    <img src="./images/Bakeshop/portfolio.png" alt="Amlos" class="shadow-lg shadow-intensity-dark rounded-5 img-fluid fade-in-right" width="390px" height="230px">
                 </div>
             </div>
 
-            <div class = "row col-md-9 offset-md-1">
-                <div id = "descr1" class = "summary col mt-5 mb-3 h4 text-end "  >
+            <div class="row align-items-center">
+                <div class="col-md-2 d-flex justify-content-end">
+                    <img src="images/fit-3.png" alt="Painter" width="90px;">
+                </div>
+                <div id="descr1" class="summary col-md-10 mt-5 h4 text-end">
                     Curating and building design + engineering skills by creating a functional personal website, mastering HTML, CSS, and JS
-</div>
+                </div>
+            </div>
             <div class = "mt-4 row justify-content-center">
-                <hr style="width:1200px;height:2px;border-width:0;color:black;background-color:black">
+                <hr style="height:2px;border-width:0;color:black;background-color:black">
             </div>
 
-            <div class = "row">
+            <div class = "row text-center">
                 <div id = "proj_head" class = "col h2 mt-3" >
                     <em>Role</em>
                     <div class="row">
@@ -120,7 +270,7 @@
                     <em>Timeline</em>
                     <div class="row">
                         <div id = "proj_sub" class="mt-3 col h6">
-                             8 Weeks
+                             Ongoing
                         </div>
                     </div>
                 </div> 
@@ -163,395 +313,649 @@
             </div>
         </div>
 
-
-
-    </div>
-
-    <nav id="navbar" class="navbar smart-scroll navbar-expand-md fixed-top">
-        <div class="container header-main" style="height: 75px;">
-          <a id="PB" class="navbar-brand" href="index.html"><em>PB</em></a>
-          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="collapse">
-            <ul id="nav-text" class="navbar-nav ms-auto align-items-center">
-              <li class="nav-item">
-                <a class="nav-link px-5" href="about.html">About Me</a>
-              </li>
-              <li class="nav-item dropdown">
-                <div class="dropdown">
-                  <a class="nav-link dropdown-toggle px-5 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class = "dropdown-text">Experience</div>
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="./index.html#nav-container">UX/UI Design</a></li>
-                    <li><a class="dropdown-item" href="./index.html#game-design">Game Design</a></li>
-                    <li><a class="dropdown-item" href="./index.html#ethical-design">Ethical Design</a></li>
-                    <li><a class="dropdown-item" href="./index.html#marketing">Product Marketing</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link px-5" href="art.html">Art & Design</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link px-5" href="https://drive.google.com/file/d/142vSZV0epUAXWcApz43jjP-5FqxHCxdz/view?usp=sharing">Resume</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-    <script>
-        const navEl = document.querySelector('.navbar');
-        window.addEventListener('scroll', () => {
-            if(window.scrollY >= 200) {
-                navEl.classList.add('navbar-scroll');
-            } else if (window.scrollY < 200){
-                navEl.classList.remove('navbar-scroll');
-            }
-        });
-    </script>
-
-    <script>
-        var prevScrollpos = window.pageYOffset;
-        window.onscroll = function() {
-        var currentScrollPos = window.pageYOffset;
-          if (prevScrollpos > currentScrollPos) {
-            document.getElementById("navbar").style.top = "0";
-          } else {
-            document.getElementById("navbar").style.top = "-70px";
-          }
-          prevScrollpos = currentScrollPos;
-        }
-    </script>
 </div>
 
-<section id="overview-section7" class="scroll-section" style="padding-top: 20vh;">
+<section id="overview-section3" class="scroll-section" style="padding-top: 20vh;">
+
 <div class="container">
     <div class="row">
-         <div id = "subhead2" class = "col display-6 text-center mt-5 px-5" style="width: 100%;">
+         <div id = "subhead2" class = "col display-6 text-center px-5 fade-in-left" style="width: 100%;">
             Project Overview
         </div> 
     </div>
 </div>
+<div class="container fade-in-left" style="width: 70%;">
+    <div class="row fade-in-left">
+        <div id = "descr2" class = " col h6 mt-3 mb-3 text-center lh-base fade-in-left">
+            <div> 
+                In modern businesses, having one concentrated digital home base is extremely crucial as it connects distanced users to a singular brand and message. <br> <br>
+                <span id= "portfolio-font" class ="h1">Branding and storytelling</span>  is what attracts people to our channels, so applying this concept, I created a personal website to showcase my <span id = "descr1">own brand</span>.  <br><br> During my own free time, I mastered the basics of web development with <span id= "descr1">HTML, CSS, & JS</span>, gaining the flexibility to bring creative ideas to life and the technical insight needed to navigate websites effectively.            </div>
+        </div>
+    </div>
+    
+</div>
 
-<div class="container " style="width: 65%;">
+</section>
+
+<section id="process-section3" class="scroll-section" style="padding-top: 20vh;">
+<div class="container" style="width: 73%;">
     <div class="row">
-        <div id = "descr2" class = "col h6 mt-3 mb-5 text-center lh-base">
-            In modern businesses, having one concentrated digital home base is extremely crucial as it connects distanced users to a singular brand and message. <br> <br> <span class = "h1" id = "portfolio-font">Branding and storytelling </span>is what attracts people to our channels, so applying this concept, I created a personal website to showcase my  <span id = "descr1">own brand</span>. During my own free time, I mastered the basics of web development with HTML, CSS, & JS, gaining the flexibility to bring creative ideas to life and the technical insight needed to navigate websites effectively.     
+            <div id = "subhead2" class = "col display-6 text-center mt-5 mb-2 px-5 text-dark fade-in-right" >
+            Process
+        </div>
+    </div>
+</div>
+
+<div id = "process-container" class="container mt-5" >
+    <div class="row mb-5" style="width: 1200px;">
+        <div id = "hover-3" class="col" style="width: 150px;">
+            <a class="nav-link px-5" href ="./portfolio.html#home">
+                <div class="row">
+                    <div id = "half-circle" class="col d-flex justify-content-center px-3 mb-4">
+                        <img src="./images/Bakeshop/process1.png" alt="Overhead half circle" style="width: 250px; filter: drop-shadow(6px 5px 15px rgb(122, 0, 92));">
+                    </div> 
+                </div>
+                <div class="row ms-2" >
+                    <div class="col d-flex justify-content-center">
+                        <img id = "process-icon" src="./images/Bakeshop/icons/home.png" alt="testing" style="width: 70px;">
+                    </div>
+                </div>
+                <div class="row ms-2">
+                    <div class="col d-flex justify-content-center mt-5 text-center ">
+                        <h6 id = "process-text"> Home Page</h6>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id = "hover-4" class="col" style="width: 150px;">
+            <a class="nav-link px-5" href ="./portfolio.html#about">
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <img id = "process-icon-top" src="./images/Bakeshop/icons/user.png" alt="Prototpype"> 
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center mt-5 mb-4 text-center">
+                        <h6 id = "process-text-bot"> About Me</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <img id = "half-circle-bot" src="./images/Bakeshop/process2.png" alt="Overhead half circle" style="width: 250px; filter: drop-shadow(6px 5px 15px rgb(122, 0, 92));">
+
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id = "hover-3" class="col" style="width: 150px;">
+            <a class="nav-link px-5" href ="./portfolio.html#art">
+                <div class="row">
+                    <div id = "half-circle" class="col d-flex justify-content-center px-3 mb-4">
+                        <img src="./images/Bakeshop/process1.png" alt="Overhead half circle" style="width: 250px; filter: drop-shadow(6px 5px 15px rgb(122, 0, 92));">
+                    </div> 
+                </div>
+                <div class="row ms-3" >
+                    <div class="col d-flex justify-content-center">
+                        <img id = "process-icon" src="./images/Bakeshop/icons/paint.png" alt="testing" style="width: 70px;">
+                    </div>
+                </div>
+                <div class="row ms-3">
+                    <div class="col d-flex justify-content-center text-center mt-5">
+                        <h6 id = "process-text"> Art & Design</h6>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id = "hover-4" class="col" style="width: 150px;">
+            <a class="nav-link px-5" href ="./portfolio.html#features">
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <img id = "process-icon-top" src="./images/Bakeshop/icons/favorite.png" alt="Prototpype"> 
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center text-center mt-5 mb-4">
+                        <h6 id = "process-text-bot"> Special Features</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <img id = "half-circle-bot" src="./images/Bakeshop/process2.png" alt="Overhead half circle" style="width: 250px; filter: drop-shadow(6px 5px 15px rgb(122, 0, 92));">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id = "hover-5" class="col" style="width: 150px;">
+            <a class="nav-link px-5" href ="./portfolio.html#reflection">
+                <div class="row">
+                    <div id = "half-circle" class="col d-flex justify-content-center px-3 mb-4">
+                        <img src="./images/Bakeshop/process1.png" alt="Overhead half circle" style="width: 250px; filter: drop-shadow(6px 5px 15px rgb(122, 0, 92));">
+                    </div> 
+                </div>
+                <div class="row" >
+                    <div class="col d-flex justify-content-center">
+                        <img id = "process-icon" src="./images/Bakeshop/icons/lamp.png" alt="testing" style="width: 70px; ">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center text-center mt-5">
+                        <h6 id = "process-text"> Reflection</h6>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 </div>
 </section>
 
-<section id="process-section7" class="scroll-section" style="padding-top: 20vh;">
+    </div> 
+</div>
 
-<div class="container " style="width: 70%;">
+<div id = "home" class="container mt-5 pt-5" style="width: 70%;">
     <div class="row">
-        <div id = "subhead2" class = "col display-6 mt-3 mb-5 text-center">
-            <div> 
-                Process 
+        <div id="subhead2" class="col display-6 text-start ">
+                <div id="home-title" class="container fade-in-left">
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                        <div style="width: 210px; height: 105px; background-color: #ffff9f; border-radius: 210px 210px 0 0;"></div>
+            </div> 
+        </div>
+                <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <img id="process-icon" src="./images/Canon_UX/icons/multiple-users-silhouette.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+    </div>
+    <div class="row">
+                    <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                        <div style="width: 70%; margin: 0 auto; border-top: 2px solid #ffff9f; border-bottom: 2px solid #ffff9f;">
+                            <div class="pt-2 pb-2">
+                                Home Page
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col h1 mt-5 px-5" id = "subhead2">
+        Introduction Screen
+        </div>
+    </div>
+    
+
+    <div class="row">
+        <div id = "descr2" class = "col h6 mt-3 mb-2 px-5 lh-base " >
+            When creating this personal website, I needed to create an index page where users could have access to all of my projects and gain more interest in my background. I aimed to go for a bright pastel color & sleek aesthetic, representing my personality and brand.
+            As I created this page, I had many iterations to get to where it is today, and I am constantly improving it!
+            
+        </div>
+    </div>
+
+    <div id="simple-carousel-1" class="d-flex align-items-center justify-content-center my-4" style="gap: 2rem;">
+      <button id="carousel1-prev" style="background:black;color:white;border:none;border-radius:50%;width:40px;height:40px;font-size:1.5rem;">&#8592;</button>
+      <img id="carousel1-image" src="./images/Bakeshop/lo-fi.png" alt="Carousel" class="rounded-3 img-fluid" style="width:620px; height:370px; object-fit:cover;">
+      <button id="carousel1-next" style="background:black;color:white;border:none;border-radius:50%;width:40px;height:40px;font-size:1.5rem;">&#8594;</button>
+    </div>
+    <script>
+      const images1 = [
+        { src: './images/Bakeshop/lo-fi.png', class: 'rounded-3 img-fluid' },
+        { src: './images/Bakeshop/mid-fi.png', class: 'rounded-3 img-fluid' },
+        { src: './images/Bakeshop/portfolio.png', class: 'rounded-3 img-fluid' }
+      ];
+      let current1 = 0;
+      const imgEl1 = document.getElementById('carousel1-image');
+      function updateCarousel1() {
+        imgEl1.src = images1[current1].src;
+        imgEl1.className = images1[current1].class;
+      }
+      document.getElementById('carousel1-prev').onclick = function() {
+        current1 = (current1 - 1 + images1.length) % images1.length;
+        updateCarousel1();
+      };
+      document.getElementById('carousel1-next').onclick = function() {
+        current1 = (current1 + 1) % images1.length;
+        updateCarousel1();
+      };
+      // Ensure initial class is set
+      updateCarousel1();
+    </script>
+
+    <div class="row">
+        <div class="col h1 mt-5 px-5" id = "subhead2">
+        Projects & Experiences
+        </div>
+    </div>
+
+<div class="row mt-3 mb-4">
+    <div class="col px-5" id = "descr2">
+        From the initial navbar, I changed a couple of features that would be crucial to not only the overall look but the initial look of website as well. Not only was this inital part of the home page changed but the projects & experience section drastically changed as well.
+    </div>
+</div>
+
+<div class="row justify-content-center px-5 align-items-start">
+    <div class="col-12 col-md-4 text-center">
+        <img src="./images/Bakeshop/lofi1.png" alt="" class="img-fluid" style="max-width: 100%; height: auto;">
+    </div>
+    <div class="col-12 col-md-4 text-center">
+        <img src="./images/Bakeshop/midfi1.png" alt="" class="img-fluid" style="max-width: 100%; height: auto;">
+    </div>
+    <div class="col-12 col-md-4 text-center">
+        <img src="./images/Bakeshop/hifi1.png" alt="" class="img-fluid" style="max-width: 100%; height: auto;">
+    </div>
+</div>
+
+<div class="row" id ="descr1">
+    <div class="col-12 col-md-4 text-center px-5" style="color: #00c3ff;">
+        Version 1
+        <div class="row d-flex justify-content-center">
+            <div class="col-10 rounded-4 p-2 mt-3 " style = "background-color: #00c3ff; color: white;">
+                Horizontal Layout
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-10 rounded-4 p-2 mt-3" style = "background-color: #00c3ff; color: white;">
+                Text Summary
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-10 rounded-4 p-2 mt-3" style = "background-color: #00c3ff; color: white;">
+                No Animations
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 text-center" style="color: #0089b3;">
+        Version 2
+        <div class="row d-flex justify-content-center">
+            <div class="col-10 rounded-4 p-2 mt-3" style = "background-color: #0089b3; color: white;">
+                Vertical Cards 
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-10 rounded-4 p-2 mt-3" style = "background-color: #0089b3; color: white;">
+                Text Summary
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-10 rounded-4 p-2 mt-3" style = "background-color: #0089b3; color: white;">
+                No Animations
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 text-center" style="color: #00455b;">
+        Version 3
+        <div class="row d-flex justify-content-center">
+            <div class="col-10 rounded-4 p-2 mt-3 " style = "background-color: #00455b; color: white;">
+                Vertical Cards 
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-10 rounded-4 p-2 mt-3" style = "background-color: #00455b; color: white;">
+                Simple, Minimal Summary
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-10 rounded-4 p-2 mt-3" style = "background-color: #00455b; color: white;">
+                Parallax Scrolling
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col h1 mt-5 px-5" id = "subhead2">
+    Navbar Tabs
+    </div>
+</div>
+
+<div class="row text-center mt-3 mb-4">
+    <div class="col-12 col-md-4 px-5" id = "descr1" style="color: #ff8ab3;">
+        Version 1
+    </div>
+    <div class="col-12 col-md-4 px-5" id = "descr1" style="color: #ff095f;">
+        Version 2
+    </div>
+    <div class="col-12 col-md-4 px-5" id = "descr1" style="color: #ff8ab3;">
+        Version 3
+    </div>
+</div>
+
+
+<div class="row justify-content-center px-5 align-items-start">
+    <div class="col-12 col-md-4 text-center">
+        <img src="./images/Bakeshop/lofi2.png" alt="" class="img-fluid" style="max-width: 100%; height: auto;">
+    </div>
+    <div class="col-12 col-md-4 text-center">
+        <img src="./images/Bakeshop/midfi3.png" alt="" class="img-fluid" style="max-width: 100%; height: auto;">
+    </div>
+    <div class="col-12 col-md-4 text-center">
+        <img src="./images/Bakeshop/hifi2.png" alt="" class="img-fluid" style="max-width: 100%; height: auto;">
+    </div>
+</div>
+<div class="row mt-3 mb-4">
+    <div class="col px-5 lh-base" id = "descr2">
+        For the navbar iterations, I thought the initial pink background took away from the background image, so I firstly refined it to simplify the overall look. However, on the scroll, the navbar text would overlap with the text in the other sections, so I added a fade-in animation through JS that added the pink background throughout the page. <br> <br>
+        In addition, I realized that the "Projects" section was disorganized and didn't fully showcase my different strengths & skills. Therefore, I split up the sections into two different parts - Projects & Experiences. As I progressed throughout my own work and academic experiences, I realized that this section could be further specified into the types of experience and projects I was doing ranging from Game Design to Product Marketing.  
+    </div>
+</div>
+  
+</div>
+
+
+
+<div id = "about" class="container mt-5 pt-5" style="width: 70%;">
+    <div class="row">
+        <div id="subhead2" class="col display-6 text-start ">
+                <div id="about-title" class="container fade-in-right">
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                        <div style="width: 210px; height: 105px; background-color: #ffff9f; border-radius: 210px 210px 0 0;"></div>
+            </div> 
+        </div>
+                <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <img id="process-icon" src="./images/Bakeshop/icons/user.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+    </div>
+    <div class="row">
+                    <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                        <div style="width: 70%; margin: 0 auto; border-top: 2px solid #ffff9f; border-bottom: 2px solid #ffff9f;">
+                            <div class="pt-2 pb-2">
+                                About Me
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4 mb-4 ">
+    <div class="col px-5 lh-base" id = "descr2">
+        For my "About Me" page, I wanted to create a space that not only tells my story but also reflects my design style. As someone with a background in Business Administration and Human-Computer Interaction, I have always believed that design should be user-centered and personal. I wanted this page to feel like a reflection of who I am—both professionally and creatively.
+    </div>
+    </div>
+    <div id="simple-carousel" class="d-flex align-items-center justify-content-center my-4" style="gap: 2rem;">
+        <button id="carousel-prev" style="background:black;color:white;border:none;border-radius:50%;width:40px;height:40px;font-size:1.5rem;">&#8592;</button>
+        <img id="carousel-image" src="./images/Bakeshop/lofi3.png" alt="Carousel" class="rounded-3 img-fluid" style="width:550px; height:300px; object-fit:cover;">
+        <button id="carousel-next" style="background:black;color:white;border:none;border-radius:50%;width:40px;height:40px;font-size:1.5rem;">&#8594;</button>
+    </div>
+      <script>
+        const images = [
+          './images/Bakeshop/lofi3.png',
+          './images/Bakeshop/midfi4.png',
+          './images/Bakeshop/hifi3.png'
+        ];
+        let current = 0;
+        const imgEl = document.getElementById('carousel-image');
+        document.getElementById('carousel-prev').onclick = function() {
+          current = (current - 1 + images.length) % images.length;
+          imgEl.src = images[current];
+        };
+        document.getElementById('carousel-next').onclick = function() {
+          current = (current + 1) % images.length;
+          imgEl.src = images[current];
+        };
+      </script>
+          <div class="row mt-4 mb-4 ">
+            <div class="col px-5 lh-base" id = "descr2">
+                I made sure the design was user-friendly, with easy navigation to my resume and links to connect with me. I wanted the overall design to feel cohesive, where every element from the colors to the typography work together to create a balanced experience blending personal storytelling with my achievements!            </div>
+        </div>    
+    </div>
+       
+</div>
+
+    
+
+<div id = "art" class="container mt-5 pt-5" style="width: 70%;">
+    <div class="row">
+        <div id="subhead2" class="col display-6 text-start ">
+                <div id="art-title" class="container fade-in-left">
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                        <div style="width: 210px; height: 105px; background-color: #ffff9f; border-radius: 210px 210px 0 0;"></div>
+                    </div> 
+                </div>
+                <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <img id="process-icon" src="./images/Bakeshop/icons/paint.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
+                </div>
+                <div class="row">
+                                <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                                    <div style="width: 70%; margin: 0 auto; border-top: 2px solid #ffff9f; border-bottom: 2px solid #ffff9f;">
+                                        <div class="pt-2 pb-2">
+                                            Art & Design
+                                        </div>
+                                    </div>
+                                </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div id = "process-container" class="container" >
-    <div class="row mb-5" style="width: 1200px;">
-        <div id = "hover-3" class="col" style="width: 150px;">
-            <a class="nav-link px-5" href ="./bakeshop.html#gallery">
-                <div class="row">
-                    <div id = "half-circle" class="col d-flex justify-content-center px-3 mb-4">
-                        <img src="./images/Bakeshop/process1.png" alt="Overhead half circle" style="width: 250px;">
+
+<div class="container mt-5" style="width: 65%;">
+    <div class="row">
+        <div class="col lh-base h6 mb-5" id = "descr2"> 
+            In order to truly showcase my design eye and passion for art, I decided to add this section in my portfolio. I wanted to show users my creative side, and all the passionate projects I've worked on over the years! <br> <br>
+            Initially when I worked on this page, I came up with the idea of a carousel to showcase my work in an interactive way (pictured below). It was an engaging way to show users my skills in JS while also showcasing the art pieces.<br> <br>
+            However, after having this design on my website for about a year, I realized that users couldn't cohesively see the pictures all together, and therefore, they couldn't get a more cohesive picture of who I was and how my work represented me. Therefore, I presented the art in a 3x3 grid structure that layed out all the pieces, so users could now collectively view my brand!
+        </div>
+    </div>
+    <div class="row px-5 ">
+        <div class="col d-flex justify-content-center">
+            <img src="images/Bakeshop/lofi5.png" alt="" class = "rounded-4"> <br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <img src="images/Bakeshop/arrow4.png" alt="" width="100px;">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <img src="images/Bakeshop/midfi7.png" alt="" class = "rounded-4">
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id = "features" class="container mt-5 pt-5" style="width: 70%;">
+    <div class="row">
+        <div id="subhead2" class="col display-6 text-start ">
+                <div id="features-title" class="container fade-in-right">
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                        <div style="width: 210px; height: 105px; background-color: #ffff9f; border-radius: 210px 210px 0 0;"></div>
                     </div> 
                 </div>
-                <div class="row" >
-                    <div class="col d-flex justify-content-center">
-                        <img id = "process-icon" src="./images/Doordash/search.png" alt="testing" style="width: 70px;">
-                    </div>
+                <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <img id="process-icon" src="./images/Bakeshop/icons/favorite.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
                 </div>
                 <div class="row">
-                    <div class="col d-flex justify-content-center mt-5 text-center">
-                        <h6 id = "process-text"> Product Gallery</h6>
-                    </div>
+                                <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                                    <div style="width: 70%; margin: 0 auto; border-top: 2px solid #ffff9f; border-bottom: 2px solid #ffff9f;">
+                                        <div class="pt-2 pb-2">
+                                            Special Features
+                                        </div>
+                                    </div>
+                                </div>
                 </div>
-            </a>
+            </div>
         </div>
-        <div id = "hover-4" class="col" style="width: 150px;">
-            <a class="nav-link px-5" href ="./bakeshop.html#cart">
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <img id = "process-icon-top" src="./images/Coinbase/icons/prototype.png" alt="Prototpype"> 
+    </div>
+</div>
+
+<div class="container" style= "width:65%;">
+    <div class="row">
+        <div class="col h1 mt-5" id = "subhead2">
+        Secret Fashion Mode
+        </div>
+    </div>
+
+    <div class="row">
+        <div id = "descr2" class = "col h6 mt-3 mb-2 lh-base " >
+           In the "About Me" section, there was a short explanation on my background and my identity, but I felt as if the engagement and interaction could be higher. I wanted to further add an element that better showcased who I was and reflected my personality. Therefore, I added this "Secret Fashion Mode" with JS where users could view different aspects of my character and personality!
+ 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-5 h5" id = "subhead3">
+            Onboarding and Characters 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-4 h5" id = "subhead3" >
+            <img src="./images/Bakeshop/onboarding.gif" alt="" width="900px;" class = "rounded-4">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-4 h6 lh-base" id = "descr2">
+             As I created this mode, I added 8 different characters that closely reflected my passion, grit, and creativity. In addition, I added an onboarding section that explained what the secret mode entailed and how to navigate it.
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col mt-5 pt-3 h5" id = "subhead3">
+        Character Selection
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col mt-4 h5" id = "subhead3" >
+            <img src="./images/Bakeshop/characters.gif" alt="" width="900px;" class = "rounded-4">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-3 mb-4 h6 lh-base" id = "descr2">
+            In order to make the mode more interactive and have effects in the UI, I added JS using a modal function that created a pop-up and also allowed users to select characters. When users select their own character, it changes the inital image on the "About Me " page:
+
+        </div>
+    </div>
+    
+    <div class = "row">
+        <div class="col d-flex justify-content-center">
+            <img src="images/step 3.png" alt="" class = "rounded-4">
+
+        </div>
+    </div>
+            
+
+    <div class="row">
+        <div class="col mt-5 pt-3 h5" id = "subhead3">
+        Connecting Characters to Experiences
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-4 h5" id = "subhead3" >
+            <img src="./images/Bakeshop/resume.gif" alt="" width="900px;" class = "rounded-4">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-3 mb-5 h6 lh-base" id = "descr2">
+            When creating these character, I made them with the intention of connecting them to my experiences. With each different character, it portrays a different part of personality and skkill that I have applied to each and every one of my projects. I thought that this part would be extremely important to add in at the end of the modal as it created more of a purpose for the pop-up.
+        </div>
+    </div>
+</div>
+
+<div class="container" style= "width:65%;">
+    <div class="row">
+        <div class="col h1 mt-5" id = "subhead2">
+        Animations (Swiping + Hover)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-4 h6" id = "descr2" >
+            As I first made individual project pages, I created two parts in the introduction of the pages: a project overview and a process section. This ensured that my project's summary was clearly organized, and presented and that users could utilize the process section as a table of contents to automatically view the content they wanted to see.    
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-4 h5 " id = "subhead3" >
+            <img src="./images/Bakeshop/lofi4.png" alt="" width="900px;" class = "rounded-4" style="border: 2px #ffc3d8 solid;">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-4 h6" id = "descr2" >
+            However, I realized that the information looked too cluttered and could have been designed in a more effective a way. Therefore, I created two different sections for it with swiping, fade-in, and hover animations to make it more engaging to the user. 
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-4 h5 rounded-4" id = "subhead3" >
+            <img src="./images/Bakeshop/animations.gif" alt="" width="900px;" class = "rounded-4" style="border: 2px #ffc3d8 solid;">
+        </div>
+    </div>
+    <div class="row text-center justify-content-center gap-2" style="margin-top: 2rem; margin-bottom: 2rem;">
+        <div class="col-auto" style="max-width: 300px;">
+            <div class="mt-4 h6 p-3 rounded-4" id="subhead3" style="background-color: #c25f82; color:white; width: 100%;">
+                Swiping Action to Navigate to Sections 
+            </div>
+        </div>
+        <div class="col-auto" style="max-width: 300px;">
+            <div class="mt-4 h6 p-3 rounded-4" id="subhead3" style="background-color: #c25f82; color:white; width: 100%;">
+                Animate Up on Hover (Process Section)
+            </div>
+        </div>
+        <div class="col-auto" style="max-width: 300px;">
+            <div class="mt-4 h6 p-3 rounded-4" id="subhead3" style="background-color: #c25f82; color:white; width: 100%;">
+                Fade-in Animations for Sections
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+       
+
+<div id = "reflection" class="container mt-5 pt-5" style="width: 70%;">
+    <div class="row">
+        <div id="subhead2" class="col display-6 text-start ">
+                <div id="reflection-title" class="container fade-in-left">
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col d-flex justify-content-center" style="margin-bottom: -55px;">
+                        <div style="width: 210px; height: 105px; background-color: #ffff9f; border-radius: 210px 210px 0 0;"></div>
                     </div> 
                 </div>
-                <div class="row">
-                    <div class="col d-flex justify-content-center mt-5 mb-4 text-center">
-                        <h6 id = "process-text-bot"> Add to Cart</h6>
-                    </div>
+                <div class="row d-flex justify-content-center" style="margin-bottom: 10px;">
+                    <img id="process-icon" src="./images/Bakeshop/icons/lamp.png" class="pt-5" alt="Research" style="width: 90px; position: relative; z-index: 2;">
                 </div>
                 <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <img id = "half-circle-bot" src="./images/Bakeshop/process2.png" alt="Overhead half circle" style="width: 250px;">
-
-                    </div>
+                                <div id="descr1" class="col p-0 text-center" style="font-size: 2.5rem; background-color: white;">
+                                    <div style="width: 70%; margin: 0 auto; border-top: 2px solid #ffff9f; border-bottom: 2px solid #ffff9f;">
+                                        <div class="pt-2 pb-2">
+                                            Reflection
+                                        </div>
+                                    </div>
+                                </div>
                 </div>
-            </a>
-        </div>
-        <div id = "hover-3" class="col" style="width: 150px;">
-            <a class="nav-link px-5" href ="./bakeshop.html#D&F">
-                <div class="row">
-                    <div id = "half-circle" class="col d-flex justify-content-center px-3 mb-4">
-                        <img src="./images/Bakeshop/process1.png" alt="Overhead half circle" style="width: 250px;">
-                    </div> 
-                </div>
-                <div class="row" >
-                    <div class="col d-flex justify-content-center">
-                        <img id = "process-icon" src="./images/Doordash/wireframe.png" alt="testing" style="width: 70px;">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col d-flex justify-content-center text-center mt-5">
-                        <h6 id = "process-text"> Design & Functionality</h6>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div id = "hover-4" class="col" style="width: 150px;">
-            <a class="nav-link px-5" href ="./bakeshop.html#reflection">
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <img id = "process-icon-top" src="./images/Coinbase/icons/lamp.png" alt="Prototpype"> 
-                    </div> 
-                </div>
-                <div class="row">
-                    <div class="col d-flex justify-content-center mt-5 mb-4">
-                        <h6 id = "process-text-bot"> Reflection</h6>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <img id = "half-circle-bot" src="./images/Bakeshop/process2.png" alt="Overhead half circle" style="width: 250px;">
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-</section>
-
-
-<div class="container" style="width: 73%;">
-    <div class="row">
-        <div id = "subhead2" class = "col display-6 text-start mt-5 mb-2 px-5" >
-            <div id = "gallery" class="mt-5">
-                Product Gallery
-            </div> 
-        </div>
-    </div>
-    <div class="row">
-        <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-            Creating the product gallery for the BunBun Bakeshop website was a very detailed process that blended functionality with design. I began by structuring the gallery layout using HTML, ensuring each product was displayed within a responsive grid for optimal viewing on all devices. I styled the gallery with CSS, adding hover effects to highlight individual items and creating a cohesive look with color schemes and typography that reflected the bakeshop's branding. Through this container, row, column, and column layout,  I was able to evenly align the different type of desserts offered from apple to strawberry cinnamon rolls. 
-        </div>
-    </div>
-    <div class="row">
-        <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-            To enhance interactivity, I incorporated JavaScript to enable features like efficient product displays, add to cart functions, and dynamic product descriptions. This process involved testing the gallery across different screen sizes and browsers to ensure a seamless user experience. The result was a visually engaging and easy-to-navigate showcase that not only highlighted the baked goods but also encourages customers to explore more, which could ultimately drive engagement and potential sales.
-        </div>
-    </div>
-    <div class="row">
-        <div id = "descr2" class="col h6 d-flex justify-content-center mb-2 px-5" >        
-            <img src="./images/Bakeshop/product-gallery.png" class = "rounded-5" alt="Low Fidelity" width="400px;" height="250px;">   
-        </div>
-        <div id = "descr2" class="col h6 d-flex justify-content-center mb-2 px-5" >        
-            <img src="./images/Bakeshop/product.png" class = "rounded-5" alt="Low Fidelity" width="400px;" height="250px;">   
-        </div>
-    </div>
-</div> 
-
-
-<div class="container" style="width: 73%;">
-    <div class="row">
-        <div id = "subhead2" class = "col display-6 text-start mt-5 mb-2 px-5" >
-            <div id = "cart" class="mt-5">
-                Add-to-Cart
-            </div> 
-        </div>
-    </div>
-    <div class="row">
-        <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-            Creating the "Add to Cart" feature for the BunBun Bakeshop website involved integrating HTML, CSS, and JavaScript to deliver a seamless user experience. I started by designing a visually appealing product display using HTML to structure the content and CSS to style it with clean, responsive layouts. Each product card featured an "Add to Cart" button, which I linked to JavaScript functionality. 
-        </div>
-    </div>
-    <div class="row">
-        <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-            Using JavaScript, I wrote code to dynamically track user selections, updating a virtual cart in real-time without requiring a page reload. This included displaying the selected items, their quantities, and the total cost in a cart. I also implemented logic to handle edge cases, such as removing items from the cart or adjusting quantities. By combining these technologies, I created an intuitive, efficient shopping experience that mirrors the interactivity users expect from modern e-commerce platforms. This process underscored the importance of blending design and functionality to meet user needs effectively.
-         </div>
-    </div>
-</div> 
-
-
-
-
-<div class="container" style="width: 73%;">
-    <div class="row">
-        <div id = "subhead2" class = "col display-6 text-start mt-5 mb-2 px-5" >
-            <div id = "D&F">
-                Design & Functionality 
-            </div> 
+            </div>
         </div>
     </div>
 </div>
 
-<div class="container mb-5" style="width: 73%;">
+<div class="container" style="width: 65%;">
     <div class="row">
-        <div id = "subhead2" class="col h2 text-start mt-4 mb-2 px-5" >  
-            Design
-        </div>
-    </div>
-    <div class="row">
-        <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-            For the design of the BunBun Bakeshop website, I chose a warm tan color scheme complemented by yellow highlights and bold fonts to create a welcoming, appetizing atmosphere that reflects the cozy vibe of a neighborhood bakery. The tan background evokes feelings of comfort and pairs well with the theme of freshly baked goods, while the yellow highlights add a sense of energy and draw attention to key elements like call-to-action buttons and certain active states. For example, when the user is on the product or the cart HTML pages, they will be able to clearly know which page they are on and what pages are available to be clicked.       
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div id = "descr2" class="col h6 d-flex justify-content-center mb-2 px-5" >        
-            <img src="./images/Bakeshop/design2.png" class = "img-fluid rounded-5" alt="Low Fidelity" width="750px;" height="350px;">   
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-            To enhance usability, I used bold fonts to differentiate active states, such as when users hover over the products , ensuring clear visual feedback. This approach not only reinforces the shop's branding but also improves navigation by making important actions stand out. The combination of a cohesive color palette and intentional typography creates a user-friendly interface that is both aesthetically pleasing and functionally effective, encouraging users to engage with the site. 
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div id = "descr2" class="col h6 d-flex justify-content-center mb-2 px-5" >        
-            <img src="./images/Bakeshop/design1.png" class = "img-fluid rounded-5" alt="Low Fidelity" width="850px;" height="350px;">   
-        </div>
-    </div>
+        <div id = "descr2" class="col lh-base h6 text-start mb-5 mt-5" >
+            <div>
+                Building my portfolio website was a hard-working and rewarding experience. I really wanted it to show off my work but also give a glimpse of my personality and design style. It was a bit tricky balancing the visuals with functionality, but I focused on making it easy to navigate while still being visually interesting. I spent a lot of time figuring out the right layout, colors, and fonts to make sure it felt like "me." <br> <br>
 
-    <div class="row">
-        <div id = "subhead2" class="col h2 text-start mt-4 mb-2 px-5" >  
-            Functionality
-        </div>
-    </div>
-    <div class="row">
-        <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-            The functionality of this website revolved around 3 main crucial points in order to create a seamless user experience:       
-        </div>
-    </div>
-    <div class="row mt-5">
-        <div id = "descr2" class="col-sm-1 h6 d-flex justify-content-start mb-2 px-5" >        
-            <img src="./images/Bakeshop/number-1.png" class = "rounded-5" alt="Low Fidelity" width="70px;" height="70px;">   
-        </div>
-        <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-            When users click the "Add to Cart" button on a product, the number in the cart icon at the top right of the page dynamically updates to reflect the total items in the cart. JavaScript handles this logic by tracking each addition and ensuring the count remains accurate in real-time. 
-        </div>
-    </div>
-    <div class="row mb-5 mt-3">
-        <div id = "descr2" class="col-sm-5 h6 d-flex justify-content-start px-5" >      
-            <img src="./images/Bakeshop/function1.png" class = "img-fluid rounded-5 mt-4" alt="Low Fidelity" width="350px;" height="250px;">  
-        </div>
-        <div id = "descr2" class="col h6 d-flex align-items-center justify-content-center mb-2 px-5" >        
-            <img src="./images/Bakeshop/arrow.6.png" class = "img-fluid rounded-5" alt="Low Fidelity" width="70px;" height="30px;">   
-        </div>
-        <div id = "descr2" class="col-sm-5 h6 d-flex justify-content-start mb-2 px-5" >        
-            <img src="./images/Bakeshop/function2.png" class = "img-fluid rounded-5" alt="Low Fidelity" width="350px;" height="300px;">   
-        </div>
-    </div>
-    <div class="row mt-5">
-        <div id = "descr2" class="col-sm-1 h6 d-flex justify-content-start mb-2 px-5" >        
-            <img src="./images/Bakeshop/number-2.png" class = "rounded-5" alt="Low Fidelity" width="70px;" height="70px;">   
-        </div>
-        <div id = "descr2" class="col h6 text-start mb-2 px-5" > 
-            As users click into each different product page, the items each change dynamically based on one HTML page due to JavaScript. The prices, titles, and pictures of each Cinnamon Roll changes based on the user's choices
-        </div>       
-    </div>  
-    <div class="row mb-5 mt-3">
-        <div id = "descr2" class="col h6 d-flex mb-2 px-5" >        
-            <img src="./images/Bakeshop/function3.png" class = "img-fluid rounded-5" alt="Low Fidelity" width="420px;" height="300px;">   
-        </div>
-        <div id = "descr2" class="col h6 d-flex justify-content-center mb-2 px-5" >        
-            <img src="./images/Bakeshop/function4.png" class = "img-fluid rounded-5" alt="Low Fidelity" width="420px;" height="300px;">   
-        </div>
-    </div>
-    <div class="row mt-5">
-        <div id = "descr2" class="col-sm-1 h6 d-flex justify-content-start mb-2 px-5" >        
-            <img src="./images/Bakeshop/number-3.png" class = "rounded-5" alt="Low Fidelity" width="70px;" height="70px;">   
-        </div>
-        <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-            I implemented fully functional "Add" and "Remove" buttons within the cart interface, allowing users to adjust quantities or remove items altogether, with the total and cart number updating accordingly. This responsive design ensures users have complete control over their selections while maintaining an intuitive and error-free shopping experience, reinforcing the website's usability and reliability.
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div id = "descr2" class="col-sm-5 h6 d-flex justify-content-start px-5" >      
-            <img src="./images/Bakeshop/function-add1.png" class = "img-fluid rounded-5" alt="Low Fidelity" width="400px;" height="250px;">  
-        </div>
-        <div id = "descr2" class="col h6 d-flex align-items-center justify-content-center mb-2 px-5" >        
-            <img src="./images/Bakeshop/arrow.6.png" class = "img-fluid rounded-5" alt="Low Fidelity" width="70px;" height="30px;">   
-        </div>
-        <div id = "descr2" class="col-sm-5 h6 d-flex justify-content-start mb-2 px-5" >        
-            <img src="./images/Bakeshop/function-add2.png" class = "img-fluid rounded-5" alt="Low Fidelity" width="400px;" height="250px;">   
-        </div>
-    </div>
-    <div class="row">
-        <div id = "descr2" class="col h6 text-start mb-2 px-5" >        
-            Before glazing and pack size changes
-        </div>
-        <div id = "descr2" class="col h6 d-flex justify-content-end ms-5 mb-4 px-5" >        
-            After glazing and pack size changes    
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div id = "descr2" class="col h6 d-flex justify-content-center px-5" >        
-            When the user clicks the remove button... 
-        </div>
-    </div>
-    <div class="row">
-        <div id = "descr2" class="col h6 d-flex justify-content-center px-5" >      
-            <img src="./images/Bakeshop/function-remove-1.png" class = "img-fluid rounded-5" alt="Low Fidelity" width="800px;" height="500px;">  
-        </div>
-    </div>
-    <div class="row mt-5">
-        <div id = "descr2" class="col h6 d-flex justify-content-center px-5" >        
-            The total price and number of items in the cart decreases (increase for add-to-cart) 
-        </div>
-    </div>
-    <div class="row">
-        <div id = "descr2" class="col h6 d-flex justify-content-center px-5" >      
-            <img src="./images/Bakeshop/function-remove-2.png" class = "img-fluid rounded-5" alt="Low Fidelity" width="800px;" height="500px;">  
-        </div>
-    </div>
-
-</div>
-
-<div class="container" style="width: 73%;">
-    <div class="row">
-        <div id = "descr1"  class="col h4 mt-3 text-start mb-2 px-5 d-flex justify-content-center" >
-            <a href="https://pkbae03.github.io/PUI-bakery/index.html" class="btn btn-link border border-dark bg-white text-dark">View Live Website!</a>
+It was also a great chance to think about how to showcase my projects in a way that tells a story. I didn’t just want to post my work—I wanted to explain my design process and what I learned along the way. Playing around with HTML, CSS, and JavaScript was a good way to test out some cool features and make sure the site works well on different devices. All in all, it was a project that helped me grow as a designer and create something I’m proud of.
+           
+            </div>
         </div>
     </div>
 </div>
 
-<div class="container" style="width: 73%;">
-    <div class="row">
-        <div id = "subhead2"  class="col display-6 mt-5 text-start mb-2 px-5" >
-            <div id = "reflection">
-                Reflection
-            </div> 
-        </div>
-    </div>
-    <div class="row">
-        <div id = "descr2" class="col h6 d-flex text-start mb-2 px-5" >  
-            Working on the BunBun Bakeshop website was an incredibly eye-opening experience that allowed me to sharpen my web development skills while exploring the creative and technical aspects of building a fully functional e-commerce platform. From designing a visually cohesive interface with a warm tan color scheme to coding essential features like the "Add to Cart" and "Remove" functionalities, this project challenged me to think holistically about user experience and technical execution. It taught me the importance of balancing aesthetics with usability, ensuring that every design choice enhances the site's functionality. 
-        </div>
-    </div>
-    <div class="row">
-        <div id = "descr2" class="col h6 d-flex text-start mb-2 px-5">
-            Additionally, creating dynamic interactions with JavaScript deepened my understanding of how front-end and back-end logic work together to deliver seamless user experiences. Reflecting on this project, I feel a strong sense of accomplishment in building something from scratch and gaining a deeper appreciation for the intricacies of modern web development. It reinforced my belief that mastering the basics is crucial for tackling more complex challenges in the future.
-        </div>
-    </div>
-</div>
 
 
 <button onclick="topFunction()" id="myBtn" >
@@ -580,29 +984,9 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-
-// Intersection Observer for scroll snapping
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            entry.target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-            entry.target.classList.remove('active');
-        }
-    });
-}, {
-    threshold: 0.5
-});
-
-// Observe sections
-const overviewSection = document.getElementById('overview-section7');
-const processSection = document.getElementById('process-section7');
-observer.observe(overviewSection);
-observer.observe(processSection);
 </script>
 
-<br><br>
+   <br><br>
 <footer class="d-flex flex-wrap justify-content-between align-items-center py-5 border-top" style="padding-bottom: 50px !important; padding-top: 50px !important;">
     <div class="container container-fluid" >
         <div class="row">
@@ -623,5 +1007,88 @@ observer.observe(processSection);
         </div>
     </div>
 </footer>
+
+<script>
+    function scrollToNextSection() {
+        const sections = document.querySelectorAll('.scroll-section');
+        const currentScroll = window.pageYOffset;
+        
+        for (let section of sections) {
+            const sectionTop = section.offsetTop;
+            if (sectionTop > currentScroll + 100) {
+                window.scrollTo({
+                    top: sectionTop,
+                    behavior: 'smooth'
+                });
+                break;
+            }
+        }
+    }
+
+    // Intersection Observer for scroll snapping
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                entry.target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                entry.target.classList.remove('active');
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    // Observe sections
+    const overviewSection = document.getElementById('overview-section3');
+    const processSection = document.getElementById('process-section3');
+    observer.observe(overviewSection);
+    observer.observe(processSection);
+</script>
+
+<script>
+    const faders = document.querySelectorAll('.fade-in-left, .fade-in-right');
+
+    const appearOptions = {
+        threshold: 0.2
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('fade-in-visible');
+                appearOnScroll.unobserve(entry.target);
+            }
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+</script>
+
+<!-- New script for Scroll Indicator visibility (only for first screen - scroll position based) -->
+<script>
+    const scrollIndicator = document.getElementById('scroll-indicator');
+
+    function updateScrollIndicatorVisibility() {
+        if (window.scrollY === 0) {
+            // User is at the very top of the page, show the indicator
+            scrollIndicator.style.display = 'block';
+        } else {
+            // User has scrolled down, hide the indicator
+            scrollIndicator.style.display = 'none';
+        }
+    }
+
+    // Add event listener for scroll
+    window.addEventListener('scroll', updateScrollIndicatorVisibility);
+
+    // Initial check on page load
+    updateScrollIndicatorVisibility();
+</script>
+
 </body>
 </html>
