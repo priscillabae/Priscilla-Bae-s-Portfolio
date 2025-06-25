@@ -152,6 +152,11 @@
 
         /* Navbar styles */
         .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            z-index: 10;
             background: transparent !important;
         }
 
@@ -255,6 +260,38 @@
         .art, .art img {
             border: none !important;
         }
+
+        .video-container {
+            width: 100vw;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .video-container video {
+            width: 100vw;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 5rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 2px 16px #000, 0 0 8px #000;
+            z-index: 11;
+            width: 100vw;
+            pointer-events: none;
+        }
+        .video-container {
+            position: relative;
+        }
     </style>
 </head>
 <body style="background-color:black;">
@@ -304,66 +341,106 @@
     </script>
 
 
-<div class = "art-bg-container" >
-    <div class="container" style="width:70%;">
-        <div class="row">
-            <div id = "subhead1" class = " design col display-4 mt-5 pt-5 mb-4 " style="color:white;" >
-                Art & Design
-            </div> 
+    <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="./images/art/movie.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay-text">
+            &lt;/ creating with heart >
         </div>
-        <div id = "descr2" class = "row text-white" >
-            <h5>
-                Welcome to my art and design page! As a UX designer, I think it is very important to delve into the art world and practice color theory. Art has been a very crucial and inspirational part of my life, shaping the way I develop my front-end projects. These pieces are some of my favorite ranging from water color, oil painting, acrylic, and digital design.
-            </h5>
+    </div>
+    <div style="margin-top: 100px;"></div>
+
+
+    <div class = "art-bg-container" >
+        <div class="container" style="width:90%;">
+            <div class="row">
+                <div id = "descr3" class = " design col display-4 pt-3 mb-1 " style="color:white;" >
+                    Art + Design
+                </div> 
+            </div>
+
+            </div>
         </div>
+
+    <!-- Art grid -->
+    <div class="container" style="width: 90%;">
+        <div class="row g-0">
+            <div class="col-md-4 col-sm-6 col-12">
+                <img src="./images/art/art2.jpg" alt="No Place Like Home" class="art w-100">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <img src="./images/art/art8.png" alt="Mission Impossible" class="art w-100">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <img src="./images/art/art1.jpg" alt="Metamorphasis" class="art w-100">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <img src="./images/art/art4.png" alt="Breath of Fresh Air" class="art w-100">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <img src="./images/art/art5.jpg" alt="Daydreaming" style="margin-top: -163px;" class="art w-100">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <img src="./images/art/art7.png" alt="A True Reflection" class="art w-100">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <img src="./images/art/art9.jpg" alt="Who's Looking?" style="margin-top: -170px;"class="art w-100">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <img src="./images/art/art3.jpg" alt="Night of Tears" style="margin-top: -105px;"class="art w-100">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <img src="./images/art/art6.png" alt="Okay"style="margin-top: -51px;" class="art w-100">
+            </div>
         </div>
     </div>
 
-    <br>
+    <div class = "art-bg-container" >
+        <div class="container" style="width:90%;">
+            <div class="row">
+                <div id = "descr3" class = " design col display-4 mt-5 pt-5 " style="color:white;" >
+                    Photography
+                </div> 
+            </div>
 
-<!-- Art grid -->
-<div class="container" style="width: 70%;">
-  <div class="row g-4">
-    <div class="col-md-4 col-sm-6 col-12">
-      <img src="./images/art/art3.jpg" alt="No Place Like Home" class="art w-100">
-            <div id="descr2" class="mt-2 h6 text-white text-center"><em>No Place Like Home <br> (Oil)</em></div>
+            </div>
         </div>
-    <div class="col-md-4 col-sm-6 col-12">
-      <img src="./images/art/art6.png" alt="Mission Impossible" class="art w-100 mt-4">
-            <div id="descr2" class="mt-2 h6 text-white text-center"><em>Mission Impossible <br>(Digital)</em></div>
-        </div>
-    <div class="col-md-4 col-sm-6 col-12">
-      <img src="./images/art/art2.jpg" alt="Breath of Fresh Air" class="art w-100">
-            <div id="descr2" class="mt-2 h6 text-white text-center"><em>Breath of Fresh Air <br>(Acrylic)</em></div>
-        </div>
-    <div class="col-md-4 col-sm-6 col-12">
-      <img src="./images/art/art1.jpg" alt="Metamorphasis" class="art w-100">
-            <div id="descr2" class="mt-2 h6 text-white text-center"><em>Metamorphasis <br>(Acrylic, Gouache, Water Color)</em></div>
-        </div>
-    <div class="col-md-4 col-sm-6 col-12">
-        <img src="./images/art/art9.jpg" alt="Daydreaming" class="art w-100">
-    <div id="descr2" class="mt-2 h6 text-white text-center"><em>Daydreaming <br>(Watercolor)</em></div>
-    </div>
-    <div class="col-md-4 col-sm-6 col-12">
-      <img src="./images/art/art5.jpg" alt="A True Reflection" class="art w-100">
-            <div id="descr2" class="mt-2 h6 text-white text-center"><em>A True Reflection <br>(Pencil, Watercolor)</em></div>
-        </div>
-    <div class="col-md-4 col-sm-6 col-12">
-      <img src="./images/art/art8.PNG" alt="Who's Looking?" class="art w-100">
-            <div id="descr2" class="mt-2 h6 text-white text-center"><em>Who's Looking? <br>(Gouache, Acrylic)</em></div>
-        </div>
-    <div class="col-md-4 col-sm-6 col-12">
-      <img src="./images/art/art7.png" alt="Night of Tears" class="art w-100">
-            <div id="descr2" class="mt-2 h6 text-white text-center"><em>Night of Tears <br>(Pen)</em></div>
-        </div>
-    <div class="col-md-4 col-sm-6 col-12">
-      <img src="./images/art/art4.png" alt="Okay" class="art w-100">
-            <div id="descr2" class="mt-2 h6 text-white text-center"><em>Okay <br>(Mixed Media, Marker, Pen, Color Pencil)</em></div>
-    </div>
-  </div>
-</div>
 
-<br><br>
+        <div class="container mb-5 pb-5" style="width: 90%;">
+            <div class="row g-0">
+                <div class="col-md-4 col-sm-6 col-12">
+                    <img src="./images/art/img1.jpg" alt="No Place Like Home" class="art w-100">
+                </div>
+                <div class="col-md-4 col-sm-6 col-12">
+                    <img src="./images/art/img3.jpg" alt="Mission Impossible" class="art w-100">
+                </div>
+                <div class="col-md-4 col-sm-6 col-12">
+                    <img src="./images/art/img2.jpg" alt="Metamorphasis" class="art w-100">
+                </div>
+                <div class="col-md-4 col-sm-6 col-12">
+                    <img src="./images/art/img5.jpg"  alt="Breath of Fresh Air" class="art w-100">
+                </div>
+                <div class="col-md-4 col-sm-6 col-12">
+                    <img src="./images/art/img9.JPG" alt="Daydreaming" style="margin-top: -331px;" class="art w-100">
+                </div>
+                <div class="col-md-4 col-sm-6 col-12">
+                    <img src="./images/art/img4.jpg" alt="A True Reflection" class="art w-100">
+                </div>
+                <div class="col-md-4 col-sm-6 col-12">
+                    <img src="./images/art/img7.jpg" alt="Who's Looking?" style="margin-top: -35px;"class="art w-100">
+                </div>
+                <div class="col-md-4 col-sm-6 col-12">
+                    <img src="./images/art/img6.jpg" alt="Night of Tears" style="margin-top: -340px;"class="art w-100">
+                </div>
+                <div class="col-md-4 col-sm-6 col-12">
+                    <img src="./images/art/img8.JPG" alt="Okay"style="margin-top: -282px;" class="art w-100">
+                </div>
+            </div>
+        </div>
+
+    <br><br>
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top" style="padding-bottom: 50px !important; padding-top: 50px !important;">
         <div class="container container-fluid" >
             <div class="row">
