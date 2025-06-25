@@ -22,28 +22,28 @@
       </div>
 
       <div class="title1 row">
-        <div id="subhead1" class="col-12 col-md-10 display-1">
-          Priscilla Bae
+        <div id="subhead1" class="col-12 col-md-10 ">
+          <em>Product Designer.</em>
         </div> 
       </div>
       <div class="title2 row">
-        <div id="descr2" class="col-12 col-md-8 h4 mb-5">
-          <em>UX/UI Design & Product Marketing</em>
+        <div id="descr2" class="col-12 col-md-8 h2 mb-5">
+          Priscilla Bae
         </div> 
       </div>
       <div class="row">
         <div id="descr1" class="summary col-12 col-md-11 mt-5 mb-3 h4">
-          is inspired by intellectual curiosity, interweaving her mind with creativity and technology by collaborating with ambitious individuals
+          is inspired by intellectual curiosity, interweaving <br> creativity and technology as one
         </div>
       </div>
     </div>
     <div class="container mt-5" id = "learn-more" style="max-width: 900px;">
           <div style="display: inline-block; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.querySelector('.btn').style.backgroundColor='#A4083A'; this.querySelector('.btn').style.color='white';" onmouseout="this.style.transform='translateY(0)'; this.querySelector('.btn').style.backgroundColor='#FFD9D2'; this.querySelector('.btn').style.color='black';">
-            <img src="./images/character.png" alt="Character" style="max-width: 80px; z-index: 2; position: relative; margin-bottom: -36px; margin-left: 60px;">
+            <img src="./images/character.png" alt="Character" style="max-width: 80px; z-index: 2; position: relative; margin-bottom: -36px; margin-left: 55px;">
             <br>
             <br>
             <a href="./about.html" id="descr1" class="btn btn-outline-dark px-5 py-2 rounded-pill shadow-sm" style="background-color: #FFD9D2; transition: all 0.3s ease;">
-              Learn More
+              Connect
             </a>
           </div>
       </div>
@@ -78,7 +78,30 @@
       width: 300px;
     }
   }
+  @keyframes fadeInDiagonal {
+    0% {
+      opacity: 0;
+      transform: translate(-40px, 40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+  #learn-more.fade-in-diagonal {
+    animation: fadeInDiagonal 1.5s cubic-bezier(.36,.07,.19,.97) 1;
+  }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var learnMore = document.getElementById('learn-more');
+  if (learnMore) {
+    learnMore.classList.remove('shake-diagonal-once');
+    learnMore.classList.add('fade-in-diagonal');
+  }
+});
+</script>
 
   <!--first part-->
 
