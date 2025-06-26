@@ -88,8 +88,11 @@
       transform: translate(0, 0);
     }
   }
-  #learn-more.fade-in-diagonal {
-    animation: fadeInDiagonal 1.5s cubic-bezier(.36,.07,.19,.97) 1;
+  #learn-more.fade-in-diagonal,
+  .title1.fade-in-diagonal,
+  .title2.fade-in-diagonal,
+  .summary.fade-in-diagonal {
+    animation: fadeInDiagonal 2.5s cubic-bezier(.36,.07,.19,.97) 1;
   }
 </style>
 
@@ -100,6 +103,12 @@ document.addEventListener('DOMContentLoaded', function() {
     learnMore.classList.remove('shake-diagonal-once');
     learnMore.classList.add('fade-in-diagonal');
   }
+  var title1 = document.querySelector('.title1');
+  if (title1) title1.classList.add('fade-in-diagonal');
+  var title2 = document.querySelector('.title2');
+  if (title2) title2.classList.add('fade-in-diagonal');
+  var summary = document.querySelector('.summary');
+  if (summary) summary.classList.add('fade-in-diagonal');
 });
 </script>
 
