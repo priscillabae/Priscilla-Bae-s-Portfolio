@@ -92,12 +92,16 @@
             background-image: url('./images/Doordash/project-door.png');
             background-size: cover;
             background-position: center;
+            height: 100vh;
+            overflow: hidden;
         }
 
         #process-section6 {
             background-image: url('./images/Doordash/process-door.png');
             background-size: cover;
             background-position: center;
+            height: 100vh;
+            overflow: hidden;
         }
 
         /* Scroll indicator styles */
@@ -157,6 +161,16 @@
             60% {
                 transform: translateY(-10px) translateX(-50%);
             }
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(.36,.07,.19,.97), transform 1.2s cubic-bezier(.36,.07,.19,.97);
+        }
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -264,60 +278,52 @@
 
 <section id="overview-section6" class="scroll-section" style="padding-top: 20vh;">
 
-<div class="container">
-    <div class="row">
-         <div id = "subhead2" class = "col display-6 text-center mt-2" style="width: 100%;">
-            Project Overview
-        </div> 
-    </div>
-</div>
+    
 
-<div class="container " style="width: 65%;">
-    <div class="row">
-        <div id = "descr2" class = "col h6 mt-3 mb-5 text-center lh-base">
-            <div> 
-                This project focused on creating an AUI for the DoorDash app for grocery shopping by addressing key pain points that users face while shopping under pressure. Working with a team of three, the goal was to design a more intuitive, streamlined experience to meet the fast-paced, convenience-driven needs of DoorDash's users. The project aimed to enhance user satisfaction and encourage greater app usage by reducing cognitive load and simplifying workflows such as finding commonly purchased items, managing lists, and completing checkout.             </div>
-            <br>
-         
+<div class="container fade-in-section" style="width: 70%;">
+
+    <div class="row align-items-center fade-in-section">
+        <div class="col fade-in-section">
+            <img src="./images/problem.png" alt="Problem statement"  width="550px;">        
+        </div>
+     </div>
+    <div class="row fade-in-section">
+        <div id="descr2" class="h5 mb-0 ms-5 lh-base fade-in-section" >
+             <em>
+                Users often face frustration when shopping under pressure due to complex, multi-step processes in the app, leading to abandoned carts and missed opportunities. This results in an experience that conflicts with the users' desire for quick, efficient transactions. The challenge was to simplify the shopping experience to provide convenience, improve retention, and boost app usage.     
+            </em>
         </div>
     </div>
-</div>
-
-<div class="container project-overview-section mt-5 mb-5" style="width: 75%;">
-    <div class="row justify-content-center">
-        <div class="col-12" style="position: relative;">
-            <div style="border: 2px solid black; padding: 3.5rem; margin-top: 1rem;background-color: white;">
-                <h2 class= "shadow-lg shadow-intensity-dark rounded-3"style="border: 1px solid red ; color: red; font-style: italic; position: absolute; top: 0; left: -1rem; transform: translateY(-30%); background: white; padding: .5rem 1.5rem; margin: 0; font-size: 3.0rem;">The Problem</h2>
-                <div id="descr1" class="h5 mb-0">
-                    Users often face frustration when shopping under pressure due to complex, multi-step processes in the app, leading to abandoned carts and missed opportunities. This results in an experience that conflicts with the users' desire for quick, efficient transactions. The challenge was to simplify the shopping experience to provide convenience, improve retention, and boost app usage.     
-                </div>
-            </div>       
+    <div class="row fade-in-section">
+        <div class="col d-flex justify-content-end fade-in-section">
+            <img src="./images/stars.png" alt="Problem statement"  width="130px;">        
         </div>
     </div>
+   
 </div>
+
+
 
 </section>
 
-<section id="process-section6" class="scroll-section" style="padding-top: 20vh;">
+<section id="process-section6" class="scroll-section" style="padding-top: 10vh;">
 
 
-<div class="container " style="width: 70%;">
-    <div class="row">
-        <div id = "subhead2" class = "col display-6 mt-3 mb-5 text-center">
-            <div> 
-                Process 
+    <div class="container project-overview-section mb-5 mt-5 fade-in-section" style="width: 70%;">
+        <div class="row fade-in-section">
+            <div id="subhead2" class="col display-5 text-center mt-5 mb-5 px-5 fade-in-section">
+                <img src="./images/design-process.png" alt="Problem statement"  width="350px;">        
             </div>
         </div>
     </div>
-</div>
 
-<div id = "process-container" class="container" >
+<div id = "process-container" class="container fade-in-section" >
     <div class="row mb-5" style="width: 1200px;">
         <div id = "hover-3" class="col" style="width: 150px;">
             <a class="nav-link px-5" href ="./doordash.html#search">
                 <div class="row">
                     <div id = "half-circle" class="col d-flex justify-content-center px-3 mb-4">
-                        <img src="./images/Doordash/process2.png" alt="Overhead half circle" style="width: 250px;">
+                        <img src="./images/Doordash/process2.png" alt="Overhead half circle" style="width: 250px; filter: drop-shadow(8px 8px 12px #b24646);">
                     </div> 
                 </div>
                 <div class="row" >
@@ -346,7 +352,7 @@
                 </div>
                 <div class="row">
                     <div class="col d-flex justify-content-center">
-                        <img id = "half-circle-bot" src="./images/Doordash/process1.png" alt="Overhead half circle" style="width: 250px;">
+                        <img id = "half-circle-bot" src="./images/Doordash/process1.png" alt="Overhead half circle" style="width: 250px; filter: drop-shadow(8px 8px 12px #b24646);">
 
                     </div>
                 </div>
@@ -356,7 +362,7 @@
             <a class="nav-link px-5" href ="./doordash.html#wireframing">
                 <div class="row">
                     <div id = "half-circle" class="col d-flex justify-content-center px-3 mb-4">
-                        <img src="./images/Doordash/process2.png" alt="Overhead half circle" style="width: 250px;">
+                        <img src="./images/Doordash/process2.png" alt="Overhead half circle" style="width: 250px; filter: drop-shadow(8px 8px 12px #b24646);">
                     </div> 
                 </div>
                 <div class="row" >
@@ -385,7 +391,7 @@
                 </div>
                 <div class="row">
                     <div class="col d-flex justify-content-center">
-                        <img id = "half-circle-bot" src="./images/Doordash/process1.png" alt="Overhead half circle" style="width: 250px;">
+                        <img id = "half-circle-bot" src="./images/Doordash/process1.png" alt="Overhead half circle" style="width: 250px; filter: drop-shadow(8px 8px 12px #b24646);">
 
                     </div>
                 </div>
@@ -395,7 +401,7 @@
             <a class="nav-link px-5" href ="./doordash.html#reflection">
                 <div class="row">
                     <div id = "half-circle" class="col d-flex justify-content-center px-3 mb-4">
-                        <img src="./images/Doordash/process2.png" alt="Overhead half circle" style="width: 250px;">
+                        <img src="./images/Doordash/process2.png" alt="Overhead half circle" style="width: 250px; filter: drop-shadow(8px 8px 12px #b24646);">
                     </div> 
                 </div>
                 <div class="row" >
@@ -1244,6 +1250,22 @@ function topFunction() {
             }
         }
     });
+</script>
+
+<script>
+    // Fade-in on scroll for .fade-in-section
+    function revealOnScroll() {
+        const fadeEls = document.querySelectorAll('.fade-in-section');
+        const windowHeight = window.innerHeight;
+        fadeEls.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < windowHeight - 60) {
+                el.classList.add('visible');
+            }
+        });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
 </script>
 </body>
 </html>

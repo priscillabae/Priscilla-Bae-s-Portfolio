@@ -165,6 +165,16 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(.36,.07,.19,.97), transform 1.2s cubic-bezier(.36,.07,.19,.97);
+        }
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -183,7 +193,7 @@
             <div class="row">
                 <div class="col p-3"></div> 
             </div>
-     
+
 
             <div class="row align-items-start justify-content-start gx-4" style="width: 80%; margin: 0 auto; column-gap: 100px;">
                 <div id="subhead1" class="col-5 display-5 text-start mt-5">
@@ -193,18 +203,18 @@
                     </div> 
                     <div id="descr2" class="col h6 mt-1">
                         <em>Tools</em> ~ Figma, Miro, Google Suite
-                    </div> 
-                </div>
+                        </div> 
+                </div> 
                 <div class="col-5 d-flex justify-content-center align-items-center">
                     <img src="./images/Reddit/reddit-back.gif" alt="AEO logo" class="img-fluid rounded-5" style="max-width: 100%;">
                 </div>
             </div>
- 
+
 
             <div class="row justify-content-end" style="width:1050px;">
                 <div id="descr1" class="col-10 offset-2 mt-5 mb-3 h5" style="text-align: right; padding-right: 0;">
                     Encouraging everyday users of open discussion forums to audit and report AI biases through gamification.
-                </div>
+            </div>
                 <hr style="width:900px;height:2px;border-width:0;color:black;background-color:black">
 
             </div>
@@ -214,7 +224,7 @@
                 
     </div>
 
-                    
+
     <nav id="navbar" class="navbar smart-scroll navbar-expand-md fixed-top">
         <div class="container header-main" style="height: 75px;">
           <a id="PB" class="navbar-brand" href="index.html"><em>PB</em></a>
@@ -276,57 +286,41 @@
 
 <section id="overview-section6" class="scroll-section" style="padding-top: 20vh;">
 
-    <div class="container">
+
+<div class="container fade-in-section" style="width: 73%;">
+    <div class="row align-items-center">
+        <div class="col ">
+            <img src="./images/problem.png" alt="Problem statement"  width="550px;">        
+        </div>
+     </div>
         <div class="row">
-         <div id = "subhead2" class = "col display-6 text-center mt-2" style="width: 100%;">
-                Project Overview
+        <div id="descr2" class="h5 mb-0 ms-5 lh-base">
+             <em>
+                Expert-led audits have made significant contributions in detecting harmful behaviors (e.g., biases), but they still fail to surface certain critical issues. Many biased algorithmic behaviors surface only in the presence of unanticipated circumstances or social dynamics in the contexts where a system is used, or due to changing norms and practices around the use of algorithmic systems over time.
+           </em>
+        </div>
             </div> 
+    <div class="row">
+        <div class="col d-flex justify-content-end">
+            <img src="./images/stars.png" alt="Problem statement"  width="130px;">        
         </div>
     </div>
 
-<div class="container " style="width: 65%;">
-        <div class="row">
-        <div id = "descr2" class = "col h6 mt-3 mb-5 text-center lh-base">
-                <div> 
-                Our main goals was to encourage users to self-participate in a Reddit forum completely dedicated to AI moderation. We leveraged the network effects and community already existing to allow users to learn and moderate AI. Adding badges and progress to demonstrate both interest and knowledge was a large aspect of our user testing as we wanted to create a way to gamify the existing Reddit platform.
-                </div>
-         
-        </div>
-    </div>
 </div>
 
-<div class="container project-overview-section mt-5 mb-5" style="width: 75%;">
-    <div class="row justify-content-center">
-        <div class="col-12" style="position: relative;">
-            <div style="border: 2px solid black; padding: 3.5rem; margin-top: 1rem;background-color: white;">
-                <h2 class= "shadow-lg shadow-intensity-dark rounded-3"style="border: 1px solid #ff8000 ; color: #ff8000; font-style: italic; position: absolute; top: 0; left: -1rem; transform: translateY(-30%); background: white; padding: .5rem 1.5rem; margin: 0; font-size: 3.0rem;">The Problem</h2>
-                <div id="descr1" class="h5 mb-0">
-                    Expert-led audits have made significant contributions in detecting harmful
-                    behaviors (e.g., biases), but they still fail to surface certain critical issues.
-                    Many biased algorithmic behaviors surface only in the presence of
-                    unanticipated circumstances or social dynamics in the contexts where a
-                    system is used, or due to changing norms and practices around the use of
-                    algorithmic systems over time.
-                </div>
-                </div>             
-            </div>
-        </div>
-    </div>
 
 </section>
 
-<section id="process-section6" class="scroll-section" style="padding-top: 20vh;">
+<section id="process-section6" class="scroll-section" style="padding-top: 10vh;">
 
 
-    <div class="container " style="width: 70%;">
+    <div class="container fade-in-section project-overview-section mt-5" style="width: 73%;">
         <div class="row">
-        <div id = "subhead2" class = "col display-6 mt-3 mb-5 text-center">
-                <div> 
-                Process 
-                </div>
+            <div id="subhead2" class="col display-5 text-center mt-5 mb-5 px-5">
+                <img src="./images/design-process.png" alt="Problem statement"  width="350px;">        
             </div>
         </div>
-</div>
+    </div>
 
 <div id = "process-container" class="container" >
     <div class="row mb-5" style="width: 1200px;">
@@ -340,12 +334,12 @@
                 <div class="row" >
                     <div class="col d-flex justify-content-center">
                         <img id = "process-icon" src="./images/Doordash/search.png" alt="testing" style="width: 70px;">
-            </div> 
+            </div>
         </div>
         <div class="row">
                     <div class="col d-flex justify-content-center mt-5 text-center">
                         <h6 id = "process-text"> Research</h6>
-            </div>
+            </div> 
         </div>
             </a>
         </div>
@@ -436,9 +430,9 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
-    </div>
-    <div class="row">
+        <div class="row">
         <div id = "subhead2" class="col-8 h1 text-start mt-5 mb-2" >  
             TAIGA Heuristic Evaluation Synthesis
         </div>
@@ -1261,5 +1255,20 @@ function topFunction() {
         }
     });
     </script>
+
+<script>
+function revealOnScroll() {
+  var fadeEls = document.querySelectorAll('.fade-in-section');
+  var windowHeight = window.innerHeight;
+  fadeEls.forEach(function(el) {
+    var rect = el.getBoundingClientRect();
+    if (rect.top < windowHeight - 60) {
+      el.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('DOMContentLoaded', revealOnScroll);
+</script>
 </body>
 </html>

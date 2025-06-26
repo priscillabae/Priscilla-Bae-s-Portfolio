@@ -6,7 +6,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Minnie's Helping Hands</title>
+    <title>Ali Mustafa Games</title>
     <script src="https://unpkg.com/scrollreveal"></script>
     <style>
         html {
@@ -104,6 +104,16 @@
             60% {
                 transform: translateY(-10px) translateX(-50%);
             }
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(.36,.07,.19,.97), transform 1.2s cubic-bezier(.36,.07,.19,.97);
+        }
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -215,50 +225,48 @@
     </script>
    
     <section id="overview-section2" class="scroll-section">
-        <div class="container project-overview-section">
-            <div class="row">
-                 <div id="subhead2" class="col display-6 text-center mt-5 px-5" style="width: 100%;">
-                    Project Overview
-                </div> 
-            </div>
-        </div>
+  
 
-        <div class="container project-overview-section" style="width: 65%;">
+        <div class="container project-overview-section" style="width: 70%;">
+            <div class="row align-items-center">
+                <div class="col ">
+                    <img src="./images/problem.png" alt="Problem statement"  width="550px;">        
+                </div>
+             </div>
             <div class="row">
-                <div id="descr2" class="col h6 mt-3 mb-5 text-center lh-base">
-                    <div> 
-                        Ali Mustafa Games is a small game development studio that specializes in creating tabletop games. In a digital world like ours today, tabletop games are a dying art that we can preserve by translating them into digital experiences. Our project revolved around completely transforming the game from scratch - identifying key social aspects and game mechanisms to create an engaging experience for the Muslim community. 
-                    </div>
-                    <button class="btn btn-light btn-outline-dark rounded-5 px-5 p-3 mt-5">
-                        <a href="https://alimustafagames.com/" target="_blank">
-                            Learn More about AMG
-                        </a>
-                    </button>
-                    <br>             
+                <div id="descr2" class="h5 col mb-0 ms-5 lh-base">
+                     <em>
+                        As digital platforms become an essential part of our daily lives, implementing engaging physical experiences become more rare. Our team focused on digitally adapting The Muslim Party Game to stay true to its cultural roots and social nature for both Muslim communities and users interested in learning about the culture.                        
+                   </em>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-end">
+                    <img src="./images/stars.png" alt="Problem statement"  width="130px;">        
                 </div>
             </div>
         </div>
 
-        <div class="container project-overview-section mt-5 mb-5" style="width: 75%;">
-            <div class="row justify-content-center">
-                <div class="col-12" style="position: relative;">
-                    <div style="border: 2px solid #000; padding: 3.5rem; margin-top: 1rem;background-color: white;">
-                        <h2 class= "shadow-lg shadow-intensity-dark rounded-3"style="border: 1px solid #000 ; color: black; font-style: italic; position: absolute; top: 0; left: -1rem; transform: translateY(-30%); background: #BCFFFB; padding: .5rem 1.5rem; margin: 0; font-size: 3.0rem;">The Problem</h2>
-                        <div id="descr1" class="h5 mb-0">
-                            As digital platforms become an essential part of our daily lives, implementing engaging physical experiences become more rare. Our team focused on digitally adapting The Muslim Party Game to stay true to its cultural roots and social nature for both Muslim communities and users interested in learning about the culture.                        </div>
+            <div class="container project-overview-section" style="width: 25%;">
+                <div class="row align-items-center">
+                    <button class="btn btn-light btn-outline-dark rounded-5 px-5 p-3 mt-5">
+                        <a  id = "descr1" href="https://alimustafagames.com/" target="_blank">
+                            Learn More about AMG
+                        </a>
+                    </button>
+             </div>
+
+        
             </div>
-        </div>
-    </div>
+
 
     </section>
 
-    <section id="process-section2" class="scroll-section" style="padding-top: 20vh;">
-        <div class="container project-overview-section">
+    <section id="process-section2" class="scroll-section" style="padding-top: 10vh;">
+        <div class="container fade-in-section" style="width: 73%;">
             <div class="row">
-                <div id="subhead2" class="col display-6 mt-3 mb-5 text-center">
-                    <div> 
-                        Process 
-                    </div>
+                <div id="subhead2" class="col display-5 text-center mt-5 mb-5 px-5">
+                    <img src="./images/design-process.png" alt="Problem statement"  width="350px;">        
                 </div>
             </div>
         </div>
@@ -2294,6 +2302,21 @@ function topFunction() {
             }
         }, 100);
     });
+</script>
+
+<script>
+function revealOnScroll() {
+  var fadeEls = document.querySelectorAll('.fade-in-section');
+  var windowHeight = window.innerHeight;
+  fadeEls.forEach(function(el) {
+    var rect = el.getBoundingClientRect();
+    if (rect.top < windowHeight - 60) {
+      el.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('DOMContentLoaded', revealOnScroll);
 </script>
 
 </body>

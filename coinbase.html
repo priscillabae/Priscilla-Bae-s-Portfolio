@@ -66,6 +66,16 @@
             background-size: cover;
             background-position: center;
         }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(.36,.07,.19,.97), transform 1.2s cubic-bezier(.36,.07,.19,.97);
+        }
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -173,36 +183,31 @@
     </script>
 
 <section id="overview-section8" class="scroll-section" style="padding-top: 20vh;">
-    <div class="container">
-        <div class="row">
-             <div id = "subhead2" class = "col display-6 text-center mt-5 px-5" style="width: 100%;">
-                Project Overview
-            </div> 
-        </div>
-    </div>
 
-    <div class="container " style="width: 70%;">
+    <div class="container fade-in-section" style="width: 70%;">
+        <div class="row align-items-center">
+            <div class="col ">
+                <img src="./images/problem.png" alt="Problem statement"  width="550px;">        
+            </div>
+         </div>
         <div class="row">
-            <div id = "descr2" class = "col h6 mt-3 mb-5 text-center">
-                <div> 
-                    Our digital world overwhelms users with a large amount of information every second, which creates several complex systems that are challenging for new users to fully understand. Specifically, we focus on digital crypto trading systems. Cryptocurrency wallets in particular don't clarify crypto concepts for their users, creating further confusion for beginner users. 
-                </div>
-                <br>
-                <div>
-                    Our main goal is to understand some of the pain points users may have and how can we improve their experience by improving crypto wallet design. To achieve this, we first identified some unethical designs and stakeholders. Next, we conducted interviews with stakeholders to gain more insights regarding their experience. From there, we synthesized our data collection and started to generate possible design solutions that can improve people's experience. Through brainstorming and storyboarding, we were able to narrow down our problem space to confusion about various fees applied to each transaction. We then created wireframes and low-fi prototypes, adjusting our designs according to helpful feedback, and finally creating a higher fidelity prototype to showcase our design solution.</div>
-                </div>             
+            <div id="descr2" class="h5 col mb-0 ms-5 lh-base">
+                 <em>
+                    Crypto wallets often confuse beginner users with unclear interfaces and hidden transaction fees. This lack of transparency creates barriers to entry and trust. Our goal was to identify these pain points and redesign the wallet experience to be more intuitive, ethical, and user-friendly.        </div>
+     
+        <div class="row">
+            <div class="col d-flex justify-content-end">
+                <img src="./images/stars.png" alt="Problem statement"  width="130px;">        
             </div>
         </div>
     </div>
 </section>
 
-<section id="process-section8" class="scroll-section" style="padding-top: 20vh;">
-    <div class="container " style="width: 70%;">
+<section id="process-section8" class="scroll-section" style="padding-top:10vh;">
+    <div class="container fade-in-section project-overview-section  mt-5" style="width: 73%;">
         <div class="row">
-            <div id = "subhead2" class = "col display-6 mt-3 mb-5 text-center">
-                <div> 
-                    Process 
-                </div>
+            <div id="subhead2" class="col display-5 text-center mt-5 mb-5 px-5">
+                <img src="./images/design-process.png" alt="Problem statement"  width="350px;">        
             </div>
         </div>
     </div>
@@ -362,8 +367,7 @@
     <div class="row">
         <div id = "subhead2" class="col h2 mt-5">
             User Research
-        </div>
-    </div>             
+        </div>             
     <div id = "descr2" class="row h5 mt-3">
         How was your experience using cryptocurrency apps?
         <ul class="h6 mt-2" >
@@ -396,8 +400,7 @@
     <div class="row">
         <div id = "subhead2" class="col h2 mt-5">
             Coinbase Research 
-        </div>
-    </div>     
+        </div>     
 
     <div id = "descr2" class="row h5 mt-3 ">
         <div class="col">
@@ -450,7 +453,7 @@
     </div>
     <div class="row">
         <div id = "descr2" class="col" >
-            Basing our design on an existing platform, we chose one of the biggest crypto wallet applications CoinBase. However, unlike facebook or Instagram, CoinBase doesn't have their icon shown in their interface. Before starting our Hi-Fi prototype, we first created a branding board that contains the color, font, and button CoinBase use for us to reference while prototyping.        
+            Basing our design on an existing platform, we chose one of the biggest crypto wallet applications CoinBase. However, unlike facebook or Instagram, CoinBase doesn't have their icon shown in their interface. Before starting our Hi-Fi prototype, we first created a branding board that contains the color, font, and button CoinBase use for us to reference while prototyping.       
         </div> 
     </div>
     <div class="row">
@@ -653,7 +656,7 @@
     <div class="row">
          <div id = "subhead2" class = "col h2 text-start mt-5" >
             Storyboards
-         </div> 
+         </div>
     </div>
 
     <div class="row">
@@ -1192,6 +1195,19 @@ const overviewSection = document.getElementById('overview-section8');
 const processSection = document.getElementById('process-section8');
 observer.observe(overviewSection);
 observer.observe(processSection);
+
+function revealOnScroll() {
+  var fadeEls = document.querySelectorAll('.fade-in-section');
+  var windowHeight = window.innerHeight;
+  fadeEls.forEach(function(el) {
+    var rect = el.getBoundingClientRect();
+    if (rect.top < windowHeight - 60) {
+      el.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('DOMContentLoaded', revealOnScroll);
 </script>
 
 <br><br>

@@ -66,6 +66,16 @@
             background-size: cover;
             background-position: center;
         }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(.36,.07,.19,.97), transform 1.2s cubic-bezier(.36,.07,.19,.97);
+        }
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -180,36 +190,36 @@
 </div>
 
 <section id="overview-section9" class="scroll-section" style="padding-top: 20vh;">
-<div class="container" style="width: 65%;">
-    <div class="row">
-         <div id = "subhead2" class = "col display-6 text-center mt-3" style="color: white;">
-            Project Overview
-        </div> 
-    </div>
-    <div class="row">
-        <div id = "descr2" class = " h6 mt-3 text-center lh-base" style="color: rgb(255, 255, 255);">
-            The goal of this project was to improve the efficiency and clarity of interaction design in a game-like software application. The initial V.0 prototype involved users manipulating an indigo box to fit within the outlines of 12 gray boxes by controlling various buttons to move, rotate, resize, and adjust its position. Once all 12 trials were completed, the user was given a second destination. The focus of the redesign was to enhance user understanding of the interactions and significantly reduce the time taken to complete the tasks. This project allowed me to explore the importance of intuitive design, including the careful use of colors, button placements, and layout adjustments to create a streamlined, user-friendly experience.
+<div class="container fade-in-section" style="width: 70%;">
+
+    <div class="row align-items-center">
+        <div class="col ">
+            <img src="./images/problem.png" alt="Problem statement"  width="550px;">        
         </div>
-   </div>
-   <div class="row justify-content-center mt-5">
-    <div class="col-12" style="position: relative;">
-        <div style="border: 2px solid black; padding: 3.5rem; margin-top: 1rem;background-color: white;">
-            <h2 class= "shadow-lg shadow-intensity-dark rounded-3"style="color:#41CF48;border: 1px solid #41CF48; font-style: italic; position: absolute; top: 0; left: -1rem; transform: translateY(-30%); background: white; padding: .5rem 1.5rem; margin: 0; font-size: 3.0rem;">The Problem</h2>
-            <div id="descr1" class="h5 mb-0">
+     </div>
+    <div class="row">
+        <div id="descr2" class="h5 col mb-0 ms-5 lh-base">
+             <em>
                 When we are creating applications and softwares, designs can often get lost in translation. Whether it may be game or web applications, all kinds of softwares must have straightforward details that users can easily understand. Our goal of this project was to mitigate any confusion in designs, creating an intuitive and efficient interaction between humans and softwares.        </div>       
+           </em>
     </div>
+ 
+    <div class="row">
+        <div class="col d-flex justify-content-end">
+            <img src="./images/stars.png" alt="Problem statement"  width="130px;">        
+        </div>
     </div>
 </div>
 </section>
 
-<section id="process-section9" class="scroll-section" style="padding-top: 20vh;">
-<div class="container">
-    <div class="row">
-        <div id = "subhead2" class = "col display-6 text-center mb-5 px-5" >
-            Process
+<section id="process-section9" class="scroll-section" style="padding-top: 8vh;">
+    <div class="container project-overview-section mt-5 fade-in-section" style="width: 73%;">
+        <div class="row">
+            <div id="subhead2" class="col display-5 text-center mt-5 mb-5 px-5">
+                <img src="./images/design-process.png" alt="Problem statement"  width="350px;">        
+            </div>
         </div>
     </div>
-</div>
 
 
 
@@ -678,6 +688,21 @@
         const processSection = document.getElementById('process-section9');
         observer.observe(overviewSection);
         observer.observe(processSection);
+    </script>
+
+    <script>
+    function revealOnScroll() {
+      var fadeEls = document.querySelectorAll('.fade-in-section');
+      var windowHeight = window.innerHeight;
+      fadeEls.forEach(function(el) {
+        var rect = el.getBoundingClientRect();
+        if (rect.top < windowHeight - 60) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
     </script>
 </body>
 </html>

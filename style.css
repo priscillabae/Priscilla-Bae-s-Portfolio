@@ -150,7 +150,8 @@ background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
 }
 
 #process-section1::before {
