@@ -49,13 +49,32 @@
       </div>
     </div>
 <style>
+  
   @media (max-width: 820px) {
     #learn-more {
       margin-left: 40px;
     }
-     
+     .title1{
+      font-size: 5rem;
+     }
     .summary {
       font-size: 1.2rem;
+    }
+    #learn-more img {
+      width: 70px;
+      left:-30px;
+    }
+    /* Make para.png foreground images in cards much smaller and centered */
+    .parallax-foreground[style*="para.png"] {
+      width: 200px !important;
+      height: 200px !important;
+      top: 30px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      justify-content: center !important;
+    }
+    .card{
+      width: 340px !important;
     }
   }
   @media (max-width: 390px) {
