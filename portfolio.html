@@ -91,11 +91,6 @@
             z-index: 9999;
             pointer-events: auto;
             text-align: center;
-            display: none;
-            display: flex; /* Use flexbox for centering children */
-            flex-direction: column; /* Stack children vertically */
-            align-items: center; /* Center horizontally */
-            justify-content: center; /* Center vertically */
         }
 
         .scroll-arrow {
@@ -112,23 +107,24 @@
             left: 50%;
             width: 20px;
             height: 3px;
-            background-color: #000000; /* Color from MHH.html */
+            background-color: black;
             border-radius: 1.5px;
         }
 
         .scroll-arrow::before {
-            transform: translate(-80%, -50%) rotate(45deg); /* Shape from MHH.html */
+            transform: translate(-80%, -50%) rotate(45deg);
         }
 
         .scroll-arrow::after {
-            transform: translate(-20%, -50%) rotate(-45deg); /* Shape from MHH.html */
+            transform: translate(-20%, -50%) rotate(-45deg);
         }
 
         .swipe-text {
-            color: #000000;
-
-            font-size: 14px;
-            margin-bottom: 0; /* Remove margin to bring it very close */
+            font-size: 12px;
+            color: black;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            font-weight: 500;
         }
 
         @keyframes bounce {
@@ -156,8 +152,8 @@
 </head>
 <body>
     <div id="scroll-indicator" class="scroll-indicator" onclick="scrollToNextSection()">
-        <div class="swipe-text">S W I P E</div>
-        <div class="scroll-arrow ms-2"></div>
+        <div class="swipe-text">SWIPE</div>
+        <div class="scroll-arrow"></div>
     </div>
 
     <nav id="navbar" class="navbar smart-scroll navbar-expand-md fixed-top">
@@ -963,21 +959,37 @@ function topFunction() {
 </footer>
 
 <script>
+    // Scroll indicator functionality (from canon_ux.html)
+    const scrollIndicator = document.getElementById('scroll-indicator');
+    const swipeText = document.querySelector('.swipe-text');
+
     function scrollToNextSection() {
-        const sections = document.querySelectorAll('.scroll-section');
-        const currentScroll = window.pageYOffset;
+        const overviewSection = document.getElementById('overview-section3');
+        const processSection = document.getElementById('process-section3');
         
-        for (let section of sections) {
-            const sectionTop = section.offsetTop;
-            if (sectionTop > currentScroll + 100) {
-                window.scrollTo({
-                    top: sectionTop,
-                    behavior: 'smooth'
-                });
-                break;
-            }
+        if (window.scrollY < overviewSection.offsetTop) {
+            overviewSection.scrollIntoView({ behavior: 'smooth' });
+        } else if (window.scrollY < processSection.offsetTop) {
+            processSection.scrollIntoView({ behavior: 'smooth' });
         }
     }
+
+    // Hide SWIPE text when scrolling past first screen and hide entire indicator after process section
+    window.addEventListener('scroll', () => {
+        const overviewSection = document.getElementById('overview-section3');
+        const processSection = document.getElementById('process-section3');
+        
+        if (window.scrollY >= processSection.offsetTop + processSection.offsetHeight) {
+            scrollIndicator.style.display = 'none';
+        } else {
+            scrollIndicator.style.display = 'block';
+            if (window.scrollY >= overviewSection.offsetTop) {
+                swipeText.style.display = 'none';
+            } else {
+                swipeText.style.display = 'block';
+            }
+        }
+    });
 
     // Intersection Observer for scroll snapping
     const observer = new IntersectionObserver((entries) => {
@@ -1021,27 +1033,6 @@ function topFunction() {
     faders.forEach(fader => {
         appearOnScroll.observe(fader);
     });
-</script>
-
-<!-- New script for Scroll Indicator visibility (only for first screen - scroll position based) -->
-<script>
-    const scrollIndicator = document.getElementById('scroll-indicator');
-
-    function updateScrollIndicatorVisibility() {
-        if (window.scrollY === 0) {
-            // User is at the very top of the page, show the indicator
-            scrollIndicator.style.display = 'block';
-        } else {
-            // User has scrolled down, hide the indicator
-            scrollIndicator.style.display = 'none';
-        }
-    }
-
-    // Add event listener for scroll
-    window.addEventListener('scroll', updateScrollIndicatorVisibility);
-
-    // Initial check on page load
-    updateScrollIndicatorVisibility();
 </script>
 
 <script>

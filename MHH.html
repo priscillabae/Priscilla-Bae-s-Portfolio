@@ -66,6 +66,7 @@
             cursor: pointer;
             z-index: 9999;
             pointer-events: auto;
+            text-align: center;
         }
 
         .scroll-arrow {
@@ -82,7 +83,7 @@
             left: 50%;
             width: 20px;
             height: 3px;
-            background-color: #000000;
+            background-color: black;
             border-radius: 1.5px;
         }
 
@@ -92,6 +93,14 @@
 
         .scroll-arrow::after {
             transform: translate(-20%, -50%) rotate(-45deg);
+        }
+
+        .swipe-text {
+            font-size: 12px;
+            color: black;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            font-weight: 500;
         }
 
         @keyframes bounce {
@@ -119,6 +128,7 @@
 </head>
 <body>
     <div id="scroll-indicator" class="scroll-indicator" onclick="scrollToNextSection()">
+        <div class="swipe-text">SWIPE</div>
         <div class="scroll-arrow"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -2245,62 +2255,36 @@ function topFunction() {
 </script>
 
 <script>
-    // Add before the closing body tag
-    function scrollToNextSection() {
-        const sections = ['overview-section', 'process-section', 'research-section'];
-        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-        
-        for (let i = 0; i < sections.length; i++) {
-            const section = document.getElementById(sections[i]);
-            if (section) {
-                const sectionTop = section.offsetTop;
-                if (currentScroll < sectionTop - 100) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                    break;
-                }
-            }
-        }
-    }
-
-    // Scroll handling
+    // Scroll indicator functionality (from portfolio.html)
     const scrollIndicator = document.getElementById('scroll-indicator');
-    let isScrolling;
-    window.lastScrollTop = 0;
+    const swipeText = document.querySelector('.swipe-text');
 
-    window.addEventListener('scroll', () => {
-        const st = window.pageYOffset || document.documentElement.scrollTop;
+    function scrollToNextSection() {
         const overviewSection = document.getElementById('overview-section2');
         const processSection = document.getElementById('process-section2');
         
-        if (!overviewSection || !processSection) return;
-        
-        const overviewTop = overviewSection.offsetTop;
-        const processSectionBottom = processSection.offsetTop + processSection.offsetHeight;
-        
-        // Only show indicator between overview start and process end
-        if (st < overviewTop || st > processSectionBottom) {
-            scrollIndicator.style.opacity = '0';
-            scrollIndicator.style.pointerEvents = 'none';
-            return;
+        if (window.scrollY < overviewSection.offsetTop) {
+            overviewSection.scrollIntoView({ behavior: 'smooth' });
+        } else if (window.scrollY < processSection.offsetTop) {
+            processSection.scrollIntoView({ behavior: 'smooth' });
         }
-        
-        // Show indicator when scrolling up, hide when scrolling down
-        if (st > window.lastScrollTop) {
-            scrollIndicator.style.opacity = '0';
-        } else {
-            scrollIndicator.style.opacity = '1';
-            scrollIndicator.style.pointerEvents = 'auto';
-        }
-        
-        window.lastScrollTop = st <= 0 ? 0 : st;
+    }
 
-        // Show indicator briefly after scrolling stops
-        clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-            if (st >= overviewTop && st <= processSectionBottom) {
-                scrollIndicator.style.opacity = '1';
+    // Hide SWIPE text when scrolling past first screen and hide entire indicator after process section
+    window.addEventListener('scroll', () => {
+        const overviewSection = document.getElementById('overview-section2');
+        const processSection = document.getElementById('process-section2');
+        
+        if (window.scrollY >= processSection.offsetTop + processSection.offsetHeight) {
+            scrollIndicator.style.display = 'none';
+        } else {
+            scrollIndicator.style.display = 'block';
+            if (window.scrollY >= overviewSection.offsetTop) {
+                swipeText.style.display = 'none';
+            } else {
+                swipeText.style.display = 'block';
             }
-        }, 100);
+        }
     });
 </script>
 
